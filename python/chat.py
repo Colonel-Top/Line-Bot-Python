@@ -77,5 +77,7 @@ if len(sys.argv) < 2:
 
 message = sys.argv[1]
 result = chatbot.get_response(message)'''
-result = "Done"
+now = datetime.now()# mark read
+
+#result = "Done"
 print ("%s" % result)
