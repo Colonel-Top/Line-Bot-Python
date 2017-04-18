@@ -1,4 +1,4 @@
-#!/usr/bin/python
+﻿#!/usr/bin/python
 #-*-coding: utf-8 -*-
 import time
 import random
@@ -6,8 +6,8 @@ import string
 import gspread
 import os
 import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
+
+
 from datetime import datetime
 
 
