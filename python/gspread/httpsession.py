@@ -8,7 +8,7 @@ This module contains a class for working with http sessions.
 
 """
 
-from requests import requests
+from . import requests
 try:
     from urllib import urlencode
 except ImportError:
