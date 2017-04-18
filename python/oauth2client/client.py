@@ -28,7 +28,7 @@ import socket
 import sys
 import tempfile
 
-import six
+from . import six
 from six.moves import http_client
 from six.moves import urllib
 
