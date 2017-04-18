@@ -8,7 +8,7 @@ import gspread
 import os
 import sys
 import oauth2client
-import .
+
 
 from datetime import datetime
 
