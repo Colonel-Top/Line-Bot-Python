@@ -4,17 +4,18 @@ import time
 import random
 import string
 #from requests import .requests
-import gspread
+
 import os
 import sys
-import oauth2client
-
 
 from datetime import datetime
 
 
 now = datetime.now()
 
+import oauth2client
+import gspread
+'''
 from oauth2client.service_account import ServiceAccountCredentials
 scope = ['https://spreadsheets.google.com/feeds']
 state = '0'
@@ -32,7 +33,7 @@ def Login():
     sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
     worksheet = sh.worksheet("Account")
     print ("Google API Connected")
-
+'''
 bot_status = 0
 bot_mode = 0
 # define hi or hello
