@@ -3,10 +3,10 @@
 import time
 import random
 import string
-import gspread
+from gspread import gspread
 import os
 import sys
-
+from oauth2client import oauth2client
 
 from datetime import datetime
 
