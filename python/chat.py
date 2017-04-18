@@ -79,5 +79,5 @@ message = sys.argv[1]
 result = chatbot.get_response(message)'''
 now = datetime.now()# mark read
 
-#result = "Done"
+result = "Done"
 print ("%s" % result)
