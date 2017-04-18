@@ -22,9 +22,9 @@ import logging
 import os
 import warnings
 
-from . import six
-#from six.moves import urllib
-from . import urllib
+import six
+from six.moves import urllib
+
 
 
 logger = logging.getLogger(__name__)

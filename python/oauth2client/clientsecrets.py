@@ -20,7 +20,7 @@ an OAuth 2.0 protected service.
 
 import json
 
-from . import six
+import six
 
 
 # Properties that make a client_secrets.json file valid.
