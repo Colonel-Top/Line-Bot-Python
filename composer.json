@@ -1,6 +1,8 @@
 {
     "require": {
         "kittinan/php-http": "^1.0",
-        "symfony/yaml": "^3.1"
+        "symfony/yaml": "^3.1",
+	"gspread": "^0.6.2",
+	"oauth2client": "^4.0.0"
     }
 }
