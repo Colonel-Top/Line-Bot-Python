@@ -19,11 +19,11 @@ to parse PEM files storing PKCS#1 or PKCS#8 keys as well as
 certificates.
 """
 
-from pyasn1.codec.der import decoder
-from pyasn1_modules import pem
-from pyasn1_modules.rfc2459 import Certificate
-from pyasn1_modules.rfc5208 import PrivateKeyInfo
-import rsa
+from .pyasn1.codec.der import decoder
+from .pyasn1_modules import pem
+from .pyasn1_modules.rfc2459 import Certificate
+from .pyasn1_modules.rfc5208 import PrivateKeyInfo
+from . import rsa
 from . import six
 
 from oauth2client import _helpers
