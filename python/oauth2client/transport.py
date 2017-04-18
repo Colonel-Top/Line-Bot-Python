@@ -15,8 +15,8 @@
 import logging
 
 import httplib2
-import six
-from six.moves import http_client
+from . import six
+from .six.moves import http_client
 
 from oauth2client import _helpers
 
