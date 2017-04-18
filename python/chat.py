@@ -4,10 +4,10 @@ import time
 import random
 import string
 #from requests import requests
-from gspread import gspread
+from . import gspread
 import os
 import sys
-from oauth2client import oauth2client
+from . import oauth2client
 
 from datetime import datetime
 
