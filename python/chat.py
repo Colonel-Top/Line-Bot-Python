@@ -3,11 +3,9 @@
 import time
 import random
 import string
-#from requests import .requests
-from gspread import client, httpsession, models ,ns, urls, utils
+import gspread
 import os
 import sys
-from oauth2client import clientsecrets
 import oauth2client
 
 from datetime import datetime
