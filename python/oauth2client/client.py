@@ -29,8 +29,9 @@ import sys
 import tempfile
 
 from . import six
-from six.moves import http_client
-from six.moves import urllib
+from . import httplib2
+#from six.moves import http_client
+#from six.moves import urllib
 
 import oauth2client
 from oauth2client import _helpers

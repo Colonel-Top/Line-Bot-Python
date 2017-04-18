@@ -25,11 +25,11 @@ import logging
 import socket
 import sys
 
-from six.moves import BaseHTTPServer
-from six.moves import http_client
-from six.moves import input
-from six.moves import urllib
-
+#from six.moves import BaseHTTPServer
+#from six.moves import http_client
+#from six.moves import input
+#from six.moves import urllib
+from . import httplib2
 from oauth2client import _helpers
 from oauth2client import client
 
