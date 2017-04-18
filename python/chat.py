@@ -13,7 +13,7 @@ from datetime import datetime
 
 now = datetime.now()
 
-from oauth2client.service_account import ServiceAccountCredentials
+from oauth2client.service_account import ServiceAccountCredentials'''
 scope = ['https://spreadsheets.google.com/feeds']
 state = '0'
 credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
@@ -30,7 +30,7 @@ def Login():
     sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
     worksheet = sh.worksheet("Account")
     print ("Google API Connected")
-
+'''
 bot_status = 0
 bot_mode = 0
 # define hi or hello
