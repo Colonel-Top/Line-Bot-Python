@@ -14,7 +14,7 @@
 
 import logging
 
-import httplib2
+from . import httplib2
 from . import six
 from .six.moves import http_client
 
