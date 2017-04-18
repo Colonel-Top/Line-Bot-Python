@@ -4,23 +4,22 @@ import time
 import random
 import string
 #from requests import .requests
-
+from gspread import client, httpsession, models ,ns, urls, utils
 import os
 import sys
+#from oauth2client import client , clientsecrets , crypt,file,service_account,tools,transport
+import oauth2client
 
 from datetime import datetime
 
 
 now = datetime.now()
 
-import oauth2client
-import gspread
-'''
 from oauth2client.service_account import ServiceAccountCredentials
 scope = ['https://spreadsheets.google.com/feeds']
 state = '0'
 credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
-gc = gspread.authorize(credentials)
+gc = client.authorize(credentials)
 sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
 worksheet = sh.worksheet("Account")
 print ("Google API Connected")
@@ -33,7 +32,7 @@ def Login():
     sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
     worksheet = sh.worksheet("Account")
     print ("Google API Connected")
-'''
+
 bot_status = 0
 bot_mode = 0
 # define hi or hello
@@ -77,7 +76,5 @@ if len(sys.argv) < 2:
 
 message = sys.argv[1]
 result = chatbot.get_response(message)'''
-now = datetime.now()# mark read
-
 result = "Done"
 print ("%s" % result)
