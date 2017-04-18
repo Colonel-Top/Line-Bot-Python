@@ -22,7 +22,7 @@ import logging
 import os
 import warnings
 
-import six
+from six import six
 from six.moves import urllib
 
 
