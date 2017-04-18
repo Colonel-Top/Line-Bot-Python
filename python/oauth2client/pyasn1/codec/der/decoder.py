@@ -4,8 +4,8 @@
 # Copyright (c) 2005-2017, Ilya Etingof <etingof@gmail.com>
 # License: http://pyasn1.sf.net/license.html
 #
-from ...pyasn1.type import univ
-from ...pyasn1.codec.cer import decoder
+from ....pyasn1.type import univ
+from ....pyasn1.codec.cer import decoder
 
 __all__ = ['decode']
 
