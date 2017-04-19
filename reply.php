@@ -48,7 +48,7 @@ foreach ($json['events'] as $event) {
   $message = str_replace("\n", " ", trim($event['message']['text']));
 
   //Execute python chatbot
-  $command = "LANG=en_US.UTF-8 PYTHONIOENCODING=utf-8 python3 ./python/chat.py " . escapeshellarg($message) . " 2>&1";
+  $command = "LANG=en_US.UTF-8 PYTHONIOENCODING=utf-8 python ./python/chat.py " . escapeshellarg($message) . " 2>&1";
   $response_message = shell_exec($command);
   $response_message = trim($response_message);
 
