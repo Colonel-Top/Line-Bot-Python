@@ -11,6 +11,8 @@ if len(sys.argv) < 2:
     sys.exit(0)
 
 message = sys.argv[1]
+
+print ("%s" % message)
 now = datetime.now()
 
 from oauth2client.service_account import ServiceAccountCredentials
