@@ -1,5 +1,6 @@
 ﻿import json
 import sys
+print ("Done")
 if len(sys.argv) < 2:
     sys.exit(0)
 
