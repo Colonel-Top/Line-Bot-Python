@@ -6,7 +6,7 @@ import random
 from datetime import datetime
 import json
 import sys
-
+print ("DONE")
 if len(sys.argv) < 2:
     sys.exit(0)
 
