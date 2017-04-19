@@ -4,22 +4,27 @@ import gspread
 import os
 import random
 from datetime import datetime
+import json
+import sys
+if len(sys.argv) < 2:
+    sys.exit(0)
 
+message = sys.argv[1]
 now = datetime.now()
 
 from oauth2client.service_account import ServiceAccountCredentials
 
-
-# print ("Google API Connected")
+status = 0
+# print ('Google API Connected')
 def Login():
-    print ("Messenger API Connected")
+    print ('Messenger API Connected')
     scope = ['https://spreadsheets.google.com/feeds']
     state = '0'
     credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
     gc = gspread.authorize(credentials)
     sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
-    worksheet = sh.worksheet("Account")
-    print ("Google API Connected")
+    worksheet = sh.worksheet('Account')
+    print ('Google API Connected')
 
 
 bot_status = 0
@@ -43,33 +48,32 @@ bank_ask = ['eport account', 'ccount report', 'om engr account', 'pdate account'
 bank_ans = ['Okay i will update account for you', 'Yes, wait a second', 'Let me check account', 'Here we go',
             'Alright here is it', 'Ya this one ^^']
 
-# execfile("timeahead.py")
+# execfile('timeahead.py')
 tellasc_cmd = ['tell all associate']
 tellasc_ans = ['Okay i will update send msg for you', 'Yes, wait a second', 'Let me work on it', 'Here we go',
                'Alright here is it', 'Ya this one ^^']
 # Class def
 
-global bot_mode
-global bot_status
+
 # if you are not the author, echo
 
 # result = result)
 # result =  bot_mode)
 # result = bot_status)
 # result = status)
-# result = "-")
+# result = '-')
 if bot_mode == 1 and bot_status == 1 and status == 0:
     try:
         gdate = result[0:10]
         jobhour = result[11:13]
         jobmin = result[14:16]
         content = result[11:]
-        # content.encode("utf-8")
-        fo = open(gdate, "a")
-        fo.write(content + "\n")
+        # content.encode('utf-8')
+        fo = open(gdate, 'a')
+        fo.write(content + '\n')
         fo.close()
-        fo = open("serverdate", "a");
-        fo.write(gdate + "," + jobhour + "," + jobmin + "\n")
+        fo = open('serverdate', 'a')
+        fo.write(gdate + ',' + jobhour + ',' + jobmin + '\n')
         fo.close()
         result = 'เพิ่มตารางงาน,นัดหมายเรียบร้อยค่ะ'
     except Exception as e:
@@ -80,16 +84,16 @@ if bot_mode == 1 and bot_status == 1 and status == 0:
 if bot_mode == 2 and bot_status == 1 and status == 0:
     try:
         linetoremove = int(result[0])
-        gdate = (now.strftime("%d-%m-%Y"))
-        f = open(gdate, "r+")
+        gdate = (now.strftime('%d-%m-%Y'))
+        f = open(gdate, 'r+')
         d = f.readlines()
-        tmpstring = ""
+        tmpstring = ''
         for line in d:
             if line != linetoremove - 1:
                 tmpstring += line
         f.close()
         os.remove(gdate)
-        fo = open(gdate, "a")
+        fo = open(gdate, 'a')
         fo.write(tmpstring)
         fo.close()
         result = 'ลบตารางงานดังกล่าวเรียบร้อย'
@@ -111,10 +115,10 @@ if bot_status == 1 and status == 0:
     if 'b' in result:
         try:
             result = 'รายการตารางงานและการนัดหมายวันนี้'
-            gdate = (now.strftime("%d-%m-%Y"))
+            gdate = (now.strftime('%d-%m-%Y'))
             result = gdate
             # Open a file
-            fo = open(gdate, "r+")
+            fo = open(gdate, 'r+')
             strws = fo.read()
             result = strws
             # Close opend file
@@ -127,10 +131,10 @@ if bot_status == 1 and status == 0:
     if 'B' in result:
         try:
             result = 'รายการตารางงานและการนัดหมายวันนี้'
-            gdate = (now.strftime("%d-%m-%Y"))
+            gdate = (now.strftime('%d-%m-%Y'))
             result = gdate
             # Open a file
-            fo = open(gdate, "r+")
+            fo = open(gdate, 'r+')
             strws = fo.read()
             result = strws
             # Close opend file
@@ -143,10 +147,10 @@ if bot_status == 1 and status == 0:
     if 'c' in result:
         try:
             result = 'รายการตารางงานและการนัดหมายวันนี้'
-            gdate = (now.strftime("%d-%m-%Y"))
+            gdate = (now.strftime('%d-%m-%Y'))
             result = gdate
             # Open a file
-            fo = open(gdate, "r+")
+            fo = open(gdate, 'r+')
             strws = fo.read()
             result = strws
             # Close opend file
@@ -160,10 +164,10 @@ if bot_status == 1 and status == 0:
     if 'C' in result:
         try:
             result = 'รายการตารางงานและการนัดหมายวันนี้'
-            gdate = (now.strftime("%d-%m-%Y"))
+            gdate = (now.strftime('%d-%m-%Y'))
             result = gdate
             # Open a file
-            fo = open(gdate, "r+")
+            fo = open(gdate, 'r+')
             strws = fo.read()
             result = strws
             # Close opend file
@@ -189,10 +193,10 @@ if status == 0:
             stringtosend = 'result From Colonel : '
             stringtosend += strs(going)
             result = random.choice(tellasc_ans)
-            # self.send(100002210119100,"result From Colonel : " + going) #Aomsin
-            # self.send(100001717587402,"result From Colonel : " + going) #Beer
-            # self.send(100000337186822,"result From Colonel : " + going) #Pond
-            self.send(colonelid, stringtosend)  # me
+            # self.send(100002210119100,'result From Colonel : ' + going) #Aomsin
+            # self.send(100001717587402,'result From Colonel : ' + going) #Beer
+            # self.send(100000337186822,'result From Colonel : ' + going) #Pond
+            result = stringtosend  # me
             status = 1
 if status == 0:
     for tmp in greeting_w:
@@ -203,50 +207,49 @@ if status == 0:
     for tmp in menu_cmd:
         if tmp in result:
             result = 'กรุณาเลือกฟังก์ชัน'
-            result =
-            'a.เพิ่มงาน,ตารางนัดหมาย\nb.ตรวจสอบตารางเวลางาน\nc.ลบตารางเวลานัดหมาย\nd.เพื่อย้อนกลับ/ยกเลิก'
+            result = 'a.เพิ่มงาน,ตารางนัดหมาย\nb.ตรวจสอบตารางเวลางาน\nc.ลบตารางเวลานัดหมาย\nd.เพื่อย้อนกลับ/ยกเลิก'
         bot_status = 1
         status = 1
 if status == 0:
     if 'Ok' in result:
-        result = "^^"
+        result = '^^'
         status = 1
     elif 'ok' in result:
-        result = "^^"
+        result = '^^'
         status = 1
 if status == 0:
     if 'Get Interest Now' in result:
-        result = random.choice(bank_ans));
-        sent = client.send(colonelid, "AI has Awaken and Collecting Interest")
-        print("AI has Awaken and Collecting Interest")
+        result = random.choice(bank_ans)
+        result = ( 'AI has Awaken and Collecting Interest')
+        print('AI has Awaken and Collecting Interest')
         credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
         gc = gspread.authorize(credentials)
         sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
-        worksheet = sh.worksheet("Account")
+        worksheet = sh.worksheet('Account')
         cell = worksheet.acell('U31').value
-        cell = cell.encode("utf-8")
+        cell = cell.encode('utf-8')
         monthcell = now.month
         monthcell += 9
         # onthcell += 10
         for row in range(2, 31):  # Must be 31 in col or last parameter
             peruser = 0
-        for col in range(8, 20):
-            tmp = worksheet.cell(row, col).value
-        print(tmp)
-        if (tmp == '0'):
-            peruser += 1
-        # print("Done Per loop")
-        # print (peruser)
-        if peruser >= 2 and worksheet.cell(row, monthcell).value == '':
-            interest = int(worksheet.cell(row, 22).value)
-        interest += 1
-        # print (interest)
-        worksheet.update_cell(row, 22, interest)
-        if worksheet.cell(row, monthcell).value == '':
-            worksheet.update_cell(row, monthcell, 0)
-        if row == 8:
-            print("Skip Safe")
-        continue
+            for col in range(8, 20):
+                tmp = worksheet.cell(row, col).value
+                print(tmp)
+                if (tmp == '0'):
+                    peruser += 1
+            # print('Done Per loop')
+            # print (peruser)
+            if peruser >= 2 and worksheet.cell(row, monthcell).value == '':
+                interest = int(worksheet.cell(row, 22).value)
+                interest += 1
+            # print (interest)
+                worksheet.update_cell(row, 22, interest)
+            if worksheet.cell(row, monthcell).value == '':
+                worksheet.update_cell(row, monthcell, 0)
+            if row == 8:
+                print('Skip Safe')
+                continue
         status = 1
 if status == 0:
     for tmp in backasgre_w:
@@ -262,17 +265,17 @@ if status == 0:
 if status == 0:
     for tmp in bank_ask:
         if tmp in result:
-            result = random.choice(bank_ans));
+            result = random.choice(bank_ans)
             credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
             gc = gspread.authorize(credentials)
             sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
-            worksheet = sh.worksheet("Account")
+            worksheet = sh.worksheet('Account')
             cell = worksheet.acell('U31').value
-            sendstr = "Current Amount in Account : "
+            sendstr = 'Current Amount in Account : '
             sendstr = sendstr + str(cell)
             result = sendstr
             status = 1
-            if status == 0:
-                result = "Sorry I don't know that \nYou can try: \nopen menu \nshow menu \nเรียกเมนู \nเปิดเมนู \nshow function"
+            # if status == 0:
+            # result = "Sorry I don't know that \nYou can try: \nopen menu \nshow menu \nเรียกเมนู \nเปิดเมนู \nshow function"
 
-            print ("%s" % result)
+print ('%s' % result)
