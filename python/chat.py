@@ -41,10 +41,10 @@ backasgre_w = ['Thx', 'Thank', 'ขอบคุณ', 'appreciate', 'ขอบใ
 backasgre_f = ['Your welcome', 'With Pleasure :)', 'with Appreciated', 'Ya', 'Okay ^^', 'Welcome', 'Never mind :)']
 menu_cmd = ['pen menu', 'pen Menu', 'เปิดเมนู', 'เรียกเมนู', 'show function', 'Show function', 'Show Menu', 'show menu',
             'Show menu']
-simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โตลอี้','โคอี้']
+simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','แฮร่']
 simq_ans = ['I am Chloe The Secretary of Colonel',
             'I am Chloe The Secretary of Colonel ^^ Helping My Master & you guys', 'My Boss or my master is Colonel',
-            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^']
+            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','55555555+']
 
 bank_ask = ['eport account', 'ccount report', 'om engr account', 'pdate account', 'heck amout account',
             'heck amout in account']
@@ -212,6 +212,7 @@ if status == 0:
 if status == 0:
     for tmp in getint:
         if tmp in message:
+            scope = ['https://spreadsheets.google.com/feeds']
             result = random.choice(bank_ans)
             credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
             gc = gspread.authorize(credentials)
@@ -264,8 +265,9 @@ if status == 0:
             sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
             worksheet = sh.worksheet('Account')
             cell = worksheet.acell('U31').value
-            sendstr = 'Current Amount in Account : '
-            sendstr = sendstr + str(cell)
+            cellavai = worksheet.acell('U32').value
+            sendstr = 'ยอดรายรับ : '
+            sendstr = sendstr + str(cell) + '\n' + 'ยอดพึงจ่ายได้ : ' + str(cellavai)
             result = sendstr
             status = 1
             # if status == 0:
