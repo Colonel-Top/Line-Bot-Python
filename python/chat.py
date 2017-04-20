@@ -142,7 +142,6 @@ if bot_status == 1 and status == 0:
         status = 1
     if 'c' in message:
         try:
-            
             gdate = (now.strftime('%d-%m-%Y'))
             # Open a file
             fo = open(gdate, 'r+')
@@ -155,9 +154,8 @@ if bot_status == 1 and status == 0:
         bot_mode = 2
         bot_status = 1
         status = 1
-     if 'C' in message:
+    if 'C' in message:
         try:
-            
             gdate = (now.strftime('%d-%m-%Y'))
             # Open a file
             fo = open(gdate, 'r+')
