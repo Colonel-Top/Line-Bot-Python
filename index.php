@@ -1,7 +1,7 @@
 <?php
 
 $body = file_get_contents('php://input');
-
+echo "OK";
 if (empty($body)) {
 	return;
 }
