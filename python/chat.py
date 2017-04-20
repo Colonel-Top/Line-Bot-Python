@@ -41,10 +41,10 @@ backasgre_w = ['Thx', 'Thank', 'ขอบคุณ', 'appreciate', 'ขอบใ
 backasgre_f = ['Your welcome', 'With Pleasure :)', 'with Appreciated', 'Ya', 'Okay ^^', 'Welcome', 'Never mind :)']
 menu_cmd = ['pen menu', 'pen Menu', 'เปิดเมนู', 'เรียกเมนู', 'show function', 'Show function', 'Show Menu', 'show menu',
             'Show menu']
-simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','แฮร่']
+simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','แฮร่','โคลอี','โคลอี้จ๋า']
 simq_ans = ['I am Chloe The Secretary of Colonel',
             'I am Chloe The Secretary of Colonel ^^ Helping My Master & you guys', 'My Boss or my master is Colonel',
-            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','55555555+']
+            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','55555555+','^^','จ๋าาาา']
 
 bank_ask = ['eport account', 'ccount report', 'om engr account', 'pdate account', 'heck amout account',
             'heck amout in account']
@@ -250,12 +250,6 @@ if status == 0:
             result = random.choice(backasgre_f)
             status = 1
 if status == 0:
-    for tmp in simq_ask:
-        if tmp in message:
-            position = simq_ask.index(tmp)
-            result = simq_ans[position]
-            status = 1
-if status == 0:
     for tmp in bank_ask:
         if tmp in message:
             scope = ['https://spreadsheets.google.com/feeds']
@@ -272,5 +266,10 @@ if status == 0:
             status = 1
             # if status == 0:
             # result = "Sorry I don't know that \nYou can try: \nopen menu \nshow menu \nเรียกเมนู \nเปิดเมนู \nshow function"
-
+if status == 0:
+    for tmp in simq_ask:
+        if tmp in message:
+            position = simq_ask.index(tmp)
+            result = simq_ans[position]
+            status = 1
 print ('%s' % result)
