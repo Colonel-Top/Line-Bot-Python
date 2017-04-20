@@ -17,6 +17,12 @@ result = ""
 from oauth2client.service_account import ServiceAccountCredentials
 
 status = 0
+scope = ''
+state = ''
+credentials = ''
+gc =''
+sh = ''
+worksheet = ''
 # print ('Google API Connected')
 def Login():
     #print ('Messenger API Connected')
