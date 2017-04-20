@@ -199,8 +199,8 @@ if status == 0:
     for tmp in menu_cmd:
         if tmp in message:
             result = 'กรุณาเลือกฟังก์ชัน\n'+'a.เพิ่มงาน,ตารางนัดหมาย\nb.ตรวจสอบตารางเวลางาน\nc.ลบตารางเวลานัดหมาย\nd.เพื่อย้อนกลับ/ยกเลิก'
-        bot_status = 1
-        status = 1
+            bot_status = 1
+            status = 1
 if status == 0:
     if 'Ok' in message:
         result = '^^'

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efff95c2-6c64-481e-ab70-c599b1c1fa5a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/python/chat.py" afterPath="$PROJECT_DIR$/python/chat.py" />
-    </list>
+    <list default="true" id="efff95c2-6c64-481e-ab70-c599b1c1fa5a" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +28,8 @@
       <file leaf-file-name="chat.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/chat.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="159" column="2" lean-forward="false" selection-start-line="159" selection-start-column="2" selection-end-line="159" selection-end-column="2" />
+            <state relative-caret-position="2191">
+              <caret line="161" column="2" lean-forward="false" selection-start-line="161" selection-start-column="2" selection-end-line="161" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -209,7 +207,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1376" height="744" extended-state="6" />
+    <frame x="1358" y="-8" width="1376" height="744" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -312,8 +310,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/chat.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="159" column="2" lean-forward="false" selection-start-line="159" selection-start-column="2" selection-end-line="159" selection-end-column="2" />
+        <state relative-caret-position="2191">
+          <caret line="161" column="2" lean-forward="false" selection-start-line="161" selection-start-column="2" selection-end-line="161" selection-end-column="2" />
           <folding />
         </state>
       </provider>
