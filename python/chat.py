@@ -17,12 +17,7 @@ result = ""
 from oauth2client.service_account import ServiceAccountCredentials
 
 status = 0
-scope = ''
-state = ''
-credentials = ''
-gc =''
-sh = ''
-worksheet = ''
+
 # print ('Google API Connected')
 def Login():
     #print ('Messenger API Connected')
@@ -262,6 +257,7 @@ if status == 0:
 if status == 0:
     for tmp in bank_ask:
         if tmp in message:
+            scope = ['https://spreadsheets.google.com/feeds']
             result = random.choice(bank_ans)
             credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
             gc = gspread.authorize(credentials)
