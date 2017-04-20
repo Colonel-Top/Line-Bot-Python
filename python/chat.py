@@ -17,14 +17,14 @@ from oauth2client.service_account import ServiceAccountCredentials
 status = 0
 # print ('Google API Connected')
 def Login():
-    print ('Messenger API Connected')
+    #print ('Messenger API Connected')
     scope = ['https://spreadsheets.google.com/feeds']
     state = '0'
     credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
     gc = gspread.authorize(credentials)
     sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
     worksheet = sh.worksheet('Account')
-    print ('Google API Connected')
+    #print ('Google API Connected')
 
 
 bot_status = 0
@@ -64,10 +64,10 @@ tellasc_ans = ['Okay i will update send msg for you', 'Yes, wait a second', 'Let
 # result = '-')
 if bot_mode == 1 and bot_status == 1 and status == 0:
     try:
-        gdate = result[0:10]
-        jobhour = result[11:13]
-        jobmin = result[14:16]
-        content = result[11:]
+        gdate = message[0:10]
+        jobhour = message[11:13]
+        jobmin = message[14:16]
+        content = message[11:]
         # content.encode('utf-8')
         fo = open(gdate, 'a')
         fo.write(content + '\n')
@@ -83,7 +83,7 @@ if bot_mode == 1 and bot_status == 1 and status == 0:
     status = 1
 if bot_mode == 2 and bot_status == 1 and status == 0:
     try:
-        linetoremove = int(result[0])
+        linetoremove = int(message[0])
         gdate = (now.strftime('%d-%m-%Y'))
         f = open(gdate, 'r+')
         d = f.readlines()
@@ -104,23 +104,21 @@ if bot_mode == 2 and bot_status == 1 and status == 0:
     bot_status = 0
     status = 1
 if bot_status == 1 and status == 0:
-    if 'a' in result:
+    if 'a' in message:
         bot_mode = 1
         result = 'เพิ่มงาน,ตารางเวลานัดหมายได้\nกรุณาใช้รูปแบบดังต่อไปนี้ \n\n31-12-2017:22:00:เนื้อหางาน'
         status = 1
-    if 'A' in result:
+    if 'A' in message:
         bot_mode = 1
         result = 'เพิ่มงาน,ตารางเวลานัดหมายได้\nกรุณาใช้รูปแบบดังต่อไปนี้ \n\n31-12-2017:22:00:เนื้อหางาน'
         status = 1
-    if 'b' in result:
+    if 'b' in message:
         try:
-            result = 'รายการตารางงานและการนัดหมายวันนี้'
             gdate = (now.strftime('%d-%m-%Y'))
-            result = gdate
             # Open a file
             fo = open(gdate, 'r+')
             strws = fo.read()
-            result = strws
+            result = 'รายการตารางงานและการนัดหมายวันนี้\n'+gdate +'\n'+ strws
             # Close opend file
             fo.close()
         except:
@@ -128,15 +126,13 @@ if bot_status == 1 and status == 0:
         bot_status = 0
         bot_mode = 0
         status = 1
-    if 'B' in result:
+    if 'B' in message:
         try:
-            result = 'รายการตารางงานและการนัดหมายวันนี้'
             gdate = (now.strftime('%d-%m-%Y'))
-            result = gdate
             # Open a file
             fo = open(gdate, 'r+')
             strws = fo.read()
-            result = strws
+            result = 'รายการตารางงานและการนัดหมายวันนี้\n'+gdate +'\n' + strws
             # Close opend file
             fo.close()
         except:
@@ -144,51 +140,47 @@ if bot_status == 1 and status == 0:
         bot_status = 0
         bot_mode = 0
         status = 1
-    if 'c' in result:
+    if 'c' in message:
         try:
-            result = 'รายการตารางงานและการนัดหมายวันนี้'
+            
             gdate = (now.strftime('%d-%m-%Y'))
-            result = gdate
             # Open a file
             fo = open(gdate, 'r+')
             strws = fo.read()
-            result = strws
+            result = 'รายการตารางงานและการนัดหมายวันนี้\n' + gdate +'\n' + strws + '\nกรุณาใส่เลขหัวข้องานที่ต้องการจะลยเช่น 3'
             # Close opend file
             fo.close()
-            result = 'กรุณาใส่เลขหัวข้องานที่ต้องการจะลยเช่น 3'
         except:
             result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
         bot_mode = 2
         bot_status = 1
         status = 1
-    if 'C' in result:
+     if 'C' in message:
         try:
-            result = 'รายการตารางงานและการนัดหมายวันนี้'
+            
             gdate = (now.strftime('%d-%m-%Y'))
-            result = gdate
             # Open a file
             fo = open(gdate, 'r+')
             strws = fo.read()
-            result = strws
+            result = 'รายการตารางงานและการนัดหมายวันนี้\n' + gdate+'\n' + strws + '\nกรุณาใส่เลขหัวข้องานที่ต้องการจะลยเช่น 3'
             # Close opend file
             fo.close()
-            result = 'กรุณาใส่เลขหัวข้องานที่ต้องการจะลบเช่น 3'
         except:
             result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
         bot_mode = 2
         bot_status = 1
         status = 1
-    if 'D' in result:
+    if 'D' in message:
         bot_mode = 0
         bot_status = 0
         status = 1
-    if 'd' in result:
+    if 'd' in message:
         bot_mode = 0
         bot_status = 0
         status = 1
 if status == 0:
     for tmp in tellasc_cmd:
-        if tmp in result:
+        if tmp in message:
             going = tmp.replace('tell all associate', '')
             stringtosend = 'result From Colonel : '
             stringtosend += strs(going)
@@ -200,28 +192,25 @@ if status == 0:
             status = 1
 if status == 0:
     for tmp in greeting_w:
-        if tmp in result:
+        if tmp in message:
             result = random.choice(greeting_f)
             status = 1
 if status == 0:
     for tmp in menu_cmd:
-        if tmp in result:
-            result = 'กรุณาเลือกฟังก์ชัน'
-            result = 'a.เพิ่มงาน,ตารางนัดหมาย\nb.ตรวจสอบตารางเวลางาน\nc.ลบตารางเวลานัดหมาย\nd.เพื่อย้อนกลับ/ยกเลิก'
+        if tmp in message:
+            result = 'กรุณาเลือกฟังก์ชัน\n'+'a.เพิ่มงาน,ตารางนัดหมาย\nb.ตรวจสอบตารางเวลางาน\nc.ลบตารางเวลานัดหมาย\nd.เพื่อย้อนกลับ/ยกเลิก'
         bot_status = 1
         status = 1
 if status == 0:
-    if 'Ok' in result:
+    if 'Ok' in message:
         result = '^^'
         status = 1
-    elif 'ok' in result:
+    elif 'ok' in message:
         result = '^^'
         status = 1
 if status == 0:
-    if 'Get Interest Now' in result:
-        result = random.choice(bank_ans)
-        result = ( 'AI has Awaken and Collecting Interest')
-        print('AI has Awaken and Collecting Interest')
+    if 'Get Interest Now' in message:
+        result = random.choice(bank_ans)+( 'AI has Awaken and Collecting Interest')
         credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
         gc = gspread.authorize(credentials)
         sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
@@ -235,7 +224,7 @@ if status == 0:
             peruser = 0
             for col in range(8, 20):
                 tmp = worksheet.cell(row, col).value
-                print(tmp)
+                #print(tmp)
                 if (tmp == '0'):
                     peruser += 1
             # print('Done Per loop')
@@ -248,23 +237,23 @@ if status == 0:
             if worksheet.cell(row, monthcell).value == '':
                 worksheet.update_cell(row, monthcell, 0)
             if row == 8:
-                print('Skip Safe')
+                #print('Skip Safe')
                 continue
         status = 1
 if status == 0:
     for tmp in backasgre_w:
-        if tmp in result:
+        if tmp in message:
             result = random.choice(backasgre_f)
             status = 1
 if status == 0:
     for tmp in simq_ask:
-        if tmp in result:
+        if tmp in message:
             position = simq_ask.index(tmp)
             result = simq_ans[position]
             status = 1
 if status == 0:
     for tmp in bank_ask:
-        if tmp in result:
+        if tmp in message:
             result = random.choice(bank_ans)
             credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
             gc = gspread.authorize(credentials)
