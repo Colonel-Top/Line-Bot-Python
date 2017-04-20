@@ -8,10 +8,12 @@ import json
 import sys
 if len(sys.argv) < 2:
     sys.exit(0)
-
+#print("Done")
+#message = "Debugging "
 message = sys.argv[1]
+#print (message)
 now = datetime.now()
-
+result = ""
 from oauth2client.service_account import ServiceAccountCredentials
 
 status = 0
