@@ -40,16 +40,16 @@ backasgre_w = ['Thx', 'Thank', 'ขอบคุณ', 'appreciate', 'ขอบใ
 backasgre_f = ['Your welcome', 'With Pleasure :)', 'with Appreciated', 'Ya', 'Okay ^^', 'Welcome', 'Never mind :)']
 menu_cmd = ['pen menu', 'pen Menu', 'เปิดเมนู', 'เรียกเมนู', 'show function', 'Show function', 'Show Menu', 'show menu',
             'Show menu']
-simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke']
+simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โตลอี้','โคอี้']
 simq_ans = ['I am Chloe The Secretary of Colonel',
             'I am Chloe The Secretary of Colonel ^^ Helping My Master & you guys', 'My Boss or my master is Colonel',
-            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope']
+            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^']
 
 bank_ask = ['eport account', 'ccount report', 'om engr account', 'pdate account', 'heck amout account',
             'heck amout in account']
-bank_ans = ['Okay i will update account for you', 'Yes, wait a second', 'Let me check account', 'Here we go',
-            'Alright here is it', 'Ya this one ^^']
-
+bank_ans = ['โอเคจ้า จะทำการอัพเดตให้เดี๋ยวนี้เลย', 'จ้า กำลังอัพเดตให้ละน้า', 'ได้เลยจ้า', 'ได้เลยจ้า แปปเดียวก็เสร็จละ',
+            'ค่ะ ทำการตัดดอกเบี้ยทันทีค่ะ', 'ไดเลยจ้า ^^']
+getint = ['hloe get interest now','โคลอี้ตัดดอกเบี้ย']
 # execfile('timeahead.py')
 tellasc_cmd = ['tell all associate']
 tellasc_ans = ['Okay i will update send msg for you', 'Yes, wait a second', 'Let me work on it', 'Here we go',
@@ -209,37 +209,39 @@ if status == 0:
         result = '^^'
         status = 1
 if status == 0:
-    if 'Get Interest Now' in message:
-        result = random.choice(bank_ans)+( 'AI has Awaken and Collecting Interest')
-        credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
-        gc = gspread.authorize(credentials)
-        sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
-        worksheet = sh.worksheet('Account')
-        cell = worksheet.acell('U31').value
-        cell = cell.encode('utf-8')
-        monthcell = now.month
-        monthcell += 9
-        # onthcell += 10
-        for row in range(2, 31):  # Must be 31 in col or last parameter
-            peruser = 0
-            for col in range(8, 20):
-                tmp = worksheet.cell(row, col).value
-                #print(tmp)
-                if (tmp == '0'):
-                    peruser += 1
-            # print('Done Per loop')
-            # print (peruser)
-            if peruser >= 2 and worksheet.cell(row, monthcell).value == '':
-                interest = int(worksheet.cell(row, 22).value)
-                interest += 1
-            # print (interest)
-                worksheet.update_cell(row, 22, interest)
-            if worksheet.cell(row, monthcell).value == '':
-                worksheet.update_cell(row, monthcell, 0)
-            if row == 8:
-                #print('Skip Safe')
-                continue
-        status = 1
+    for tmp in getint:
+        if tmp in message:
+            result = random.choice(bank_ans)
+            credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
+            gc = gspread.authorize(credentials)
+            sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
+            worksheet = sh.worksheet('Account')
+            cell = worksheet.acell('U31').value
+            cell = cell.encode('utf-8')
+            monthcell = now.month
+            monthcell += 9
+            # onthcell += 10
+            for row in range(2, 31):  # Must be 31 in col or last parameter
+                peruser = 0
+                for col in range(8, 20):
+                    tmp = worksheet.cell(row, col).value
+                    #print(tmp)
+                    if (tmp == '0'):
+                        peruser += 1
+                # print('Done Per loop')
+                # print (peruser)
+                if peruser >= 2 and worksheet.cell(row, monthcell).value == '':
+                    interest = int(worksheet.cell(row, 22).value)
+                    interest += 1
+                # print (interest)
+                    worksheet.update_cell(row, 22, interest)
+                if worksheet.cell(row, monthcell).value == '':
+                    worksheet.update_cell(row, monthcell, 0)
+                if row == 8:
+                    #print('Skip Safe')
+                    continue
+            status = 1
+
 if status == 0:
     for tmp in backasgre_w:
         if tmp in message:
