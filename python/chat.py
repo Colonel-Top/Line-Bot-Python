@@ -41,10 +41,10 @@ backasgre_w = ['Thx', 'Thank', 'ขอบคุณ', 'appreciate', 'ขอบใ
 backasgre_f = ['Your welcome', 'With Pleasure :)', 'with Appreciated', 'Ya', 'Okay ^^', 'Welcome', 'Never mind :)']
 menu_cmd = ['pen menu', 'pen Menu', 'เปิดเมนู', 'เรียกเมนู', 'show function', 'Show function', 'Show Menu', 'show menu',
             'Show menu']
-simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','แฮร่','โคลอี','โคลอี้จ๋า','ถามได้ตอบได้','ศราวุธ','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','เออมึงแหละ','ตึงโป','วดฟ','wtf','โน']
+simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','แฮร่','โคลอี','โคลอี้จ๋า','ถามได้ตอบได้','ศราวุธ','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','เออมึงแหละ','ตึงโป','วดฟ','wtf','โน','ถามอะไรตอบได้']
 simq_ans = ['I am Chloe The Secretary of Colonel',
             'I am Chloe The Secretary of Colonel ^^ Helping My Master & you guys', 'My Boss or my master is Colonel',
-            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','55555555+','^^','จ๋าาาา','ได้','ไม่พบศราวุธในสารระบบ','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','วดฟ+1','wtf+1','โนโน้โนโน้']
+            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','55555555+','^^','จ๋าาาา','ได้','ไม่พบศราวุธในสารระบบ','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','วดฟ+1','wtf+1','โนโน้โนโน้','ไมได้ แบร่']
 
 bank_ask = ['eport accounts', 'ccount reports', 'om engr account', 'pdate account', 'heck amout account',
             'heck amout in account']
@@ -273,14 +273,16 @@ if status == 0:
   	    gc = gspread.authorize(credentials)
   	    sh = gc.open_by_key('1aI55l3bs_BnjXpKGeRb4JIKzngnHOq1ZltiIJvxh4Mc')
   	    worksheet = sh.worksheet('Sheet1')
-  	    for row in range(2, 31):  # Must be 31 in col or last parameter
+  	    for row in range(2, 34):  # Must be 31 in col or last parameter
   	      peruser = 0
-  	      tmp = worksheet.cell(row, 7).value
-  	      tmp = str(tmp)
-  	      if (tmp == message):
+	      tmp = ''
+  	      tmp = (worksheet.cell(row, 6).value)
+	      tmp = tmp.encode('utf-8')
+  	      if (tmp in message):
   	        answer = str(worksheet.cell(row,7).value)
   	        result = 'เบอร์'+ tmp +': ' + answer
   	        status = 1
+		break
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
