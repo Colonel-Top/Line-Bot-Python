@@ -283,6 +283,11 @@ if status == 0:
   	        result = 'เบอร์'+ tmp +': ' + answer
   	        status = 1
 		break
+	    if 'เมดี้' in message:
+	      result =  'เบอร์เมดี้: 09498959xx'
+	    if not result:
+	      result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
+	    status = 1
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
