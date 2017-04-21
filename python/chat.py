@@ -268,16 +268,20 @@ if status == 0:
             # result = "Sorry I don't know that \nYou can try: \nopen menu \nshow menu \nเรียกเมนู \nเปิดเมนู \nshow function"
 if status == 0:
     if 'ขอเบอ' in message:
-	scope = ['https://spreadsheets.google.com/feeds']
+  	    scope = ['https://spreadsheets.google.com/feeds']
         credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
         gc = gspread.authorize(credentials)
         sh = gc.open_by_key('/1aI55l3bs_BnjXpKGeRb4JIKzngnHOq1ZltiIJvxh4Mc')
-        worksheet = sh.worksheet('Account')
-       
-        sendstr = 'ยอดรายรับ : '
-        sendstr = sendstr + str(cell) + '\n' + 'ยอดพึงจ่ายได้ : ' + str(cellavai)
-        result = sendstr
-        status = 1
+        worksheet = sh.worksheet('Sheet1')
+        for row in range(2, 31):  # Must be 31 in col or last parameter
+          peruser = 0
+          if(1):
+            tmp = worksheet.cell(row, 7).value
+            tmp = str(tmp)
+            if (tmp == message):
+              answer = str(worksheet.cell(row,7).value)
+              result = 'เบอร์'+ tmp +': ' + answer
+              status = 1
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
