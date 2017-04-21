@@ -289,6 +289,50 @@ if status == 0:
 	      result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
 	    status = 1
 if status == 0:
+    if 'ขอเลขนศ' in message:
+  	    scope = ['https://spreadsheets.google.com/feeds']
+  	    credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
+  	    gc = gspread.authorize(credentials)
+  	    sh = gc.open_by_key('1aI55l3bs_BnjXpKGeRb4JIKzngnHOq1ZltiIJvxh4Mc')
+  	    worksheet = sh.worksheet('Sheet1')
+  	    for row in range(2, 34):  # Must be 31 in col or last parameter
+  	      peruser = 0
+	      tmp = ''
+  	      tmp = (worksheet.cell(row, 6).value)
+	      tmp = tmp.encode('utf-8')
+  	      if (tmp in message):
+  	        answer = str(worksheet.cell(row,2).value)
+  	        result = 'เบอร์'+ tmp +': ' + answer
+  	        status = 1
+		break
+	    if 'เมดี้' in message:
+	      result =  'ไม่ให้ค่ะ'
+	    if not result:
+	      result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
+	    status = 1
+if status == 0:
+    if 'ขอรหัสนศ' in message:
+  	    scope = ['https://spreadsheets.google.com/feeds']
+  	    credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
+  	    gc = gspread.authorize(credentials)
+  	    sh = gc.open_by_key('1aI55l3bs_BnjXpKGeRb4JIKzngnHOq1ZltiIJvxh4Mc')
+  	    worksheet = sh.worksheet('Sheet1')
+  	    for row in range(2, 34):  # Must be 31 in col or last parameter
+  	      peruser = 0
+	      tmp = ''
+  	      tmp = (worksheet.cell(row, 6).value)
+	      tmp = tmp.encode('utf-8')
+  	      if (tmp in message):
+  	        answer = str(worksheet.cell(row,2).value)
+  	        result = 'เบอร์'+ tmp +': ' + answer
+  	        status = 1
+		break
+	    if 'เมดี้' in message:
+	      result =  'ไม่ให้ค่ะ'
+	    if not result:
+	      result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
+	    status = 1
+if status == 0:
     for tmp in simq_ask:
         if tmp in message:
             position = simq_ask.index(tmp)
