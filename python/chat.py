@@ -271,7 +271,7 @@ if status == 0:
   	    scope = ['https://spreadsheets.google.com/feeds']
   	    credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
   	    gc = gspread.authorize(credentials)
-  	    sh = gc.open_by_key('/1aI55l3bs_BnjXpKGeRb4JIKzngnHOq1ZltiIJvxh4Mc')
+  	    sh = gc.open_by_key('1aI55l3bs_BnjXpKGeRb4JIKzngnHOq1ZltiIJvxh4Mc')
   	    worksheet = sh.worksheet('Sheet1')
   	    for row in range(2, 31):  # Must be 31 in col or last parameter
   	      peruser = 0
