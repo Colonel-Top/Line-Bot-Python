@@ -268,6 +268,7 @@ if status == 0:
             # result = "Sorry I don't know that \nYou can try: \nopen menu \nshow menu \nเรียกเมนู \nเปิดเมนู \nshow function"
 if status == 0:
     if 'ขอเบอ' in message:
+      if(1):
   	    scope = ['https://spreadsheets.google.com/feeds']
         credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
         gc = gspread.authorize(credentials)
