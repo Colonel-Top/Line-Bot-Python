@@ -50,7 +50,7 @@ bank_ask = ['eport account', 'ccount report', 'om engr account', 'pdate account'
             'heck amout in account']
 bank_ans = ['โอเคจ้า จะทำการอัพเดตให้เดี๋ยวนี้เลย', 'จ้า กำลังอัพเดตให้ละน้า', 'ได้เลยจ้า', 'ได้เลยจ้า แปปเดียวก็เสร็จละ',
             'ค่ะ ทำการตัดดอกเบี้ยทันทีค่ะ', 'ไดเลยจ้า ^^']
-getint = ['hloe get interest now','โคลอี้ตัดดอกเบี้ย']
+getint = ['hloe get interest now','โคลอี้ตัดดอกเบี้ย','ตัดดอกเบี้ยสิ']
 # execfile('timeahead.py')
 tellasc_cmd = ['tell all associate']
 tellasc_ans = ['Okay i will update send msg for you', 'Yes, wait a second', 'Let me work on it', 'Here we go',
