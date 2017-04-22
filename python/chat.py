@@ -76,9 +76,8 @@ for tmp in president:
 if status == 0 :
     if 'โพ่ง' in message:
         result = message.replace('โพ่ง','พ่อง')
-    elif 'พ่าง' in message:
+    if 'พ่าง' in message:
         result = message,replace('พ่าง','บ้านบึ้ม')
-    status = 1
 if bot_mode == 1 and bot_status == 1 and status == 0:
     try:
         gdate = message[0:10]
@@ -298,8 +297,6 @@ if status == 0:
                     status =1
             if 'เมดี้' in message:
                 result =  'เบอร์เมดี้: 09498959xx'
-            if not result:
-                result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
 	    status = 1
 if status == 0:
     if 'ขอเลขนศ' in message:
@@ -320,8 +317,6 @@ if status == 0:
 		#break
 	    if 'เมดี้' in message:
 	      result =  'ไม่ให้ค่ะ'
-	    if not result:
-	      result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
 	    status = 1
 if status == 0:
     if 'ขอรหัสนศ' in message:
@@ -342,8 +337,6 @@ if status == 0:
 		#break
 	    if 'เมดี้' in message:
 	      result =  'ไม่ให้ค่ะ'
-	    if not result:
-	      result = 'ไม่พบชื่อหรือสิ่งที่คุณหา'
 	    status = 1
 insult = ['ด่าอิ','ด่าแม่ง','ด่าไอ','ด่ามัน','ด่าอีก','ด่าาแม่ง','ด่ามันสิ','ด่ามxyันซิ','ด่าต่อไป','ด่าอย่าหยุด']
 reinsult = ['กะหรี','กระหรี','สัส','สาส','บ้า','เวร','สาสสสส','สาดดด']
@@ -432,7 +425,7 @@ if status == 0:
             else:
                 result = 'ขอโทษค่ะหนูด่าไม่ได้ แอแฮร่'
                 status = 1
-'''if status == 0:
+if status == 0:
     if 'ด่า' in message:
         if 'แหละ' in message:
             if isinsult == '1':
@@ -445,7 +438,7 @@ if status == 0:
                     ran1 = ['ตึ่งตะลึงตึ่งโป๊ะ','ตะลึงตึงโป้ะ','ตะลึง ตะลึงตึงโป้ะ !']
                     result =  random.choice(ran1)
                     status = 1
-                    break       '''        
+                    break               
 if status == 0:
     if 'แฮร' in message:
         result = random.choice(randomfive)
