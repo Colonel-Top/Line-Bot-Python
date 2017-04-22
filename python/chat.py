@@ -432,7 +432,7 @@ if status == 0:
             else:
                 result = 'ขอโทษค่ะหนูด่าไม่ได้ แอแฮร่'
                 status = 1
-if status == 0:
+'''if status == 0:
     if 'ด่า' in message:
         if 'แหละ' in message:
             if isinsult == '1':
@@ -445,7 +445,7 @@ if status == 0:
                     ran1 = ['ตึ่งตะลึงตึ่งโป๊ะ','ตะลึงตึงโป้ะ','ตะลึง ตะลึงตึงโป้ะ !']
                     result =  random.choice(ran1)
                     status = 1
-                    break               
+                    break       '''        
 if status == 0:
     if 'แฮร' in message:
         result = random.choice(randomfive)
