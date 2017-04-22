@@ -43,10 +43,10 @@ backasgre_w = ['Thx', 'Thank', 'ขอบคุณ', 'appreciate', 'ขอบใ
 backasgre_f = ['Your welcome', 'With Pleasure :)', 'with Appreciated', 'Ya', 'Okay ^^', 'Welcome', 'Never mind :)']
 menu_cmd = ['pen menu', 'pen Menu', 'เปิดเมนู', 'เรียกเมนู', 'show function', 'Show function', 'Show Menu', 'show menu',
             'Show menu']
-simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','โคลอี','โคลอี้จ๋า','ถามได้ตอบได้','ศราวุธ','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','อมึงแหละ','ตึงโป','วดฟ','wtf','โนว','ถามอะไรตอบได้','ด่ามึงอ']
+simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','โคลอี','โคลอี้จ๋า','ถามได้ตอบได้','ศราวุธ','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','อมึงแหละ','ตึงโป','วดฟ','wtf','โนว','ถามอะไรตอบได้','ด่ามึงอ','นั่นแหละ']
 simq_ans = ['I am Chloe The Secretary of Colonel',
             'I am Chloe The Secretary of Colonel ^^ Helping My Master & you guys', 'My Boss or my master is Colonel',
-            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','^^','จ๋าาาา','ได้','ไม่พบศราวุธในสารบบ','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','วดฟ+1','wtf+1','โนโน้โนโน้','ไมได้ แบร่','ตะลึงตึ่งโป๊ะ!']
+            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','^^','จ๋าาาา','ได้','ไม่พบศราวุธในสารบบ','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','วดฟ+1','wtf+1','โนโน้โนโน้','ไมได้ แบร่','ตะลึงตึ่งโป๊ะ!','ตะลึงตึ่งโป๊ะ!']
 randomfive = ['555+','5555+','55555+','5555+','55555+','555555+','55555+','555555+','5555555+','5555+','55555+','555555+','55555+',
 '555555+','5555555+','555555+','5555555+','55555555+','55555+','555555+','5555555+','555555+','5555555+','55555555+','5555555+','55555555+','555555555+',]
 bank_ask = ['eport accounts', 'ccount reports', 'om engr account', 'pdate account', 'heck amout account',
@@ -73,6 +73,12 @@ for tmp in president:
 # result = bot_status)
 # result = status)
 # result = '-')
+if status == 0 :
+    if 'โพ่ง' in message:
+        result = message.replace('โพ่ง','พ่อง')
+    elif 'พ่าง' in message:
+        result = message,replace('พ่าง','บ้านบึ้ม')
+    status = 1
 if bot_mode == 1 and bot_status == 1 and status == 0:
     try:
         gdate = message[0:10]
@@ -292,8 +298,8 @@ if status == 0:
                     status =1
             if 'เมดี้' in message:
                 result =  'เบอร์เมดี้: 09498959xx'
-            if not result:
-                result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
+            #if not result:
+            #    result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
 	    status = 1
 if status == 0:
     if 'ขอเลขนศ' in message:
@@ -315,7 +321,7 @@ if status == 0:
 	    if 'เมดี้' in message:
 	      result =  'ไม่ให้ค่ะ'
 	    if not result:
-	      result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
+	      result = 'ไม่พบชื่อที่คุณหา'
 	    status = 1
 if status == 0:
     if 'ขอรหัสนศ' in message:
@@ -336,8 +342,6 @@ if status == 0:
 		#break
 	    if 'เมดี้' in message:
 	      result =  'ไม่ให้ค่ะ'
-	    if not result:
-	      result = 'ไม่พบชื่อหรือสิ่งที่คุณหา'
 	    status = 1
 insult = ['ด่าอิ','ด่าแม่ง','ด่าไอ','ด่ามัน','ด่าอีก','ด่าาแม่ง','ด่ามันสิ','ด่ามxyันซิ','ด่าต่อไป','ด่าอย่าหยุด']
 reinsult = ['กะหรี','กระหรี','สัส','สาส','บ้า','เวร','สาสสสส','สาดดด']
@@ -426,6 +430,20 @@ if status == 0:
             else:
                 result = 'ขอโทษค่ะหนูด่าไม่ได้ แอแฮร่'
                 status = 1
+if status == 0:
+    if 'ด่า' in message:
+        if 'แหละ' in message:
+            if isinsult == '1':
+                final = ''
+                first = ''
+                second = ''
+                select = randint(0,2)
+                for tmpo in member:  # Must be 31 in col or last parameter
+                  if (tmpo in message):
+                    ran1 = ['ตึ่งตะลึงตึ่งโป๊ะ','ตะลึงตึงโป้ะ','ตะลึง ตะลึงตึงโป้ะ !']
+                    result =  random.choice(ran1)
+                    status = 1
+                    break               
 if status == 0:
     if 'แฮร' in message:
         result = random.choice(randomfive)
