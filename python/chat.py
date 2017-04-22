@@ -59,14 +59,14 @@ tellasc_cmd = ['tell all associate']
 tellasc_ans = ['Okay i will update send msg for you', 'Yes, wait a second', 'Let me work on it', 'Here we go',
                'Alright here is it', 'Ya this one ^^']
 # Class def
-checkfirst = 'ด่าไอท้อ'
-isinsult = True
-president = ['ท้อ','ท่อ','ทอ','ท๊อ','ท๋อ','ปธ','ประ','ป่ระ','ปร่ะ','ป่ร่ะ','ปะ','ป่ะ','ป้ะ','ป๊ะ','ป๋ะ','ปท','พรหม','พรม','สุร','นท์','ทร์','พุท','พุธ','รรม','วงศ','วงส','วงษ','เมด','เม่ด']
+
+isinsult = 1
+president = ['ท้อ','ท่อ','ทอ','ท๊อ','ท๋อ','ปธ','ประ','ป่ระ','ปร่ะ','ป่ร่ะ','ปะ','ป่ะ','ป้ะ','ป๊ะ','ป๋ะ','ปท','พรหม','พรม','สุร','นท์','ทร์','พุท','พุธ','รรม','วงศ','วงส','วงษ','เมด','เม่ด','ป.ธ']
 special = ['!','@','#','$','%','^','&','*','(',')','_','+','=','-','.',',','/','\\',' ']
 checkfirst = message      
 for tmp in checkfirst:
     if tmp in president:
-        isinsult = False
+        isinsult = 0
 # if you are not the author, echo
 
 # result = result)
@@ -377,7 +377,7 @@ member = ['แพรว','มิน','มิ้น','คิตตี้','มา
 if status == 0:
     for tmp in insult:
         if tmp in message:
-            if isinsult == True:
+            if isinsult == 1:
                 final = ''
                 first = ''
                 second = ''
@@ -405,7 +405,7 @@ if status == 0:
 if status == 0:
     if 'ด่า' in message:
         if 'มัน' in message:
-            if isinsult == True:
+            if isinsult == 1:
                 final = ''
                 first = ''
                 second = ''
