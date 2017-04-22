@@ -319,9 +319,7 @@ if status == 0:
   	        status = 1
 		#break
 	    if 'เมดี้' in message:
-	      result =  'ไม่ให้ค่ะ'
-	    if not result:
-                #result = 'ไม่พบชื่อที่คุณหา'
+                result =  'ไม่ให้ค่ะ'
                 status = 1
 if status == 0:
     if 'ขอรหัสนศ' in message:
