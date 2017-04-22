@@ -373,7 +373,8 @@ reinsult2 = ['อิผี','อิดอก','อีบลิซซาร์ด
 'ไอ้ตาเถรตกใต้ถุน','ไอ้เนรคุณแผ่นดินเกิด','ไอ้ระเบิดแสวงเครื่อง','ไอ้ครกกระเดื่องตำข้าว',
 'ไอ้มะพร้าวห้าวยัดปาก','ไอ้สากกระเบือยัดก้น','ไอ้คนไททิ้งแผ่นดิน',
 'ไอ้ไพร่เพื่อทัก','ไอ้บักหำน้อย','ไอ้กบฏต่อราชบัลลังก์','อีลานจอดนกเอี้ยง']
-
+member = ['แพรว','มิน','มิ้น','คิตตี้','มาย','ปืน','พี','กาย','ออม','ภูมิ','เบียร์','เบีย','แนน','แฟง','จูน','เอิท','ออมสิน','ปอน','แมค','แมก','เจส','มุก','น้ำ','บูม',
+          'นั้ม','ทัยรัตน','ภาสวิชญ์','พีมลทิพย์','วรเดช','หลิน','กิ้ก','เก่ง','นิค','ฟาโล','กิ๊ก','นิก']
 if status == 0:
     for tmp in insult:
         if tmp in message:
@@ -381,11 +382,6 @@ if status == 0:
                 final = ''
                 first = ''
                 second = ''
-                scope = ['https://spreadsheets.google.com/feeds']
-                credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
-                gc = gspread.authorize(credentials)
-                sh = gc.open_by_key('1aI55l3bs_BnjXpKGeRb4JIKzngnHOq1ZltiIJvxh4Mc')
-                worksheet = sh.worksheet('Sheet1')
                 select = randint(0,2)
                 if(select == 0):
                     first = random.choice(prefixinsult)
@@ -395,19 +391,40 @@ if status == 0:
                     final = random.choice(reinsult)
                 elif(select == 2):
                     final = random.choice(reinsult2)
-                for row in range(2, 34):  # Must be 31 in col or last parameter
-                  peruser = 0
-                  tmp = ''
-                  tmp = (worksheet.cell(row, 6).value)
-                  tmp = tmp.encode('utf-8')
-                  if (tmp in message):
+                for tmpo in member:  # Must be 31 in col or last parameter
+                  if (tmpo in message):
                     current = random.choice(prefixinsult)
-                    result = current + tmp + ' '+ final + 'ค่ะ'
+                    result = current + tmpo + ' '+ final + 'ค่ะ'
                     status = 1
                     break
                 if status == 0:
                     result = final
                     status = 1
+            else:
+                result = 'ขอโทษค่ะหนูด่าไม่ได้ แอแฮร่'
+                status = 1
+if status == 0:
+    if 'ด่า' in message:
+        if 'มัน' in message:
+            if isinsult != False:
+                final = ''
+                first = ''
+                second = ''
+                select = randint(0,2)
+                if(select == 0):
+                    first = random.choice(prefixinsult)
+                    second = random.choice(reinsult)
+                    final +=  first + second
+                elif(select == 1):
+                    final = random.choice(reinsult)
+                elif(select == 2):
+                    final = random.choice(reinsult2)
+                for tmpo in member:  # Must be 31 in col or last parameter
+                  if (tmpo in message):
+                    current = random.choice(prefixinsult)
+                    result = current + tmpo + ' '+ final + 'ค่ะ'
+                    status = 1
+                    break
             else:
                 result = 'ขอโทษค่ะหนูด่าไม่ได้ แอแฮร่'
                 status = 1
