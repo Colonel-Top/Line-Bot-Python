@@ -436,4 +436,5 @@ if status == 0:
             position = simq_ask.index(tmp)
             result = simq_ans[position]
             status = 1
+print (isinsult)            
 print ('%s' % result)
