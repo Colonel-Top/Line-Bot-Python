@@ -63,10 +63,7 @@ checkfirst = 'ด่าไอท้อ'
 isinsult = True
 president = ['ท้อ','ท่อ','ทอ','ท๊อ','ท๋อ','ปธ','ประ','ป่ระ','ปร่ะ','ป่ร่ะ','ปะ','ป่ะ','ป้ะ','ป๊ะ','ป๋ะ','ปท','พรหม','พรม','สุร','นท์','ทร์','พุท','พุธ','รรม','วงศ','วงส','วงษ','เมด','เม่ด']
 special = ['!','@','#','$','%','^','&','*','(',')','_','+','=','-','.',',','/','\\',' ']
-checkfirst = ""
-for tmp in special:
-    if tmp in message:
-        checkfirst = message.replace(tmp,'')
+checkfirst = ''.join(e for e in message if e.isalnum())
 print (checkfirst)        
 for tmp in checkfirst:
     if tmp in president:
