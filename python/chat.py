@@ -63,8 +63,8 @@ tellasc_ans = ['Okay i will update send msg for you', 'Yes, wait a second', 'Let
 isinsult = '1'
 president = ['ท้อ','ท่อ','ทอ','ท๊อ','ท๋อ','ปธ','ประ','ป่ระ','ปร่ะ','ป่ร่ะ','ปะ','ป่ะ','ป้ะ','ป๊ะ','ป๋ะ','ปท','พรหม','พรม','สุร','นท์','ทร์','พุท','พุธ','รรม','วงศ','วงส','วงษ','เมด','เม่ด','ป.ธ','ป,ธ','ป.ท','ปท','ป,ท']
 special = ['!','@','#','$','%','^','&','*','(',')','_','+','=','-','.',',','/','\\',' ']     
-for tmp in message:
-    if president in tmp:
+for tmp in president:
+    if tmp in message:
         isinsult = '0'
 # if you are not the author, echo
 
@@ -436,5 +436,5 @@ if status == 0:
             position = simq_ask.index(tmp)
             result = simq_ans[position]
             status = 1
-print (isinsult)            
+           
 print ('%s' % result)
