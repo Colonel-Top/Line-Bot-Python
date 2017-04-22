@@ -2,6 +2,7 @@
 # -*-coding: utf-8 -*-
 import gspread
 import os
+import re
 import random
 from datetime import datetime
 import json
@@ -60,7 +61,11 @@ tellasc_ans = ['Okay i will update send msg for you', 'Yes, wait a second', 'Let
 # Class def
 isinsult = True
 president = ['ท้อ','ท่อ','ทอ','ท๊อ','ท๋อ','ปธ','ประ','ป่ระ','ปร่ะ','ป่ร่ะ','ปะ','ป่ะ','ป้ะ','ป๊ะ','ป๋ะ','ปท','พรหม','พรม','สุร','นท์','ทร์','พุท','พุธ','รรม','วงศ','วงส','วงษ','เมด','เม่ด']
-checkfirst = ''.join(e for e in message if e.isalnum())
+special = ['!','@','#','$','%','^','&','*','(',')','_','+','=','-','.',',','/','\\',' ']
+checkfirst = ''
+for tmp in special:
+    if tmp in message:
+        checkfirst = message.replace(tmp,'')
 for tmp in checkfirst:
     if tmp in president:
         isinsult = False
