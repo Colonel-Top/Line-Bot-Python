@@ -341,8 +341,8 @@ if status == 0:
 	    if not result:
 	      result = 'ไม่พบชื่อหรือสิ่งที่คุณหา'
 	    status = 1
-insult = ['ด้าอิ','ด่าแม่ง','ด่าไอ']
-reinsult = ['กะหรี','กระหร','สัส','สาส','บ้า','เวร']
+insult = ['ด่าอิ','ด่าแม่ง','ด่าไอ']
+reinsult = ['กะหรี','กระหรี','สัส','สาส','บ้า','เวร','สาสสสส','สาดดด']
 prefixinsult = ['ไอ้','อี','อิ','ไอ']
 reinsult2 = ['อิผี','อิดอก','อีบลิซซาร์ดไม่คว่ำถ้วย','ไอ้แหวกกอหญ้า','ไอ้บ้าห้าร้อยจำพวก','ไอ้ปลวกใต้หลังคา','ไอ้หน้าปลาจวด',
 'ไอ้บ้องกัญชา','ไอ้ปลาไม่กินเบ็ด','ไอ้เห็ดสามสี',
@@ -378,7 +378,7 @@ member = ['แพรว','มิน','มิ้น','คิตตี้','มา
 if status == 0:
     for tmp in insult:
         if tmp in message:
-            if isinsult != False:
+            if isinsult == True:
                 final = ''
                 first = ''
                 second = ''
@@ -406,7 +406,7 @@ if status == 0:
 if status == 0:
     if 'ด่า' in message:
         if 'มัน' in message:
-            if isinsult != False:
+            if isinsult == True:
                 final = ''
                 first = ''
                 second = ''
