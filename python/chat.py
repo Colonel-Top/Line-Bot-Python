@@ -77,7 +77,7 @@ if status == 0 :
     if 'โพ่ง' in message:
         result = message.replace('โพ่ง','พ่อง')
     if 'พ่าง' in message:
-        result = message,replace('พ่าง','บ้านบึ้ม')
+        result = message.replace('พ่าง','บ้านบึ้ม')
 if bot_mode == 1 and bot_status == 1 and status == 0:
     try:
         gdate = message[0:10]
