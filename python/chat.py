@@ -6,6 +6,7 @@ import random
 from datetime import datetime
 import json
 import sys
+from random import randint
 if len(sys.argv) < 2:
     sys.exit(0)
 #print("Done")
@@ -41,11 +42,12 @@ backasgre_w = ['Thx', 'Thank', 'ขอบคุณ', 'appreciate', 'ขอบใ
 backasgre_f = ['Your welcome', 'With Pleasure :)', 'with Appreciated', 'Ya', 'Okay ^^', 'Welcome', 'Never mind :)']
 menu_cmd = ['pen menu', 'pen Menu', 'เปิดเมนู', 'เรียกเมนู', 'show function', 'Show function', 'Show Menu', 'show menu',
             'Show menu']
-simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','แฮร่','โคลอี','โคลอี้จ๋า','ถามได้ตอบได้','ศราวุธ','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','อมึงแหละ','ตึงโป','วดฟ','wtf','โนว','ถามอะไรตอบได้','ด่ามึงอ่ะ']
+simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','โคลอี','โคลอี้จ๋า','ถามได้ตอบได้','ศราวุธ','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','อมึงแหละ','ตึงโป','วดฟ','wtf','โนว','ถามอะไรตอบได้','ด่ามึงอ่ะ']
 simq_ans = ['I am Chloe The Secretary of Colonel',
             'I am Chloe The Secretary of Colonel ^^ Helping My Master & you guys', 'My Boss or my master is Colonel',
-            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','55555555+','^^','จ๋าาาา','ได้','ไม่พบศราวุธในสารบบ','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','วดฟ+1','wtf+1','โนโน้โนโน้','ไมได้ แบร่','ตะลึงตึ่งโป๊ะ!']
-
+            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','^^','จ๋าาาา','ได้','ไม่พบศราวุธในสารบบ','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','วดฟ+1','wtf+1','โนโน้โนโน้','ไมได้ แบร่','ตะลึงตึ่งโป๊ะ!']
+randomfive = ['555+','5555+','55555+','5555+','55555+','555555+','55555+','555555+','5555555+','5555+','55555+','555555+','55555+',
+'555555+','5555555+','555555+','5555555+','55555555+','55555+','555555+','5555555+','555555+','5555555+','55555555+','5555555+','55555555+','555555555+',]
 bank_ask = ['eport accounts', 'ccount reports', 'om engr account', 'pdate account', 'heck amout account',
             'heck amout in account']
 bank_ans = ['โอเคจ้า จะทำการอัพเดตให้เดี๋ยวนี้เลย', 'จ้า กำลังอัพเดตให้ละน้า', 'ได้เลยจ้า', 'ได้เลยจ้า แปปเดียวก็เสร็จละ',
@@ -56,10 +58,14 @@ tellasc_cmd = ['tell all associate']
 tellasc_ans = ['Okay i will update send msg for you', 'Yes, wait a second', 'Let me work on it', 'Here we go',
                'Alright here is it', 'Ya this one ^^']
 # Class def
-
-
+isinsult = None
+president = ['ท้อ','ท่อ','ทอ','ท๊อ','ท๋อ','ปธ','ประ','ป่ระ','ปร่ะ','ป่ร่ะ','ปะ','ป่ะ','ป้ะ','ป๊ะ','ป๋ะ','ปท','พรหม','พรม','สุร','นท์','ทร์','พุท','พุธ','รรม','วงศ','วงส','วงษ','เมด','เม่ด']
+checkfirst = ''.join(e for e in message if e.isalnum())
+for tmp in checkfirst:
+    if tmp in president:
+        isinsult = False
 # if you are not the author, echo
-
+if 
 # result = result)
 # result =  bot_mode)
 # result = bot_status)
@@ -335,6 +341,80 @@ if status == 0:
 	    if not result:
 	      result = 'ไม่พบชื่อหรือสิ่งที่คุณหา'
 	    status = 1
+insult = ['ด่ามัน','ด้าอิ','ด่าแม่ง','ด่าไอ']
+reinsult = ['กะหรี','กระหร','สัส','สาส','บ้า','เวร']
+prefixinsult = ['ไอ้','อี','อิ','ไอ']
+reinsult2 = ['อิผี','อิดอก','อีบลิซซาร์ดไม่คว่ำถ้วย','ไอ้แหวกกอหญ้า','ไอ้บ้าห้าร้อยจำพวก','ไอ้ปลวกใต้หลังคา','ไอ้หน้าปลาจวด',
+'ไอ้บ้องกัญชา','ไอ้ปลาไม่กินเบ็ด','ไอ้เห็ดสามสี',
+'ไอ้กะโหลกซออู้','ไอ้กู่ไม่กลับ','ไอ้ตับย่างเกลือ',
+'ไอ้เชื้ออหิวาต์','ไอ้ม้าขี้ครอก','ไอ้หอกขึ้นสนิม','ไอ้ขิมสายขาด',
+'ไอ้ชาติสุนัข','ไอ้ตะหวักตะบวย','ไอ้กล้วยตากแห้ง','ไอ้แกงฟักทอง',
+'ไอ้คลองเจ็ดคด','ไอ้ชะมดเช็ด','ไอ้เกล็ดเต็มตัว','ไอ้มั่วไม่รู้จบ',
+'ไอ้ศพขึ้นอืด','ไอ้หืดขึ้นคอ','ไอ้ปลาหมอแถกเหงือก','ไอ้เผือกรมควัน',
+'ไอ้มันสำปะหลัง','ไอ้โกดังเก็บศพ','ไอ้กบผัดเผ็ด','ไอ้เป็ดทอดกระเทียม',
+'ไอ้ดีไม่ห่างเหิน','ไอ้เดินไม่ดูทาง','ไอ้ก้างติดคอ','ไอ้หม้อก้นทะลุ',
+'ไอ้หัว***','ไอ้กระจาดปลาแห้ง',
+'ไอ้ปลาทูแม่กลอง','ไอ้สององคต','ไอ้หดหัวในกระฎอง','ไอ้สมองเท่าเมล็ดถั่ว',
+'ไอ้ตัวกินไก่','ไอ้ใจปลาซิว','ไอ้หิวตลอดศก','ไอ้ซกมกเป็นนิจสิน',
+'ไอ้หินใต้บาดาล','ไอ้เพลงผิดคีย์','ไอ้สีทาบ้าน',
+'ไอ้จานเปื้อนคราบ','ไอ้แมลงสาบทรงเครื่อง','ไอ้เปลืองข้าวสุก','ไอ้กระปุกตังไฉ่',
+'ไอ้มารสังคม','ไอ้ผ้าห่มสีซีด','ไอ้ศพไม่ฉีดฟอร์มาลิน','ไอ้กระถินริมรั้ว',
+'ไอ้บัวเต่าถุย','ไอ้กุ๊ยไร้สังกัด','ไอ้ผัดผักไฟแดง','ไอ้แพนงกระดูกหมู',
+'ไอ้สาคูน้ำกะทิ','ไอ้กะปิค้างคืน','ไอ้หื่นเป็น...','ไอ้ขวานผ่าซาก',
+'ไอ้กากสิ่งปฏิกูล','ไอ้พะยูนตากแดด','ไอ้แรดสองนอ','ไอ้จอหนังตะลุง',
+'ไอ้ถุงสองใบ','ไอ้ไข่ลูกเดียว','ไอ้เคียวห่วยๆ','ไอ้ถ้วยสังขยาบูด',
+'ไอ้กระต่ายขูดมะพร้าว','ไอ้ชาวสวนทุเรียน','ไอ้ตะเพียนหางยาว','ไอ้ว่าวหางขาด',
+'ไอ้ฉลาดแต่เรื่องโง่','ไอ้โมฆบุรุษ','ไอ้มนุษย์สามานย์','ไอ้เชี่ยวชาญแต่เรื่องชั่ว',
+'ไอ้แกงคั่วหอยขม','ไอ้นิยมแต่เรื่องผิด','ไอ้จิตวิปลาส','ไอ้ทาสเงินตรา',
+'ไอ้ชฎายอดหัก','ไอ้ไม้หลักปักขี้เลน','ไอ้จิ้งเหลนหางไหม้','ไอ้ตะไคร่ในท่อน้ำ',
+'ไอ้ดำตับเป็ด','ไอ้พูดเท็จหน้าด้านๆ','ไอ้คอห่านส้วมซึม','ไอ้อึมครึมตลอดชาติ',
+'ไอ้หาดจอมเทียน','ไอ้เชี่ยนตะบันหมาก','ไอ้ปากปลากะโห้','ไอ้โถส้วมสาธารณะ',
+'ไอ้กระบะใส่ขี้แมว','ไอ้เรือแจวยี่สิบฝีพาย','ไอ้ควายเขาหัก','ไอ้ปลักโคลนเลน',
+'ไอ้ตาเถรตกใต้ถุน','ไอ้เนรคุณแผ่นดินเกิด','ไอ้ระเบิดแสวงเครื่อง','ไอ้ครกกระเดื่องตำข้าว',
+'ไอ้มะพร้าวห้าวยัดปาก','ไอ้สากกระเบือยัดก้น','ไอ้คนไททิ้งแผ่นดิน',
+'ไอ้ไพร่เพื่อทัก','ไอ้บักหำน้อย','ไอ้กบฏต่อราชบัลลังก์','อีลานจอดนกเอี้ยง']
+
+if status == 0:
+    for tmp in insult:
+        if tmp in message:
+            if isinsult != False:
+                final = ''
+                first = ''
+                second = ''
+                scope = ['https://spreadsheets.google.com/feeds']
+                credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
+                gc = gspread.authorize(credentials)
+                sh = gc.open_by_key('1aI55l3bs_BnjXpKGeRb4JIKzngnHOq1ZltiIJvxh4Mc')
+                worksheet = sh.worksheet('Sheet1')
+                select = randint(0,2)
+                if(select == 0):
+                    first = random.choice(prefixinsult)
+                    second = random.choice(reinsult)
+                    final +=  first + second
+                elif(select == 1):
+                    final = random.choice(reinsult)
+                elif(select == 2):
+                    final = random.choice(reinsult2)
+                for row in range(2, 34):  # Must be 31 in col or last parameter
+                  peruser = 0
+                  tmp = ''
+                  tmp = (worksheet.cell(row, 6).value)
+                  tmp = tmp.encode('utf-8')
+                  if (tmp in message):
+                    current = random.choice(prefixinsult)
+                    result = current + tmp + ' '+ final + 'ค่ะ'
+                    status = 1
+                    break
+                if status == 0:
+                    result = final
+                    status = 1
+            else:
+                result = 'ขอโทษค่ะหนูด่าไม่ได้ แอแฮร่'
+                status = 1
+if status == 0:
+    if 'แฮร' in message:
+        result = random.choice(randomfive)
+        status == 1
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
