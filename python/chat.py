@@ -403,7 +403,7 @@ if status == 0:
                     status = 1
                     break
                 if status == 0:
-                    result = final
+                    result = final +'ค่ะ'
                     status = 1
             else:
                 result = 'ขอโทษค่ะหนูด่าไม่ได้ แอแฮร่'
