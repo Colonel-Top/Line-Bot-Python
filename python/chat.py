@@ -66,6 +66,7 @@ checkfirst = ''
 for tmp in special:
     if tmp in message:
         checkfirst = message.replace(tmp,'')
+print (checkfirst)        
 for tmp in checkfirst:
     if tmp in president:
         isinsult = False
