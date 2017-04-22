@@ -15,7 +15,7 @@ if len(sys.argv) < 2:
 message = sys.argv[1]
 #print (message)
 now = datetime.now()
-result = ""
+result = ''
 from oauth2client.service_account import ServiceAccountCredentials
 
 status = 0
@@ -59,10 +59,11 @@ tellasc_cmd = ['tell all associate']
 tellasc_ans = ['Okay i will update send msg for you', 'Yes, wait a second', 'Let me work on it', 'Here we go',
                'Alright here is it', 'Ya this one ^^']
 # Class def
+checkfirst = 'ด่าไอท้อ'
 isinsult = True
 president = ['ท้อ','ท่อ','ทอ','ท๊อ','ท๋อ','ปธ','ประ','ป่ระ','ปร่ะ','ป่ร่ะ','ปะ','ป่ะ','ป้ะ','ป๊ะ','ป๋ะ','ปท','พรหม','พรม','สุร','นท์','ทร์','พุท','พุธ','รรม','วงศ','วงส','วงษ','เมด','เม่ด']
 special = ['!','@','#','$','%','^','&','*','(',')','_','+','=','-','.',',','/','\\',' ']
-checkfirst = ''
+checkfirst = ""
 for tmp in special:
     if tmp in message:
         checkfirst = message.replace(tmp,'')
@@ -280,28 +281,24 @@ if status == 0:
             # result = "Sorry I don't know that \nYou can try: \nopen menu \nshow menu \nเรียกเมนู \nเปิดเมนู \nshow function"
 if status == 0:
     if 'ขอเบอ' in message:
-	#print (message[0])
-	#if (message[0]=='ข') :
-  	    scope = ['https://spreadsheets.google.com/feeds']
-  	    credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
-  	    gc = gspread.authorize(credentials)
-  	    sh = gc.open_by_key('1aI55l3bs_BnjXpKGeRb4JIKzngnHOq1ZltiIJvxh4Mc')
-  	    worksheet = sh.worksheet('Sheet1')
-  	    for row in range(2, 34):  # Must be 31 in col or last parameter
-  	      peruser = 0
-	      tmp = ''
-  	      tmp = (worksheet.cell(row, 6).value)
-	      tmp = tmp.encode('utf-8')
-  	      if (tmp in message):
-  	        answer = str(worksheet.cell(row,7).value)
-  	        result += 'เบอร์'+ tmp +': ' + answer +'\n'
-		#print (result)
-  	        status = 1
-		#break
-	    if 'เมดี้' in message:
-	      result =  'เบอร์เมดี้: 09498959xx'
-	    if not result:
-	      result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
+        if (1):
+            scope = ['https://spreadsheets.google.com/feeds']
+            credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
+            gc = gspread.authorize(credentials)
+            sh = gc.open_by_key('1aI55l3bs_BnjXpKGeRb4JIKzngnHOq1ZltiIJvxh4Mc')
+            worksheet = sh.worksheet('Sheet1')
+            for row in range(2, 34):  # Must be 31 in col or last parameter
+                tmp = ''
+                tmp = (worksheet.cell(row, 6).value)
+                tmp = tmp.encode('utf-8')
+                if (tmp in message):
+                    answer = str(worksheet.cell(row,7).value)
+                    result += 'เบอร์'+ tmp +': ' + answer +'\n'
+                    status =1
+            if 'เมดี้' in message:
+                result =  'เบอร์เมดี้: 09498959xx'
+            if not result:
+                result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
 	    status = 1
 if status == 0:
     if 'ขอเลขนศ' in message:
