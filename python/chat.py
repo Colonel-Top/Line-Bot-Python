@@ -298,9 +298,9 @@ if status == 0:
                     status =1
             if 'เมดี้' in message:
                 result =  'เบอร์เมดี้: 09498959xx'
-            #if not result:
-            #    result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
-                status = 1
+            if not result:
+                result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
+	    status = 1
 if status == 0:
     if 'ขอเลขนศ' in message:
   	    scope = ['https://spreadsheets.google.com/feeds']
@@ -319,8 +319,10 @@ if status == 0:
   	        status = 1
 		#break
 	    if 'เมดี้' in message:
-                result =  'ไม่ให้ค่ะ'
-                status = 1
+	      result =  'ไม่ให้ค่ะ'
+	    if not result:
+	      result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
+	    status = 1
 if status == 0:
     if 'ขอรหัสนศ' in message:
   	    scope = ['https://spreadsheets.google.com/feeds']
@@ -339,8 +341,10 @@ if status == 0:
   	        status = 1
 		#break
 	    if 'เมดี้' in message:
-                result =  'ไม่ให้ค่ะ'
-                status = 1
+	      result =  'ไม่ให้ค่ะ'
+	    if not result:
+	      result = 'ไม่พบชื่อหรือสิ่งที่คุณหา'
+	    status = 1
 insult = ['ด่าอิ','ด่าแม่ง','ด่าไอ','ด่ามัน','ด่าอีก','ด่าาแม่ง','ด่ามันสิ','ด่ามxyันซิ','ด่าต่อไป','ด่าอย่าหยุด']
 reinsult = ['กะหรี','กระหรี','สัส','สาส','บ้า','เวร','สาสสสส','สาดดด']
 prefixinsult = ['ไอ้','อี','อิ','ไอ']
