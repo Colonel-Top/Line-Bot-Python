@@ -65,7 +65,7 @@ for tmp in checkfirst:
     if tmp in president:
         isinsult = False
 # if you are not the author, echo
-if 
+
 # result = result)
 # result =  bot_mode)
 # result = bot_status)
