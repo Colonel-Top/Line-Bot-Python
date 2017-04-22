@@ -41,10 +41,10 @@ backasgre_w = ['Thx', 'Thank', 'ขอบคุณ', 'appreciate', 'ขอบใ
 backasgre_f = ['Your welcome', 'With Pleasure :)', 'with Appreciated', 'Ya', 'Okay ^^', 'Welcome', 'Never mind :)']
 menu_cmd = ['pen menu', 'pen Menu', 'เปิดเมนู', 'เรียกเมนู', 'show function', 'Show function', 'Show Menu', 'show menu',
             'Show menu']
-simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','แฮร่','โคลอี','โคลอี้จ๋า','ถามได้ตอบได้','ศราวุธ','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','เออมึงแหละ','ตึงโป','วดฟ','wtf','โน','ถามอะไรตอบได้']
+simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','แฮร่','โคลอี','โคลอี้จ๋า','ถามได้ตอบได้','ศราวุธ','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','อมึงแหละ','ตึงโป','วดฟ','wtf','โนว','ถามอะไรตอบได้','ด่ามึงอ่ะ']
 simq_ans = ['I am Chloe The Secretary of Colonel',
             'I am Chloe The Secretary of Colonel ^^ Helping My Master & you guys', 'My Boss or my master is Colonel',
-            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','55555555+','^^','จ๋าาาา','ได้','ไม่พบศราวุธในสารระบบ','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','วดฟ+1','wtf+1','โนโน้โนโน้','ไมได้ แบร่']
+            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','55555555+','^^','จ๋าาาา','ได้','ไม่พบศราวุธในสารบบ','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','วดฟ+1','wtf+1','โนโน้โนโน้','ไมได้ แบร่','ตะลึงตึ่งโป๊ะ!']
 
 bank_ask = ['eport accounts', 'ccount reports', 'om engr account', 'pdate account', 'heck amout account',
             'heck amout in account']
@@ -268,6 +268,8 @@ if status == 0:
             # result = "Sorry I don't know that \nYou can try: \nopen menu \nshow menu \nเรียกเมนู \nเปิดเมนู \nshow function"
 if status == 0:
     if 'ขอเบอ' in message:
+	#print (message[0])
+	#if (message[0]=='ข') :
   	    scope = ['https://spreadsheets.google.com/feeds']
   	    credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
   	    gc = gspread.authorize(credentials)
@@ -280,9 +282,10 @@ if status == 0:
 	      tmp = tmp.encode('utf-8')
   	      if (tmp in message):
   	        answer = str(worksheet.cell(row,7).value)
-  	        result = 'เบอร์'+ tmp +': ' + answer
+  	        result += 'เบอร์'+ tmp +': ' + answer +'\n'
+		#print (result)
   	        status = 1
-		break
+		#break
 	    if 'เมดี้' in message:
 	      result =  'เบอร์เมดี้: 09498959xx'
 	    if not result:
@@ -302,9 +305,9 @@ if status == 0:
 	      tmp = tmp.encode('utf-8')
   	      if (tmp in message):
   	        answer = str(worksheet.cell(row,2).value)
-  	        result = 'เบอร์'+ tmp +': ' + answer
+  	        result += 'เลขรหัสนศ. '+ tmp +': ' + answer+'\n'
   	        status = 1
-		break
+		#break
 	    if 'เมดี้' in message:
 	      result =  'ไม่ให้ค่ะ'
 	    if not result:
@@ -324,13 +327,13 @@ if status == 0:
 	      tmp = tmp.encode('utf-8')
   	      if (tmp in message):
   	        answer = str(worksheet.cell(row,2).value)
-  	        result = 'เบอร์'+ tmp +': ' + answer
+  	        result += 'เลขรหัสนศ. '+ tmp +' : ' + answer+'\n'
   	        status = 1
-		break
+		#break
 	    if 'เมดี้' in message:
 	      result =  'ไม่ให้ค่ะ'
 	    if not result:
-	      result = 'ไม่พบชื่อหรือเบอร์ที่คุณหา'
+	      result = 'ไม่พบชื่อหรือสิ่งที่คุณหา'
 	    status = 1
 if status == 0:
     for tmp in simq_ask:
