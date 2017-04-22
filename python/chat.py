@@ -82,6 +82,13 @@ if status == 0 :
         result = message.replace('บ้านบึ้ม','บึ้มพ่อง')
     if 'ฟวย' in message:
         result = 'Uvuvwevwevwe Onyetenyevwe Ugwemuhwem Osas~'
+    if 'ด่า'in message:
+        if 'สามช่า' in message:
+            result = 'ฟวย ฟวยๆ ฟวย ฟวย'
+        if 'อจ' in message:
+            result = ''
+        if 'อาจา' in message :
+            result = ''
         
 if bot_mode == 1 and bot_status == 1 and status == 0:
     try:
