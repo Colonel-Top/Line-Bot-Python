@@ -350,7 +350,7 @@ if status == 0:
 	    if 'เมดี้' in message:
 	      result =  'ไม่ให้ค่ะ'
 	    status = 1
-insult = ['ด่าอิ','ด่าแม่ง','ด่าไอ','ด่ามัน','ด่าอีก','ด่าาแม่ง','ด่ามันสิ','ด่ามันซิ','ด่าต่อไป','ด่าอย่าหยุด','ด่าอี','ด่าอิ']
+insult = ['ด่าอิ','ด่าแม่ง','ด่าไอ','ด่ามัน','ด่าอีก','ด่าาแม่ง','ด่ามันสิ','ด่ามันซิ','ด่าต่อไป','ด่าอย่าหยุด','ด่าอี','ด่าอิ','ด่ามา']
 
 prefixinsult = ['ไอ้','อี','อิ','ไอ']
 reinsult2 = ['อิผี','อิผี','อิดอก','อีบลิซซาร์ดไม่คว่ำถ้วย','อีบลิซซาร์ดไม่คว่ำถ้วย','อีบลิซซาร์ดไม่คว่ำถ้วย','อีบลิซซาร์ดไม่คว่ำถ้วย','อีบลิซซาร์ดไม่คว่ำถ้วย','ไอ้แหวกกอหญ้า','ไอ้บ้าห้าร้อยจำพวก','ไอ้ปลวกใต้หลังคา','ไอ้หน้าปลาจวด',
@@ -391,14 +391,14 @@ if status == 0:
                 final = ''
                 first = ''
                 second = ''
-                select = randint(0,2)
+                select = randint(0,3)
                 if(select == 0):
                     first = random.choice(prefixinsult)
                     second = random.choice(reinsult)
                     final +=  first + second
                 elif(select == 1):
                     final = random.choice(reinsult)
-                elif(select == 2):
+                else:
                     final = random.choice(reinsult2)
                 for tmpo in member:  # Must be 31 in col or last parameter
                   if (tmpo in message):
@@ -419,14 +419,14 @@ if status == 0:
                 final = ''
                 first = ''
                 second = ''
-                select = randint(0,2)
+                select = randint(0,3)
                 if(select == 0):
                     first = random.choice(prefixinsult)
                     second = random.choice(reinsult)
                     final +=  first + second
                 elif(select == 1):
                     final = random.choice(reinsult)
-                elif(select == 2):
+                else:
                     final = random.choice(reinsult2)
                 for tmpo in member:  # Must be 31 in col or last parameter
                   if (tmpo in message):
@@ -444,7 +444,7 @@ if status == 0:
                 final = ''
                 first = ''
                 second = ''
-                select = randint(0,2)
+                select = randint(0,3)
                 for tmpo in member:  # Must be 31 in col or last parameter
                   if (tmpo in message):
                     ran1 = ['ตึ่งตะลึงตึ่งโป๊ะ','ตะลึงตึงโป้ะ','ตะลึง ตะลึงตึงโป้ะ !']
