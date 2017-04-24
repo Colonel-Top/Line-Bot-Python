@@ -130,7 +130,7 @@ while (True):
                    #print (str(curday)+" " + str(curmin) + " " + str(now.min))
                     #print("*")
                     
-                    if(curhour >= 1):
+                    if curhour >= 1:
                         curhour = curhour-1
                     if(curday == now.day and curmonth == now.month and curyear == now.year and curhour == now.hour):
                     #if(1):
