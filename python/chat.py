@@ -462,11 +462,11 @@ if status == 0:
     if 'แฮร' in message:
         result = random.choice(randomfive)
         status == 1
-if status == 0:
+'''if status == 0:
     if 'ศราวุธ' in message:
         randarray = ['ฟารีหน้าโห','ฟาโรเลิกไปปิยะมนได้แล้ววว','ควยไรฟาโร','จูนออกจากหอครั้งสุดท้ายเมื่อไหรวะ','จูนไอ้เฒ่าทารก']
         result = random.choice(randarray)
-        status == 1
+        status == 1'''
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
