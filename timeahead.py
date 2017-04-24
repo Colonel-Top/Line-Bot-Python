@@ -100,8 +100,8 @@ while (True):
             if row == 8:
                 print("Skip Safe")
                 continue
-    #if(now.min == 0 and now.second==0 ):
-    if(now.second == 0) or now.second == 30 :
+    if(now.min == 0 and now.second==0 ):
+    #if(now.second == 0) or now.second == 30 :
         try:
             tmpresult= ''
             #print("Checking Schedule\n")
@@ -135,7 +135,7 @@ while (True):
                     #line_bot_api.push_message(destination, TextSendMessage(tmphour)) #22
                     #line_bot_api.push_message(destination, TextSendMessage(curhour)) #23
                     #line_bot_api.push_message(destination, TextSendMessage(text = "Done"))
-                if(curday == now.day and curmonth == now.month and curyear == now.year and tmphour == now.hour):
+                if(curday == now.day) and curmonth == now.month and curyear == now.year and tmphour == now.hour):
                 #if(1):
                     try:
                         #now = datetime.now()
@@ -154,20 +154,22 @@ while (True):
                         break
                     except Exception as es:
                         print (es)
+                
                 # Close opend file
             f.close()
             line_bot_api.push_message(destination, TextSendMessage(tmpresult))
             print ("Push Notification")
         except Exception as e:
             print (e)
-    if now.hour == 6 and now.minute == 0 and now.second==0:
-    #if((now.second==0 or now.second == 30)):
+    #if now.hour == 6 and now.minute == 0 and now.second==0:
+    if((now.second==0 or now.second == 30)):
         #print('in condition')
         try:
+            result = ''
             #client.send(colonelid,'Second = 0 in function loop')
             #print ('get in try')
             gdate = ""
-            line_bot_api.push_message(destination, TextSendMessage(text=random.choice(timesay)))
+            
             # Open a file
             f = open("serverdate", "r+")
             text = f.readlines()
@@ -193,21 +195,23 @@ while (True):
                     
                     #print ('correct rolling in')
                     try:
+                        result += random.choice(timesay)
                         gdate = (now.strftime("%d-%m-%Y"))
-                        line_bot_api.push_message(destination, TextSendMessage(text= "Date:"+gdate))
+                        result += "กำหนดการแจ้งเตือน \nวันนี้ : \n--------\n"
                         # Open a file
                         fo = open(gdate, "r+")
                         strws = fo.read()
-                        line_bot_api.push_message(destination, TextSendMessage(text=strws))
+                        result += strws
                         # Close opend file
                         fo.close()
                         break
                     except Exception as e:
-                        client.send(colonelid,e)
+                        print (e)
                 # Close opend file
                 f.close()
                 
         except Exception as e:
             print (e)
+        line_bot_api.push_message(destination, TextSendMessage(result))
     time.sleep(1)
     #print (now.second)
