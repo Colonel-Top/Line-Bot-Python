@@ -100,8 +100,8 @@ while (True):
             if row == 8:
                 print("Skip Safe")
                 continue
-    if(now.min == 0 and now.second==0 ):
-    #if(now.second == 0):
+    #if(now.min == 0 and now.second==0 ):
+    if(now.second == 0):
             try:
                 print("Checking Schedule\n")
                 #client.send(colonelid,'Second = 0 in function loop')
