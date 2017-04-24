@@ -116,13 +116,15 @@ if status == 0 :
 if status == 0:
     if 'เพิ่มการแจ้งเตือน:' in message:
         try:
-            print(message)
+            
             message = message.replace('เพิ่มการแจ้งเตือน:','')
-            print(message+'done')
+            #print(message+'done')
             gdate = message[0:10]
             jobhour = message[11:13]
             jobmin = message[14:16]
             content = message[11:]
+            print('เพิ่มการแจ้งเตือน')
+            print (content)
             # content.encode('utf-8')
             fo = open(gdate, 'a')
             fo.write(content + '\n')
