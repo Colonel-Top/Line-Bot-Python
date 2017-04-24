@@ -104,7 +104,7 @@ while (True):
     if(now.second == 0) or now.second == 30 :
         try:
             tmpresult= ''
-            print("Checking Schedule\n")
+            #print("Checking Schedule\n")
                 #client.send(colonelid,'Second = 0 in function loop')
             gdate = ""
                 # Open a file
@@ -141,15 +141,14 @@ while (True):
                         #now = datetime.now()
                         gdate =  (now.strftime("%d-%m-%Y"))
                         printhour = curhour-now.hour
-                        tmpresult = "กำหนดการแจ้งเตือน \nวันที่ : " +gdate+"\n" +"เวลาถึงในอีก "+str(printhour)+"ชม."
+                        tmpresult = "กำหนดการแจ้งเตือน \nวันที่ : " +gdate+"\n" +"เวลาถึงในอีก "+str(printhour)+"ชม.\n--------\n"
                         # Open a file
                         fo = open(gdate, "r+")
                         for lines in fo:
-                            print (lines)
+                            #print (lines)
                             if str(curhour) in lines:
                                 #if str(curmin) in lines:
                                 tmpresult += lines
-                                tmpresult += "\n"
                         # Close opend file
                         fo.close()
                         break
@@ -158,6 +157,7 @@ while (True):
                 # Close opend file
             f.close()
             line_bot_api.push_message(destination, TextSendMessage(tmpresult))
+            print ("Push Notification")
         except Exception as e:
             print (e)
     if now.hour == 6 and now.minute == 0 and now.second==0:
