@@ -1,0 +1,20 @@
+./timeahead.py: 2: ./timeahead.py: import: not found
+./timeahead.py: 3: ./timeahead.py: import: not found
+./timeahead.py: 4: ./timeahead.py: import: not found
+./timeahead.py: 5: ./timeahead.py: import: not found
+./timeahead.py: 6: ./timeahead.py: import: not found
+./timeahead.py: 7: ./timeahead.py: import: not found
+from: can't read /var/mail/datetime
+from: can't read /var/mail/oauth2client.service_account
+./timeahead.py: 12: ./timeahead.py: gdate: not found
+./timeahead.py: 13: ./timeahead.py: Syntax error: "(" unexpected
+./timeahead.py: 2: ./timeahead.py: import: not found
+./timeahead.py: 3: ./timeahead.py: import: not found
+./timeahead.py: 4: ./timeahead.py: import: not found
+./timeahead.py: 5: ./timeahead.py: import: not found
+./timeahead.py: 6: ./timeahead.py: import: not found
+./timeahead.py: 7: ./timeahead.py: import: not found
+from: can't read /var/mail/datetime
+from: can't read /var/mail/oauth2client.service_account
+./timeahead.py: 12: ./timeahead.py: gdate: not found
+./timeahead.py: 13: ./timeahead.py: Syntax error: "(" unexpected
