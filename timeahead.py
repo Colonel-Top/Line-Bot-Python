@@ -125,8 +125,8 @@ while (True):
                     #print curhour
                     curmin =  int(line[14:16])
                     #print curmin
-                    line_bot_api.push_message(destination, TextSendMessage(text= curday)
-                    line_bot_api.push_message(destination, TextSendMessage(text=now.date)
+                    line_bot_api.push_message(destination, TextSendMessage(curday)
+                    #line_bot_api.push_message(destination, TextSendMessage(text=now.date)
                    #print (str(curday)+" " + str(curmin) + " " + str(now.min))
                     #print("*")
                     
@@ -137,14 +137,14 @@ while (True):
                         try:
                             #now = datetime.now()
                             gdate =  (now.strftime("%d-%m-%Y"))
-                            line_bot_api.push_message(destination, TextSendMessage(text="Incoming Due List \nDate" +gdate))
+                            line_bot_api.push_message(destination, TextSendMessage("Incoming Due List \nDate" +gdate))
                             # Open a file
                             fo = open(gdate, "r+")
                             for lines in fo:
                                 print (lines)
                                 if str(curhour+1) in lines:
                                     #if str(curmin) in lines:
-                                    line_bot_api.push_message(destination, TextSendMessage(text=lines))
+                                    line_bot_api.push_message(destination, TextSendMessage(lines))
                             # Close opend file
                             fo.close()
                             break
