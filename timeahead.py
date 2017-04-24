@@ -102,58 +102,57 @@ while (True):
                 continue
     #if(now.min == 0 and now.second==0 ):
     if(now.second == 0):
-            try:
-                print("Checking Schedule\n")
+        try:
+            print("Checking Schedule\n")
                 #client.send(colonelid,'Second = 0 in function loop')
-                gdate = ""
+            gdate = ""
                 # Open a file
-                f = open("serverdate", "r+")
-                text = f.readlines()
+            f = open("serverdate", "r+")
+            text = f.readlines()
                 #line_bot_api.push_message(destination, TextSendMessage(text=  "Debug: Printing read line at hour")
-                for line in text:
-                    now = datetime.now()
-                    try:
-                        curday = int(line[0:2])
-                    except ValueError:
-                        continue;
+            for line in text:
+                now = datetime.now()
+                try:
+                    curday = int(line[0:2])
+                except ValueError:
+                    continue;
                     #print curday
-                    curmonth = int(line[3:5])
+                curmonth = int(line[3:5])
                     #print curmonth
-                    curyear =  int(line[6:10])
-                    #print curyear
-                    curhour = int(line[11:13])
-                    #print curhour
-                    curmin =  int(line[14:16])
-                    #print curmin
-                    line_bot_api.push_message(destination, TextSendMessage(curday)
+                curyear =  int(line[6:10])
+                #print curyear
+                curhour = int(line[11:13])
+                #print curhour
+                curmin =  int(line[14:16])
+                #print curmin
+                line_bot_api.push_message(destination, TextSendMessage(curday))
                     #line_bot_api.push_message(destination, TextSendMessage(text=now.date)
                    #print (str(curday)+" " + str(curmin) + " " + str(now.min))
                     #print("*")
-                    
-                    if curhour >= 1:
-                        curhour = curhour-1
-                    if(curday == now.day and curmonth == now.month and curyear == now.year and curhour == now.hour):
+                if curhour >= 1:
+                    curhour+=1
+                if(curday == now.day and curmonth == now.month and curyear == now.year and curhour == now.hour):
                     #if(1):
-                        try:
-                            #now = datetime.now()
-                            gdate =  (now.strftime("%d-%m-%Y"))
-                            line_bot_api.push_message(destination, TextSendMessage("Incoming Due List \nDate" +gdate))
-                            # Open a file
-                            fo = open(gdate, "r+")
-                            for lines in fo:
-                                print (lines)
-                                if str(curhour+1) in lines:
-                                    #if str(curmin) in lines:
-                                    line_bot_api.push_message(destination, TextSendMessage(lines))
-                            # Close opend file
-                            fo.close()
-                            break
-                        except Exception as es:
-                            print (es)
+                    try:
+                        #now = datetime.now()
+                        gdate =  (now.strftime("%d-%m-%Y"))
+                        line_bot_api.push_message(destination, TextSendMessage("Incoming Due List \nDate" +gdate))
+                        # Open a file
+                        fo = open(gdate, "r+")
+                        for lines in fo:
+                            print (lines)
+                            if str(curhour+1) in lines:
+                                #if str(curmin) in lines:
+                                line_bot_api.push_message(destination, TextSendMessage(lines))
+                        # Close opend file
+                        fo.close()
+                        break
+                    except Exception as es:
+                        print (es)
                 # Close opend file
-                f.close()
-            except Exception as e:
-                print (e)
+            f.close()
+        except Exception as e:
+            print (e)
     if now.hour == 6 and now.minute == 0 and now.second==0:
     #if((now.second==0 or now.second == 30)):
         #print('in condition')
