@@ -463,7 +463,7 @@ if status == 0:
     if 'แฮร' in message:
         result = random.choice(randomfive)
         status == 1
-if status == 0:
+'''if status == 0:
     if 'เพิ่มข้อความระบบ' in message:
         if isinsult == '1':
             stringout = message.replace('เพิ่มข้อความระบบ','')
@@ -485,18 +485,18 @@ if status == 0:
             fo3 = open('question', 'a')
             fo3.write(stringout + '\n')
             fo3.close()
-            result = 'เพิ่มข้อความระบบเรียบร้อยค่ะ'
+            result = 'เพิ่มข้อความระบบเรียบร้อยค่ะ''''
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
             position = simq_ask.index(tmp)
             result = simq_ans[position]
             status = 1
-if status == 0:
+'''if status == 0:
     with open('question') as myFile:
         for num, line in enumerate(myFile, 1):
             if lookup in line:
                 result = line
-
+'''
 
 print ('%s' % result)
