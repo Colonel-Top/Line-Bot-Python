@@ -130,7 +130,7 @@ while (True):
                    #print (str(curday)+" " + str(curmin) + " " + str(now.min))
                     #print("*")
                 if curhour >= 1:
-                    curhour-=1
+                    curhour+=1
                 if(curday == now.day and curmonth == now.month and curyear == now.year and curhour == now.hour):
                 #if(1):
                     try:
@@ -141,7 +141,7 @@ while (True):
                         fo = open(gdate, "r+")
                         for lines in fo:
                             print (lines)
-                            if str(curhour+1) in lines:
+                            if str(curhour-1) in lines:
                                 #if str(curmin) in lines:
                                 line_bot_api.push_message(destination, TextSendMessage(lines))
                         # Close opend file
