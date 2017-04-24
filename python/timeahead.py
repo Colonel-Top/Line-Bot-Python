@@ -57,7 +57,7 @@ elif (strws == '5'):
     destinations = 'cd4403585a5c0416cfd0d7e5e1fc6d17b'
 elif (strws == '6'):
     destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
-destination = 'c5a40d9ff4355ab8b9a9a0ceb94fd9fee'
+destination = 'Ufb00beda08083bcf402fbd2160b75574'
 bot_status = 0
 bot_mode = 0
 # define hi or hello
