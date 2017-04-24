@@ -160,22 +160,22 @@ if bot_mode == 2 and bot_status == 1 and status == 0:
     bot_mode = 0
     bot_status = 0
     status = 1
-if bot_status == 1 and status == 0:
-    if 'a' in message:
+if bot_status == 0 and status == 0:
+    '''if 'a' in message:
         bot_mode = 1
         result = 'เพิ่มงาน,ตารางเวลานัดหมายได้\nกรุณาใช้รูปแบบดังต่อไปนี้ \n\n31-12-2017:22:00:เนื้อหางาน'
         status = 1
     if 'A' in message:
         bot_mode = 1
         result = 'เพิ่มงาน,ตารางเวลานัดหมายได้\nกรุณาใช้รูปแบบดังต่อไปนี้ \n\n31-12-2017:22:00:เนื้อหางาน'
-        status = 1
-    if 'b' in message:
+        status = 1'''
+    if 'รายการแจ้งเตือนวันนี้' in message:
         try:
             gdate = (now.strftime('%d-%m-%Y'))
             # Open a file
             fo = open(gdate, 'r+')
             strws = fo.read()
-            result = 'รายการตารางงานและการนัดหมายวันนี้\n'+gdate +'\n'+ strws
+            result = 'รายการตารางวันนี้\n'+gdate +'\n'+ strws
             # Close opend file
             fo.close()
         except:
@@ -183,20 +183,7 @@ if bot_status == 1 and status == 0:
         bot_status = 0
         bot_mode = 0
         status = 1
-    if 'B' in message:
-        try:
-            gdate = (now.strftime('%d-%m-%Y'))
-            # Open a file
-            fo = open(gdate, 'r+')
-            strws = fo.read()
-            result = 'รายการตารางงานและการนัดหมายวันนี้\n'+gdate +'\n' + strws
-            # Close opend file
-            fo.close()
-        except:
-            result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
-        bot_status = 0
-        bot_mode = 0
-        status = 1
+'''
     if 'c' in message:
         try:
             gdate = (now.strftime('%d-%m-%Y'))
@@ -232,7 +219,7 @@ if bot_status == 1 and status == 0:
     if 'd' in message:
         bot_mode = 0
         bot_status = 0
-        status = 1
+        status = 1'''
 if status == 0:
     for tmp in tellasc_cmd:
         if tmp in message:
