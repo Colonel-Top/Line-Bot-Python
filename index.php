@@ -15,7 +15,7 @@ if($arrJson['events'][0]['message']['text'] == 'Report API ID'){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "Hello ID your is ".$arrJson['events'][0]['source']['userId'][groupId];
+  $arrPostData['messages'][0]['text'] = "Hello ID your is ".$arrJson['events'][0]['source']['userId']['groupId'];
 }
  
  
