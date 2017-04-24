@@ -101,7 +101,7 @@ while (True):
                 print("Skip Safe")
                 continue
     #if(now.min == 0 and now.second==0 ):
-    if(now.second == 0) :
+    if(now.second == 0) or now.second == 30 :
         try:
             print("Checking Schedule\n")
                 #client.send(colonelid,'Second = 0 in function loop')
@@ -131,8 +131,8 @@ while (True):
                     #print("*")
                 if curhour >= 1:
                     tmphour = curhour-1
-                    line_bot_api.push_message(destination, TextSendMessage('1+'+tmphour))
-                    line_bot_api.push_message(destination, TextSendMessage('2+'+curhour))
+                    line_bot_api.push_message(destination, TextSendMessage(text = '1+'+tmphour))
+                    line_bot_api.push_message(destination, TextSendMessage(text = '2+'+curhour))
                 if(curday == now.day and curmonth == now.month and curyear == now.year and tmphour == now.hour):
                 #if(1):
                     try:
