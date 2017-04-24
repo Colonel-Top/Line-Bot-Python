@@ -131,12 +131,12 @@ while (True):
                     #print("*")
                 if curhour >= 1:
                     curhour-=1
-                #if(curday == now.day and curmonth == now.month and curyear == now.year and curhour == now.hour):
-                if(1):
+                if(curday == now.day and curmonth == now.month and curyear == now.year and curhour == now.hour):
+                #if(1):
                     try:
                         #now = datetime.now()
                         gdate =  (now.strftime("%d-%m-%Y"))
-                        line_bot_api.push_message(destination, TextSendMessage("Incoming Due List \nDate" +gdate))
+                        line_bot_api.push_message(destination, TextSendMessage("กำหนดการแจ้งเตือน \nวันที่ :" +gdate))
                         # Open a file
                         fo = open(gdate, "r+")
                         for lines in fo:
