@@ -135,7 +135,7 @@ while (True):
                     #line_bot_api.push_message(destination, TextSendMessage(tmphour)) #22
                     #line_bot_api.push_message(destination, TextSendMessage(curhour)) #23
                     #line_bot_api.push_message(destination, TextSendMessage(text = "Done"))
-                if(curday == now.day) and curmonth == now.month and curyear == now.year and tmphour == now.hour):
+                if curday == now.day and curmonth == now.month and curyear == now.year and tmphour == now.hour):
                 #if(1):
                     try:
                         #now = datetime.now()
