@@ -485,7 +485,8 @@ if status == 0:
             fo3 = open('question', 'a')
             fo3.write(stringout + '\n')
             fo3.close()
-            result = 'เพิ่มข้อความระบบเรียบร้อยค่ะ''''
+            result = 'เพิ่มข้อความระบบเรียบร้อยค่ะ'
+'''
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
