@@ -42,7 +42,22 @@ def Login():
 #print ("Google API Connected")
 #line_bot_api.push_message(destination, TextSendMessage(text= 'Debug:: Time runner begun')
 # Login with your Google account
-destination = 'Ufb00beda08083bcf402fbd2160b75574'
+fo = open('control','r+')
+strws = fo.read()
+destinations =''
+if (strws == '1'):
+    destinations = 'c108bc8c05480d73d978fe4d587bb6288'
+elif (strws == '2'):
+    destinations = 'c511d9b1c8cf3df51dcebc2b905cc6b30'
+elif (strws == '3'):
+    destinations = 'c5a40d9ff4355ab8b9a9a0ceb94fd9fee'
+elif (strws == '4'):
+    destinations = 'ca40a6ceec0f539fcc12e9e5f1ccb2fa3'
+elif (strws == '5'):
+    destinations = 'cd4403585a5c0416cfd0d7e5e1fc6d17b'
+elif (strws == '6'):
+    destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
+destination = 'c5a40d9ff4355ab8b9a9a0ceb94fd9fee'
 bot_status = 0
 bot_mode = 0
 # define hi or hello
@@ -301,5 +316,6 @@ while (True):
             f.write(line)
         f.close()
         os.remove(gdate)
+    
     time.sleep(1)
     #print (now.second)
