@@ -90,7 +90,7 @@ if status == 0 :
         if 'อาจา' in message :
             result = ''
     if 'เยส' in message or 'เยด' in message :
-	result = 'แน่นอน'
+        result = 'แน่นอน'
         
 if bot_mode == 1 and bot_status == 1 and status == 0:
     try:
@@ -311,7 +311,7 @@ if status == 0:
                     status =1
             if 'เมดี้' in message:
                 result =  'เบอร์เมดี้: 09498959xx'
-	    status = 1
+            status = 1
 if status == 0:
     if 'ขอเลขนศ' in message:
   	    scope = ['https://spreadsheets.google.com/feeds']
@@ -321,17 +321,17 @@ if status == 0:
   	    worksheet = sh.worksheet('Sheet1')
   	    for row in range(2, 34):  # Must be 31 in col or last parameter
   	      peruser = 0
-	      tmp = ''
+  	      tmp = ''
   	      tmp = (worksheet.cell(row, 6).value)
-	      tmp = tmp.encode('utf-8')
+  	      tmp = tmp.encode('utf-8')
   	      if (tmp in message):
   	        answer = str(worksheet.cell(row,2).value)
   	        result += 'เลขรหัสนศ. '+ tmp +': ' + answer+'\n'
   	        status = 1
 		#break
-	    if 'เมดี้' in message:
-	      result =  'ไม่ให้ค่ะ'
-	    status = 1
+  	    if 'เมดี้' in message:
+                result =  'ไม่ให้ค่ะ'
+            status = 1
 if status == 0:
     if 'ขอรหัสนศ' in message:
   	    scope = ['https://spreadsheets.google.com/feeds']
@@ -462,17 +462,40 @@ if status == 0:
     if 'แฮร' in message:
         result = random.choice(randomfive)
         status == 1
-'''if status == 0:
-    if 'ศราวุธ' in message:
-        randarray = ['ฟารีหน้าโห','ฟาโรเลิกไปปิยะมนได้แล้ววว','ควยไรฟาโร','จูนออกจากหอครั้งสุดท้ายเมื่อไหรวะ','จูนไอ้เฒ่าทารก']
-        result = random.choice(randarray)
-        status == 1'''
+if status == 0:
+    if 'เพิ่มข้อความระบบ' in message:
+        if isinsult == '1':
+            stringout = message.replace('เพิ่มข้อความระบบ','')
+            fo = open('question', 'r+')
+            with open('question') as myFile:
+                for num,line in enumerate(myFile,1):
+                    if stringout in line:
+                        f = open(gdate, 'r+')
+                        d = f.readlines()
+                        tmpstring = ''
+                        for line in d:
+                            if line != num
+                                tmpstring += line
+                        f.close()
+                        os.remove('question')
+                        fo2 = open('question', 'a')
+                        fo2.write(tmpstring)
+                        fo2.close()
+            fo3 = open('question', 'a')
+            fo3.write(stringout + '\n')
+            fo3.close()
+            result = 'เพิ่มข้อความระบบเรียบร้อยค่ะ'
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
             position = simq_ask.index(tmp)
             result = simq_ans[position]
             status = 1
-           
+if status == 0:
+    with open('question') as myFile:
+        for num, line in enumerate(myFile, 1):
+            if lookup in line:
+                result = line
+
 
 print ('%s' % result)
