@@ -103,6 +103,7 @@ while (True):
     #if(now.min == 0 and now.second==0 ):
     if(now.second == 0) or now.second == 30 :
         try:
+            tmpresult= ''
             print("Checking Schedule\n")
                 #client.send(colonelid,'Second = 0 in function loop')
             gdate = ""
@@ -140,14 +141,15 @@ while (True):
                         #now = datetime.now()
                         gdate =  (now.strftime("%d-%m-%Y"))
                         printhour = curhour-now.hour
-                        line_bot_api.push_message(destination, TextSendMessage("กำหนดการแจ้งเตือน \nวันที่ : " +gdate+"\n" +"เวลาถึงในอีก"+str(printhour)))
+                        tmpresult = "กำหนดการแจ้งเตือน \nวันที่ : " +gdate+"\n" +"เวลาถึงในอีก "+str(printhour)+"ชม."
                         # Open a file
                         fo = open(gdate, "r+")
                         for lines in fo:
                             print (lines)
                             if str(curhour) in lines:
                                 #if str(curmin) in lines:
-                                line_bot_api.push_message(destination, TextSendMessage(lines))
+                                tmpresult += lines
+                                tmpresult += "\n"
                         # Close opend file
                         fo.close()
                         break
@@ -155,6 +157,7 @@ while (True):
                         print (es)
                 # Close opend file
             f.close()
+            line_bot_api.push_message(destination, TextSendMessage(tmpresult))
         except Exception as e:
             print (e)
     if now.hour == 6 and now.minute == 0 and now.second==0:
