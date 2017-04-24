@@ -131,8 +131,8 @@ while (True):
                     #print("*")
                 if curhour >= 1:
                     tmphour = curhour-1
-                    line_bot_api.push_message(destination, TextSendMessage(text = '1+'+tmphour))
-                    line_bot_api.push_message(destination, TextSendMessage(text = '2+'+curhour))
+                    line_bot_api.push_message(destination, TextSendMessage(text = '1'+tmphour))
+                    line_bot_api.push_message(destination, TextSendMessage(text = '2'+curhour))
                 if(curday == now.day and curmonth == now.month and curyear == now.year and tmphour == now.hour):
                 #if(1):
                     try:
