@@ -125,14 +125,14 @@ while (True):
                 #print curhour
                 curmin =  int(line[14:16])
                 #print curmin
-                line_bot_api.push_message(destination, TextSendMessage(curday))
+                #line_bot_api.push_message(destination, TextSendMessage(curday))
                     #line_bot_api.push_message(destination, TextSendMessage(text=now.date)
                    #print (str(curday)+" " + str(curmin) + " " + str(now.min))
                     #print("*")
                 if curhour >= 1:
                     curhour+=1
-                if(curday == now.day and curmonth == now.month and curyear == now.year and curhour == now.hour):
-                    #if(1):
+                #if(curday == now.day and curmonth == now.month and curyear == now.year and curhour == now.hour):
+                if(1):
                     try:
                         #now = datetime.now()
                         gdate =  (now.strftime("%d-%m-%Y"))
