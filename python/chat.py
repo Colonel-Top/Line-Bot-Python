@@ -92,25 +92,27 @@ if status == 0 :
     if 'เยส' in message or 'เยด' in message :
         result = 'แน่นอน'
         
-if bot_mode == 1 and bot_status == 1 and status == 0:
-    try:
-        gdate = message[0:10]
-        jobhour = message[11:13]
-        jobmin = message[14:16]
-        content = message[11:]
-        # content.encode('utf-8')
-        fo = open(gdate, 'a')
-        fo.write(content + '\n')
-        fo.close()
-        fo = open('serverdate', 'a')
-        fo.write(gdate + ',' + jobhour + ',' + jobmin + '\n')
-        fo.close()
-        result = 'เพิ่มตารางงาน,นัดหมายเรียบร้อยค่ะ'
-    except Exception as e:
-        result = 'การเพิ่มตารางเวลาล้มเหลว' + e
-    bot_mode = 0
-    bot_status = 0
-    status = 1
+if status == 0:
+    if 'เพิ่มการแจ้งเตือน:' in message:
+        try:
+            message = message.replace('เพิ่มการแจ้งเตือน:','')
+            gdate = message[0:10]
+            jobhour = message[11:13]
+            jobmin = message[14:16]
+            content = message[11:]
+            # content.encode('utf-8')
+            fo = open(gdate, 'a')
+            fo.write(content + '\n')
+            fo.close()
+            fo = open('serverdate', 'a')
+            fo.write(gdate + ',' + jobhour + ',' + jobmin + '\n')
+            fo.close()
+            result = 'เพิ่มตารางงาน,นัดหมายเรียบร้อยค่ะ'
+        except Exception as e:
+            result = 'การเพิ่มตารางเวลาล้มเหลว' + e
+        bot_mode = 0
+        bot_status = 0
+        status = 1
 if bot_mode == 2 and bot_status == 1 and status == 0:
     try:
         linetoremove = int(message[0])
