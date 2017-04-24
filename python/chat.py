@@ -95,7 +95,9 @@ if status == 0 :
 if status == 0:
     if 'เพิ่มการแจ้งเตือน:' in message:
         try:
+            print(message)
             message = message.replace('เพิ่มการแจ้งเตือน:','')
+            print(message+'done')
             gdate = message[0:10]
             jobhour = message[11:13]
             jobmin = message[14:16]
