@@ -8,7 +8,7 @@ import sys
 
 from datetime import datetime
 from oauth2client.service_account import ServiceAccountCredentials
-
+print ("Running")
 gdate = ""
 now = datetime.now()
 
@@ -303,19 +303,22 @@ while (True):
         line_bot_api.push_message(destination, TextSendMessage(result))
 
     if now.hour == 23 and now.minute == 59 and now.second == 0:
-        gdate = (now.strftime("%d-%m-%Y"))
-        f = open('serverdate','r')
-        lst = []
-        for line in f:
-            if gdate in line:
-                line = line.replace(gdate,'')
-        lst.append(line)
-        f.close()
-        f = open('serverdate','w')
-        for line in lst:
-            f.write(line)
-        f.close()
-        os.remove(gdate)
-    
+        try:
+            gdate = (now.strftime("%d-%m-%Y"))
+            f = open('serverdate','r')
+            lst = []
+            for line in f:
+                if gdate in line:
+                    line = line.replace(gdate,'')
+            lst.append(line)
+            f.close()
+            f = open('serverdate','w')
+            for line in lst:
+                f.write(line)
+            f.close()
+            os.remove(gdate)
+            print("Debug: "+gdate+" Run Successful")
+        except Exception as e:
+            print (e)
     time.sleep(1)
     #print (now.second)

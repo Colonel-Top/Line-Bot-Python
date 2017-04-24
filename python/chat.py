@@ -17,7 +17,28 @@ message = sys.argv[1]
 now = datetime.now()
 result = ''
 from oauth2client.service_account import ServiceAccountCredentials
+from linebot import LineBotApi
+from linebot.models import TextSendMessage
+from linebot.exceptions import LineBotApiError
 
+line_bot_api = LineBotApi('QWiSqwAAs1/FyPo+Rt+jKoxjjK+LbkQ1pC1zsmCO9s5g2YO9EFUsSKO90ABQpc8h31iecVkjMsG3IZ2J9xCcS5pHL0ph8nc81PIM+gJEFzkJpHIRBWiJQl7sh6dOuuApuPMC+aj1HjkT5iaHCXDJ5AdB04t89/1O/w1cDnyilFU=')
+fo = open('control','r+')
+strws = fo.read()
+destinations =''
+if (strws == '1'):
+    destinations = 'c108bc8c05480d73d978fe4d587bb6288'
+elif (strws == '2'):
+    destinations = 'c511d9b1c8cf3df51dcebc2b905cc6b30'
+elif (strws == '3'):
+    destinations = 'c5a40d9ff4355ab8b9a9a0ceb94fd9fee'
+elif (strws == '4'):
+    destinations = 'ca40a6ceec0f539fcc12e9e5f1ccb2fa3'
+elif (strws == '5'):
+    destinations = 'cd4403585a5c0416cfd0d7e5e1fc6d17b'
+elif (strws == '6'):
+    destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
+destination = 'c5a40d9ff4355ab8b9a9a0ceb94fd9fee'
+fo.close()
 status = 0
 
 # print ('Google API Connected')
@@ -503,5 +524,36 @@ if status == 0:
             if lookup in line:
                 result = line
 '''
-
+if '!@' in message :
+        os.remove('control')
+        fo = open('control','r+')
+        if ('ภาคีลับ' in message):
+            strws = '1'
+        elif ('test' in message):
+            strws = '2'
+        elif 'ไลน์ภาค' in message :
+            strws = '3'
+        elif 'ภาคีใหญ่' in message:
+            strws = '4'
+        elif 'hothead' in message:
+            strws = '5'
+        elif 'cs112' in message:
+            strws = '6'
+        fo.write(strws)
+        fo.close()
+        if (strws == '1'):
+            destinations = 'c108bc8c05480d73d978fe4d587bb6288'
+        elif (strws == '2'):
+            destinations = 'c511d9b1c8cf3df51dcebc2b905cc6b30'
+        elif (strws == '3'):
+            destinations = 'c5a40d9ff4355ab8b9a9a0ceb94fd9fee'
+        elif (strws == '4'):
+            destinations = 'ca40a6ceec0f539fcc12e9e5f1ccb2fa3'
+        elif (strws == '5'):
+            destinations = 'cd4403585a5c0416cfd0d7e5e1fc6d17b'
+        elif (strws == '6'):
+            destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
+if '#$' in message:
+    tmpo = message.replace('#$','')
+    line_bot_api.push_message(destinations, TextSendMessage(tmpo))
 print ('%s' % result)
