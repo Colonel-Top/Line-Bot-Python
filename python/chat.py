@@ -111,7 +111,7 @@ if status == 0:
             fo.close()
             result = 'เพิ่มตารางงาน,นัดหมายเรียบร้อยค่ะ'
         except Exception as e:
-            result = 'การเพิ่มตารางเวลาล้มเหลว' + e
+            print( e)
         bot_mode = 0
         bot_status = 0
         status = 1
