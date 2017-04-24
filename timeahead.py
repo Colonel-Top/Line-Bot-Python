@@ -140,7 +140,7 @@ while (True):
                         #now = datetime.now()
                         gdate =  (now.strftime("%d-%m-%Y"))
                         printhour = curhour-now.hour
-                        line_bot_api.push_message(destination, TextSendMessage("กำหนดการแจ้งเตือน \nวันที่ : " +gdate+"\n" +"เวลาถึงในอีก"+printhour))
+                        line_bot_api.push_message(destination, TextSendMessage("กำหนดการแจ้งเตือน \nวันที่ : " +gdate+"\n" +"เวลาถึงในอีก"+str(printhour)))
                         # Open a file
                         fo = open(gdate, "r+")
                         for lines in fo:
