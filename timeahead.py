@@ -131,9 +131,9 @@ while (True):
                     #print("*")
                 if curhour >= 1:
                     tmphour = curhour-1
-                    line_bot_api.push_message(destination, TextSendMessage(tmphour))
-                    line_bot_api.push_message(destination, TextSendMessage(curhour))
-                    line_bot_api.push_message(destination, TextSendMessage(text = "Done"))
+                    #line_bot_api.push_message(destination, TextSendMessage(tmphour)) #22
+                    #line_bot_api.push_message(destination, TextSendMessage(curhour)) #23
+                    #line_bot_api.push_message(destination, TextSendMessage(text = "Done"))
                 if(curday == now.day and curmonth == now.month and curyear == now.year and tmphour == now.hour):
                 #if(1):
                     try:
@@ -144,7 +144,7 @@ while (True):
                         fo = open(gdate, "r+")
                         for lines in fo:
                             print (lines)
-                            if str(tmphour+2) in lines:
+                            if str(curhour) in lines:
                                 #if str(curmin) in lines:
                                 line_bot_api.push_message(destination, TextSendMessage(lines))
                         # Close opend file
