@@ -523,7 +523,7 @@ if status == 0:
         for num, line in enumerate(myFile, 1):
             if lookup in line:
                 result = line
-'''
+
 if '!@' in message :
         os.remove('control')
         fo = open('control','r+')
@@ -556,4 +556,5 @@ if '!@' in message :
 if '#$' in message:
     tmpo = message.replace('#$','')
     line_bot_api.push_message(destinations, TextSendMessage(tmpo))
+'''
 print ('%s' % result)
