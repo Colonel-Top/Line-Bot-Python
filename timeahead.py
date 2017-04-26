@@ -302,7 +302,6 @@ while (True):
             print (e)
         line_bot_api.push_message(destination, TextSendMessage(result))
     if now.hour == 23 and now.minute == 59 and now.second == 0:
-<<<<<<< HEAD
         try:
             gdate = (now.strftime("%d-%m-%Y"))
             f = open('serverdate','r')
@@ -320,7 +319,6 @@ while (True):
             print("Debug: "+gdate+" Run Successful")
         except Exception as e:
             print (e)
-=======
         gdate = (now.strftime("%d-%m-%Y"))
         f = open('serverdate','r')
         lst = []
@@ -913,6 +911,5 @@ while (True):
         except Exception as e:
             print (e)
         line_bot_api.push_message(destination, TextSendMessage(result))
->>>>>>> 10cd2cc071ee29ea5c88198530c81fb86f80207c
     time.sleep(1)
     #print (now.second)
