@@ -301,7 +301,6 @@ while (True):
         except Exception as e:
             print (e)
         line_bot_api.push_message(destination, TextSendMessage(result))
-
     if now.hour == 23 and now.minute == 59 and now.second == 0:
         gdate = (now.strftime("%d-%m-%Y"))
         f = open('serverdate','r')
@@ -881,7 +880,7 @@ while (True):
                         #gdate = (now.strftime("%d-%m-%Y"))
                         result += "\nกำหนดการแจ้งเตือน \nถึงในวันพรุ่งนี้ : \n--------\n"
                         # Open a file
-                        f    o = open(gdate, "r+")
+                        fo = open(gdate, "r+")
                         strws = fo.read()
                         result += strws
                         # Close opend file
