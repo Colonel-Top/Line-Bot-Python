@@ -481,7 +481,7 @@ if status == 0:
         status == 1
 if status == 0:
 	if '@tutor' in message:
-		result = 'กดที่รูปของ Chloe Secretary\nเลือก "Chat" => แถบเมนูด้านล่างกดคำว่านัดเรียน\nหากไม่เจอเมนูให้กดปุ่มเมนูซ้ายสุดแถบพิมพ์ข้อความ'
+		result = 'กดที่รูปของ Chloe Secretary\nเลือก "Chat" => แถบเมนูด้านล่างกดคำว่านัดเรียน\nคุณสามารถพูดคุยกับ Chloe ได้แต่อยู๋ในระหว่างพัฒนาต้องขออภัยในความไม่สมบูรณ์'
 		status =1
 
 '''if status == 0:
@@ -538,6 +538,8 @@ if status == 0:
 if status == 0:
     if 'ตารางวันที่:' in message:
         try:
+                atpos = message.find("ตารางวันที่:")
+                message = message[atpos:]
 		message = message.replace('ตารางวันที่:','')
 		gdate = message[0:10]
 		fo = open(gdate, 'r+')
