@@ -560,7 +560,6 @@ if status == 0:
 		    curmin =  int(line[14:16])
 		    if(curday == now.day and curmonth == now.month and curyear == now.year):
 			try:
-			    result += random.choice(timesay)
 			    gdate = (now.strftime("%d-%m-%Y"))
 			    result += "\nกำหนดการแจ้งเตือน \nวันนี้ : \n--------\n"
 			    # Open a file
