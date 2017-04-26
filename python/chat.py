@@ -75,6 +75,9 @@ bank_ask = ['eport accounts', 'ccount reports', 'om engr account', 'pdate accoun
             'heck amout in account']
 bank_ans = ['โอเคจ้า จะทำการอัพเดตให้เดี๋ยวนี้เลย', 'จ้า กำลังอัพเดตให้ละน้า', 'ได้เลยจ้า', 'ได้เลยจ้า แปปเดียวก็เสร็จละ',
             'ค่ะ ทำการตัดดอกเบี้ยทันทีค่ะ', 'ไดเลยจ้า ^^']
+morning = ['Good morning','อรุณสวัสดิ์','สวัสดีตอนเช้า','กู้ดมอร์นิ่ง','goodmorning','อรุนสวัส','อรุณสวัส','good morning']
+afternoon = ['Good afternoon','สวัสดีตอนบ่าย','กู้ดอาฟเตอร์นูนค้าาา','goodafternoon ^^','good afternoon','Goodafternoon']
+night = ['Goodnight','Good night','ราตรีสวัสดิ','กู้ดไนท์','ฝันดี','อย่าลืมห่มผ้านะ','ราตรีสวัสดิ์']
 impressive_ask = ['สู้ๆนะ ^^','พรุ่งนี้ยังมีเสมอ สู้ๆจ้า','สู้ๆ :)','ชีวิตยังต้องเดินต่อไป สู้ๆนะ :)','คนเราพลาดกันได้ เป็นกำลังใจให้นะ','เป็นกำลังใจให้นะ สู้ๆ','ผ่านมันไปให้ได้ สู้ๆ ^^','ท้อได้ถอยได้ แต่ต้องตั้งหลักให้ได้แล้วสู้ต่อไป ^^','ดวงตะวันแม้ลับขอบฟ้ายังหวนคืนมาในวันฟ้าใหม่ ^^','สิ่งที่ผันผ่านคือกำลังใจ','แม้พายุโหมโถมชีวิตแรงเพียงใดแค่ก้าวต่อไปเดี๋ยวก็ถึงปลาบทาง','หากยังมัวอยู่เฉย ไฉนเลยจะถึงจุดหมาย :)','เจอขวากหนามจะต้องไม่ท้อ ต้องก้าวเดินต่อกว่าจะถึงจุดหมาย :)','ประสบการณ์สร้างคน อดทนแล้วสร้างงาน']
 getint = ['hloe get interest now','โคลอี้ตัดดอกเบี้ย','ตัดดอกเบี้ยสิ']
 # execfile('timeahead.py')
@@ -123,7 +126,22 @@ if status == 0 :
         status = 1
     if 'กำลังใจ' in message :
         result = random.choice(impressive_ask)
-        status = 1     
+        status = 1
+    for tmp in morning:
+        if tmp in message:
+            result = random.choice(morning)
+            result = result + " ค่ะ"
+            status = 1
+    for tmp in afternoon:
+        if tmp in message:
+            result = random.choice(afternoon)
+            result = result + " ค่ะ"
+            status = 1
+    for tmp in night:
+        if tmp in message:
+            result = random.choice(night)
+            result = result + " ค่ะ"
+            status = 1
         
 if status == 0:
     if 'เพิ่มการแจ้งเตือน:' in message:
