@@ -525,7 +525,7 @@ if status == 0:
             fo.close()
             result = 'เพิ่มนัดหมายการเรียนเรียบร้อยค่ะ'
         except Exception as e:
-            print( e)
+            result = 'การนัดหมายล้มเหลว'
         bot_mode = 0
         bot_status = 0
         status = 1
@@ -575,7 +575,7 @@ if status == 0:
 		    # Close opend file
 		    f.close()
 	    except Exception as es:
-		print (es)		 
+		result = 'ไม่พบตารางเวลาในวันดังกล่าว (ว่าง)'	 
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
