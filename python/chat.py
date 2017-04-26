@@ -1,4 +1,4 @@
-﻿#!/usr/bin/python
+#!/usr/bin/python
 # -*-coding: utf-8 -*-
 import gspread
 import os
@@ -20,7 +20,8 @@ from oauth2client.service_account import ServiceAccountCredentials
 from linebot import LineBotApi
 from linebot.models import TextSendMessage
 from linebot.exceptions import LineBotApiError
-
+ gdate = (now.strftime('%d-%m-%Y'))
+customerfile = '/customer/'+gdate
 line_bot_api = LineBotApi('QWiSqwAAs1/FyPo+Rt+jKoxjjK+LbkQ1pC1zsmCO9s5g2YO9EFUsSKO90ABQpc8h31iecVkjMsG3IZ2J9xCcS5pHL0ph8nc81PIM+gJEFzkJpHIRBWiJQl7sh6dOuuApuPMC+aj1HjkT5iaHCXDJ5AdB04t89/1O/w1cDnyilFU=')
 fo = open('control','r+')
 strws = fo.read()
@@ -502,6 +503,50 @@ if status == 0:
             result = 'เพิ่มข้อความระบบเรียบร้อยค่ะ'
 '''
 if status == 0:
+    if 'เพิ่มนัดเรียน:' in message:
+        try:
+            message = message.replace('เพิ่มนัดเรียน:','')
+            #print(message+'done')
+            gdate = message[0:10]
+            jobhour = message[11:13]
+            jobmin = message[14:16]
+	    jobtime = message[17:18]
+	    name = message[19:]
+            content = message[11:]
+            print('เพิ่มนัดเรียน')
+            print (content)
+            # content.encode('utf-8')
+	    
+            fo = open(customerfile, 'a')
+            fo.write(content + '\n')
+            fo.close()
+            fo = open('customerdate', 'a')
+            fo.write(gdate + ',' + jobhour + ',' + jobmin + '\n')
+            fo.close()
+            result = 'เพิ่มตารางนัดหมายเรียบร้อยค่ะ'
+        except Exception as e:
+            print( e)
+        bot_mode = 0
+        bot_status = 0
+        status = 1
+if status == 0:
+    if 'เรียกดูวันที่:' in message:
+        try:
+	    message = message.replace('เรียกดูวันที่:','')
+            #print(message+'done')
+            gdate = message[0:10]
+            # Open a file
+            fo = open(customerfile, 'r+')
+            strws = fo.read()
+            result = 'รายการตารางวันที่\n'+gdate +'\n'+ strws
+            # Close opend file
+            fo.close()
+        except:
+            result = 'ไม่พบตารางเวลาในวันดังกล่าว (ว่าง)'
+        bot_status = 0
+        bot_mode = 0
+        status = 1
+if status == 0:
     for tmp in simq_ask:
         if tmp in message:
             position = simq_ask.index(tmp)
@@ -542,6 +587,7 @@ if '!@' in message :
             destinations = 'cd4403585a5c0416cfd0d7e5e1fc6d17b'
         elif (strws == '6'):
             destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
+
 if '#$' in message:
     tmpo = message.replace('#$','')
     line_bot_api.push_message(destinations, TextSendMessage(tmpo))
