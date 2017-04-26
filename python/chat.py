@@ -38,7 +38,7 @@ elif (strws == '5'):
     destinations = 'cd4403585a5c0416cfd0d7e5e1fc6d17b'
 elif (strws == '6'):
     destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
-destination = 'c5a40d9ff4355ab8b9a9a0ceb94fd9fee'
+destination = 'Ufb00beda08083bcf402fbd2160b75574'
 fo.close()
 status = 0
 
@@ -68,13 +68,14 @@ menu_cmd = ['pen menu', 'pen Menu', 'เปิดเมนู', 'เรียก
 simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','โคลอี','โคลอี้จ๋า','ถามได้ตอบได้','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','อมึงแหละ','ตึงโป','วดฟ','wtf','โนว','ถามอะไรตอบได้','ด่ามึงอ','นั่นแหละ']
 simq_ans = ['I am Chloe The Secretary of Colonel',
             'I am Chloe The Secretary of Colonel ^^ Helping My Master & you guys', 'My Boss or my master is Colonel',
-            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','^^','จ๋าาาา','ได้','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','วดฟ+1','wtf+1','โนโน้โนโน้','ไมได้ แบร่','ตะลึงตึ่งโป๊ะ!','ตะลึงตึ่งโป๊ะ!']
+            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','^^','^^','^^','^^','จ๋าาาา','ได้','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','วดฟ+1','wtf+1','Nooo','ไมได้ แบร่','ตะลึงตึ่งโป๊ะ!','ตะลึงตึ่งโป๊ะ!']
 randomfive = ['555+','5555+','55555+','5555+','55555+','555555+','55555+','555555+','5555555+','5555+','55555+','555555+','55555+',
 '555555+','5555555+','555555+','5555555+','55555555+','55555+','555555+','5555555+','555555+','5555555+','55555555+','5555555+','55555555+','555555555+',]
 bank_ask = ['eport accounts', 'ccount reports', 'om engr account', 'pdate account', 'heck amout account',
             'heck amout in account']
 bank_ans = ['โอเคจ้า จะทำการอัพเดตให้เดี๋ยวนี้เลย', 'จ้า กำลังอัพเดตให้ละน้า', 'ได้เลยจ้า', 'ได้เลยจ้า แปปเดียวก็เสร็จละ',
             'ค่ะ ทำการตัดดอกเบี้ยทันทีค่ะ', 'ไดเลยจ้า ^^']
+impressive_ask = ['สู้ๆนะ ^^','พรุ่งนี้ยังมีเสมอ สู้ๆจ้า','สู้ๆ :)','ชีวิตยังต้องเดินต่อไป สู้ๆนะ :)','คนเราพลาดกันได้ เป็นกำลังใจให้นะ','เป็นกำลังใจให้นะ สู้ๆ','ผ่านมันไปให้ได้ สู้ๆ ^^','ท้อได้ถอยได้ แต่ต้องตั้งหลักให้ได้แล้วสู้ต่อไป ^^','ดวงตะวันแม้ลับขอบฟ้ายังหวนคืนมาในวันฟ้าใหม่ ^^','สิ่งที่ผันผ่านคือกำลังใจ','แม้พายุโหมโถมชีวิตแรงเพียงใดแค่ก้าวต่อไปเดี๋ยวก็ถึงปลาบทาง','หากยังมัวอยู่เฉย ไฉนเลยจะถึงจุดหมาย :)','เจอขวากหนามจะต้องไม่ท้อ ต้องก้าวเดินต่อกว่าจะถึงจุดหมาย :)','ประสบการณ์สร้างคน อดทนแล้วสร้างงาน']
 getint = ['hloe get interest now','โคลอี้ตัดดอกเบี้ย','ตัดดอกเบี้ยสิ']
 # execfile('timeahead.py')
 tellasc_cmd = ['tell all associate']
@@ -99,12 +100,16 @@ if 'ดังตัวอย่าง' in message :
 if status == 0 :
     if 'โพ่ง' in message:
         result = message.replace('โพ่ง','พ่อง')
+        status = 1
     if 'พ่าง' in message:
         result = message.replace('พ่าง','บ้านบึ้ม')
+        status = 1
     if 'บ้านบึ้ม' in message:
         result = message.replace('บ้านบึ้ม','บึ้มพ่อง')
+        status = 1
     if 'ฟวย' in message:
         result = 'Uvuvwevwevwe Onyetenyevwe Ugwemuhwem Osas~'
+        status = 1
     if 'ด่า'in message:
         if 'สามช่า' in message:
             result = 'ฟวย ฟวยๆ ฟวย ฟวย'
@@ -112,13 +117,17 @@ if status == 0 :
             result = ''
         if 'อาจา' in message :
             result = ''
+        status = 1
     if 'เยส' in message or 'เยด' in message :
         result = 'แน่นอน'
+        status = 1
+    if 'ให้กำลังใจ' in message :
+        result = random.choice(impressive_ask)
+        status = 1     
         
 if status == 0:
     if 'เพิ่มการแจ้งเตือน:' in message:
         try:
-            
             message = message.replace('เพิ่มการแจ้งเตือน:','')
             #print(message+'done')
             gdate = message[0:10]
@@ -135,6 +144,7 @@ if status == 0:
             fo.write(gdate + ',' + jobhour + ',' + jobmin + '\n')
             fo.close()
             result = 'เพิ่มตารางงาน,นัดหมายเรียบร้อยค่ะ'
+            line_bot_api.push_message(destination, TextSendMessage(content))
         except Exception as e:
             print( e)
         bot_mode = 0
@@ -178,6 +188,20 @@ if bot_status == 0 and status == 0:
             fo = open(gdate, 'r+')
             strws = fo.read()
             result = 'รายการตารางวันนี้\n'+gdate +'\n'+ strws
+            # Close opend file
+            fo.close()
+        except:
+            result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
+        bot_status = 0
+        bot_mode = 0
+        status = 1
+    if 'รายการแจ้งเตือนวันพรุ่งนี้' in message:
+        try:
+            gdate = str(now.day+1)+str(now.month)+str(now.year)
+            # Open a file
+            fo = open(gdate, 'r+')
+            strws = fo.read()
+            result = 'รายการตารางวันพรุ่งนี้\n'+gdate +'\n'+ strws
             # Close opend file
             fo.close()
         except:
@@ -371,7 +395,7 @@ if status == 0:
 insult = ['ด่าอิ','ด่าแม่ง','ด่าไอ','ด่ามัน','ด่าอีก','ด่าาแม่ง','ด่ามันสิ','ด่ามันซิ','ด่าต่อไป','ด่าอย่าหยุด','ด่าอี','ด่าอิ','ด่ามา']
 
 prefixinsult = ['ไอ้','อี','อิ','ไอ']
-reinsult2 = ['อิผี','อิผี','อิดอก','อีบลิซซาร์ดไม่คว่ำถ้วย','อีบลิซซาร์ดไม่คว่ำถ้วย','อีบลิซซาร์ดไม่คว่ำถ้วย','อีบลิซซาร์ดไม่คว่ำถ้วย','อีบลิซซาร์ดไม่คว่ำถ้วย','แหวกกอหญ้า','บ้าห้าร้อยจำพวก','ปลวกใต้หลังคา','หน้าปลาจวด',
+reinsult2 = ['ผี','ผี','ดอก','บลิซซาร์ดไม่คว่ำถ้วย','บลิซซาร์ดไม่คว่ำถ้วย','บลิซซาร์ดไม่คว่ำถ้วย','บลิซซาร์ดไม่คว่ำถ้วย','แหวกกอหญ้า','บ้าห้าร้อยจำพวก','ปลวกใต้หลังคา','หน้าปลาจวด',
 'บ้องกัญชา','ปลาไม่กินเบ็ด','เห็ดสามสี','อิเห็ดต้มยำ','อิเห็ดต้มยำ',
 'กะโหลกซออู้','กู่ไม่กลับ','ตับย่างเกลือ',
 'เชื้ออหิวาต์','ม้าขี้ครอก','หอกขึ้นสนิม','ขิมสายขาด',
@@ -399,8 +423,8 @@ reinsult2 = ['อิผี','อิผี','อิดอก','อีบลิซ
 'กระบะใส่ขี้แมว','เรือแจวยี่สิบฝีพาย','ควายเขาหัก','ปลักโคลนเลน',
 'ตาเถรตกใต้ถุน','เนรคุณแผ่นดินเกิด','ระเบิดแสวงเครื่อง','ครกกระเดื่องตำข้าว',
 'มะพร้าวห้าวยัดปาก','สากกระเบือยัดก้น','คนไททิ้งแผ่นดิน',
-'ไพร่เพื่อทัก','บักหำน้อย','กบฏต่อราชบัลลังก์','อีลานจอดนกเอี้ยง']
-member = ['แม็ค','พี่ฟา','พี่น้ำ','พี่จูน','ออมสิน','แพรว','มิน','มิ้น','คิตตxี้','มาย','ปืน','พี่','พี','กาย','ออม','ภูมิ','เบียร์','เบีย','แนน','แฟง','จูน','เอิท','ออมสิน','ปอน','แมค','แมก','เจส','มุก','น้ำ','บูม',
+'ไพร่เพื่อทัก','บักหำน้อย','กบฏต่อราชบัลลังก์','ลานจอดนกเอี้ยง']
+member = ['อาท','แม็ค','พี่ฟา','พี่น้ำ','พี่จูน','ออมสิน','แพรว','มิน','มิ้น','คิตตxี้','มาย','ปืน','พี่','พี','กาย','ออม','ภูมิ','เบียร์','เบีย','แนน','แฟง','จูน','เอิท','ออมสิน','ปอน','แมค','แมก','เจส','มุก','น้ำ','บูม',
           'นั้ม','ทัยรัตน','ภาสวิชญ์','พีมลทิพย์','วรเดช','หลิน','กิ้ก','เก่ง','นิค','ฟาโล','กิ๊ก','นิก','ฟาโร']
 if status == 0:
     for tmp in insult:
@@ -433,7 +457,7 @@ if status == 0:
                 status = 1
 if status == 0:
     if 'ด่า' in message:
-        if 'มัน' in message or 'สิ' in message or 'ซิ' in message or 'เดะ' in message or 'เซะ' in message or 'ดิ' in message or 'ที' in message or 'ที' in message:
+        if 'มัน' in message or 'สิ' in message or 'ซิ' in message or 'เดะ' in message or 'เซะ' in message or 'ดิ' in message or 'ที' in message:
             if isinsult == '1':
                 final = ''
                 first = ''
@@ -481,7 +505,7 @@ if status == 0:
         status == 1
 if status == 0:
 	if '@tutor' in message:
-		result = 'กดที่รูปของ Chloe Secretary\nเลือก "Chat" => แถบเมนูด้านล่างกดคำว่านัดเรียน\nคุณสามารถพูดคุยกับ Chloe ได้แต่อยู๋ในระหว่างพัฒนาต้องขออภัยในความไม่สมบูรณ์'
+		result = 'กดที่รูปของ Chloe Secretary\nเลือก "Chat" => แถบเมนูด้านล่างกดคำว่านัดเรียน\nคุณสามารถพูดคุยกับ Chloe ได้แต่อยู๋ในระหว่างพัฒนาต้องขออภัยในความไม่สมบูรณ์\n\n***ถ้าจองแล้วต้องการยกเลิกกรุณาติดต่อผู้สอน'
 		status =1
 
 '''if status == 0:
@@ -529,7 +553,8 @@ if status == 0:
             fo = open('customerdate', 'a')
             fo.write(gdate + ',' + jobhour + ',' + jobmin + '\n')
             fo.close()
-            result = 'เพิ่มนัดหมายการเรียนเรียบร้อยค่ะ'
+            result = 'เพิ่มนัดหมายการเรียนเรียบร้อยค่ะหากต้องการยกเลิกกรุณาติดต่อผู้าอน'
+            line_bot_api.push_message(destination, TextSendMessage(content))
         except Exception as e:
             result = 'การนัดหมายล้มเหลว'
         bot_mode = 0
@@ -567,7 +592,7 @@ if status == 0:
 		    if(curday == now.day and curmonth == now.month and curyear == now.year):
 			try:
 			    gdate = (now.strftime("%d-%m-%Y"))
-			    result += "\nกำหนดการแจ้งเตือน \nวันนี้ : \n--------\n"
+			    result += "\nกำหนดการนัดหมาย \nวันนี้ : \n--------\n"
 			    # Open a file
 			    fo = open(gdate, "r+")
 			    strws = fo.read()
@@ -580,7 +605,38 @@ if status == 0:
 		    # Close opend file
 		    f.close()
 	    except Exception as es:
-			result = 'ไม่พบตารางเวลาในวันดังกล่าว (ว่าง)'	 
+			result = 'ไม่พบตารางเวลาในวันดังกล่าว (ว่าง)'
+if status == 0:
+    if 'รายการนัดหมายวันพรุ่งนี้' in message:
+	    try:
+		index = 6
+		gdate = ""
+		f = open("customerdate", "r+")
+		text = f.readlines()
+		for line in text:
+		    curday = int(line[0:2])
+		    curday= curday +1
+		    curmonth = int(line[3:5])
+		    curyear =  int(line[6:10])
+		    curhour = int(line[11:13])
+		    curmin =  int(line[14:16])
+		    if(curday == now.day and curmonth == now.month and curyear == now.year):
+			try:
+			    gdate = (now.strftime("%d-%m-%Y"))
+			    result += "\nกำหนดการนัดหมาย \nวันพรุ่งนี้ : \n--------\n"
+			    # Open a file
+			    fo = open(gdate, "r+")
+			    strws = fo.read()
+			    result += strws
+			    # Close opend file
+			    fo.close()
+			    break
+			except Exception as e:
+			    print (e)
+		    # Close opend file
+		    f.close()
+	    except Exception as es:
+			result = 'ไม่พบตารางเวลาในวันดังกล่าว (ว่าง)'			
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
