@@ -1,0 +1,12 @@
+Running
+[Errno 2] No such file or directory: 'serverdate'
+Traceback (most recent call last):
+  File "timeahead.py", line 250, in <module>
+    line_bot_api.push_message(destination, TextSendMessage(result))
+  File "/usr/local/lib/python2.7/dist-packages/linebot/api.py", line 124, in push_message
+    '/v2/bot/message/push', data=json.dumps(data), timeout=timeout
+  File "/usr/local/lib/python2.7/dist-packages/linebot/api.py", line 262, in _post
+    self.__check_error(response)
+  File "/usr/local/lib/python2.7/dist-packages/linebot/api.py", line 271, in __check_error
+    raise LineBotApiError(response.status_code, error)
+linebot.exceptions.LineBotApiError: <LineBotApiError [The request body has 1 error(s)]>

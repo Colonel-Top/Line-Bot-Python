@@ -8,7 +8,7 @@ import sys
 
 from datetime import datetime
 from oauth2client.service_account import ServiceAccountCredentials
-
+print ("Running")
 gdate = ""
 now = datetime.now()
 
@@ -57,7 +57,7 @@ elif (strws == '5'):
     destinations = 'cd4403585a5c0416cfd0d7e5e1fc6d17b'
 elif (strws == '6'):
     destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
-destination = 'c5a40d9ff4355ab8b9a9a0ceb94fd9fee'
+destination = 'Ufb00beda08083bcf402fbd2160b75574'
 bot_status = 0
 bot_mode = 0
 # define hi or hello
@@ -115,7 +115,7 @@ while (True):
             if row == 8:
                 print("Skip Safe")
                 continue
-    if(now.min == 0 and now.second==0 ):
+    if(now.minute == 0 and now.second==0 ):
     #if(now.second == 0) or now.second == 30 :
         try:
             tmpresult= ''
@@ -303,19 +303,22 @@ while (True):
         line_bot_api.push_message(destination, TextSendMessage(result))
 
     if now.hour == 23 and now.minute == 59 and now.second == 0:
-        gdate = (now.strftime("%d-%m-%Y"))
-        f = open('serverdate','r')
-        lst = []
-        for line in f:
-            if gdate in line:
-                line = line.replace(gdate,'')
-        lst.append(line)
-        f.close()
-        f = open('serverdate','w')
-        for line in lst:
-            f.write(line)
-        f.close()
-        os.remove(gdate)
-    
+        try:
+            gdate = (now.strftime("%d-%m-%Y"))
+            f = open('serverdate','r')
+            lst = []
+            for line in f:
+                if gdate in line:
+                    line = line.replace(gdate,'')
+            lst.append(line)
+            f.close()
+            f = open('serverdate','w')
+            for line in lst:
+                f.write(line)
+            f.close()
+            os.remove(gdate)
+            print("Debug: "+gdate+" Run Successful")
+        except Exception as e:
+            print (e)
     time.sleep(1)
     #print (now.second)
