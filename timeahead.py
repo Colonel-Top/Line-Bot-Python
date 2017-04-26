@@ -316,6 +316,380 @@ while (True):
             f.write(line)
         f.close()
         os.remove(gdate)
-    
+    if(now.min == 0 and now.second==0 ):
+    #if(now.second == 0) or now.second == 30 :
+        try:
+            tmpresult= ''
+            #print("Checking Schedule\n")
+                #client.send(colonelid,'Second = 0 in function loop')
+            gdate = ""
+                # Open a file
+            f = open("serverdate", "r+")
+            text = f.readlines()
+                #line_bot_api.push_message(destination, TextSendMessage(text=  "Debug: Printing read line at hour")
+            for line in text:
+                now = datetime.now()
+                try:
+                    curday = int(line[0:2])
+                except ValueError:
+                    continue;
+                    #print curday
+                curmonth = int(line[3:5])
+                    #print curmonth
+                curyear =  int(line[6:10])
+                #print curyear
+                curhour = int(line[11:13])
+                #print curhour
+                curmin =  int(line[14:16])
+                #print curmin
+                #line_bot_api.push_message(destination, TextSendMessage(curday))
+                    #line_bot_api.push_message(destination, TextSendMessage(text=now.date)
+                   #print (str(curday)+" " + str(curmin) + " " + str(now.min))
+                    #print("*")
+                if curhour >= 1:
+                    tmphour = curhour-1
+                    #line_bot_api.push_message(destination, TextSendMessage(tmphour)) #22
+                    #line_bot_api.push_message(destination, TextSendMessage(curhour)) #23
+                    #line_bot_api.push_message(destination, TextSendMessage(text = "Done"))
+                if (curday == now.day and curmonth == now.month and curyear == now.year and tmphour == now.hour):
+                #if(1):
+                    try:
+                        #now = datetime.now()
+                        gdate =  (now.strftime("%d-%m-%Y"))
+                        printhour = curhour-now.hour
+                        tmpresult = "กำหนดการแจ้งเตือน \nวันที่ : " +gdate+"\n" +"เวลาถึงในอีก "+str(printhour)+"ชม.\n--------\n"
+                        # Open a file
+                        fo = open(gdate, "r+")
+                        for lines in fo:
+                            #print (lines)
+                            if str(curhour) in lines:
+                                #if str(curmin) in lines:
+                                tmpresult += lines
+                        # Close opend file
+                        fo.close()
+                        break
+                    except Exception as es:
+                        print (es)
+                
+                # Close opend file
+            f.close()
+            line_bot_api.push_message(destination, TextSendMessage(tmpresult))
+            print ("Push Notification")
+        except Exception as e:
+            print (e)
+    if now.hour == 6 and now.minute == 0 and now.second==0:
+    #if((now.second==0 or now.second == 30)):
+        #print('in condition')
+        try:
+            result = ''
+            #client.send(colonelid,'Second = 0 in function loop')
+            #print ('get in try')
+            gdate = ""
+            
+            # Open a file
+            f = open("serverdate", "r+")
+            text = f.readlines()
+            #print ('readlinedone')
+            #line_bot_api.push_message(destination, TextSendMessage(text=  "Debug: Printing read line")
+            for line in text:
+                curday = int(line[0:2])
+                #print curday
+                curmonth = int(line[3:5])
+               # print curmonth
+                curyear =  int(line[6:10])
+                #print curyear
+                curhour = int(line[11:13])
+                #print curhour
+                curmin =  int(line[14:16])
+                #print curmin
+                #line_bot_api.push_message(destination, TextSendMessage(text= curday)
+                #line_bot_api.push_message(destination, TextSendMessage(text=now.date)
+                #print (curday+curmonth+curyear+curhour+curmin)
+                #print (now.date)
+                if(curday == now.day and curmonth == now.month and curyear == now.year):
+                #if(1):
+                    
+                    #print ('correct rolling in')
+                    try:
+                        result += random.choice(timesay)
+                        gdate = (now.strftime("%d-%m-%Y"))
+                        result += "\nกำหนดการแจ้งเตือน \nวันนี้ : \n--------\n"
+                        # Open a file
+                        fo = open(gdate, "r+")
+                        strws = fo.read()
+                        result += strws
+                        # Close opend file
+                        fo.close()
+                        break
+                    except Exception as e:
+                        print (e)
+                # Close opend file
+                f.close()
+                if(curday-1 == now.day and curmonth == now.month and curyear == now.year):
+                #if(1):
+                    
+                    #print ('correct rolling in')
+                    try:
+                        result += random.choice(timesay)
+                        gdate = str(curday-1)+'-'+str(curmonth)+'-'+str(curyear)
+                        #gdate = (now.strftime("%d-%m-%Y"))
+                        result += "\nกำหนดการแจ้งเตือน \nถึงในวันพรุ่งนี้ : \n--------\n"
+                        # Open a file
+                        fo = open(gdate, "r+")
+                        strws = fo.read()
+                        result += strws
+                        # Close opend file
+                        fo.close()
+                        break
+                    except Exception as e:
+                        print (e)
+                # Close opend file
+                f.close()
+                
+        except Exception as e:
+            print (e)
+        line_bot_api.push_message(destination, TextSendMessage(result))
+    if now.hour == 18 and now.minute == 0 and now.second==0:
+    #if((now.second==0 or now.second == 30)):
+        #print('in condition')
+        try:
+            result = ''
+            #client.send(colonelid,'Second = 0 in function loop')
+            #print ('get in try')
+            gdate = ""
+            
+            # Open a file
+            f = open("serverdate", "r+")
+            text = f.readlines()
+            #print ('readlinedone')
+            #line_bot_api.push_message(destination, TextSendMessage(text=  "Debug: Printing read line")
+            for line in text:
+                curday = int(line[0:2])
+                #print curday
+                curmonth = int(line[3:5])
+               # print curmonth
+                curyear =  int(line[6:10])
+                #print curyear
+                curhour = int(line[11:13])
+                #print curhour
+                curmin =  int(line[14:16])
+                #print curmin
+                #line_bot_api.push_message(destination, TextSendMessage(text= curday)
+                #line_bot_api.push_message(destination, TextSendMessage(text=now.date)
+                #print (curday+curmonth+curyear+curhour+curmin)
+                #print (now.date)
+                if(curday-1 == now.day and curmonth == now.month and curyear == now.year):
+                #if(1):
+                    
+                    #print ('correct rolling in')
+                    try:
+                        result += random.choice(timesay)
+                        gdate = str(curday-1)+'-'+str(curmonth)+'-'+str(curyear)
+                        #gdate = (now.strftime("%d-%m-%Y"))
+                        result += "\nกำหนดการแจ้งเตือน \nถึงในวันพรุ่งนี้ : \n--------\n"
+                        # Open a file
+                        fo = open(gdate, "r+")
+                        strws = fo.read()
+                        result += strws
+                        # Close opend file
+                        fo.close()
+                        break
+                    except Exception as e:
+                        print (e)
+                # Close opend file
+                f.close()
+                
+        except Exception as e:
+            print (e)
+        line_bot_api.push_message(destination, TextSendMessage(result))
+    #############################
+    ############################
+    ###########################
+    #if(now.min == 0 and now.second==0 ):
+    if(now.second == 0) or now.second == 30 :
+        try:
+            tmpresult= ''
+            #print("Checking Schedule\n")
+                #client.send(colonelid,'Second = 0 in function loop')
+            gdate = ""
+                # Open a file
+            f = open("customerdate", "r+")
+            text = f.readlines()
+                #line_bot_api.push_message(destination, TextSendMessage(text=  "Debug: Printing read line at hour")
+            for line in text:
+                now = datetime.now()
+                try:
+                    curday = int(line[0:2])
+                except ValueError:
+                    continue;
+                    #print curday
+                curmonth = int(line[3:5])
+                    #print curmonth
+                curyear =  int(line[6:10])
+                #print curyear
+                curhour = int(line[11:13])
+                #print curhour
+                curmin =  int(line[14:16])
+                #print curmin
+                #line_bot_api.push_message(destination, TextSendMessage(curday))
+                    #line_bot_api.push_message(destination, TextSendMessage(text=now.date)
+                   #print (str(curday)+" " + str(curmin) + " " + str(now.min))
+                    #print("*")
+                if curhour >= 1:
+                    tmphour = curhour-1
+                    #line_bot_api.push_message(destination, TextSendMessage(tmphour)) #22
+                    #line_bot_api.push_message(destination, TextSendMessage(curhour)) #23
+                    #line_bot_api.push_message(destination, TextSendMessage(text = "Done"))
+                if (curday == now.day and curmonth == now.month and curyear == now.year and tmphour == now.hour):
+                #if(1):
+                    try:
+                        #now = datetime.now()
+                        gdate =  (now.strftime("%d-%m-%Y"))
+                        printhour = curhour-now.hour
+                        tmpresult = "กำหนดการแจ้งเตือน \nวันที่ : " +gdate+"\n" +"เวลาถึงในอีก "+str(printhour)+"ชม.\n--------\n"
+                        # Open a file
+                        fo = open(gdate, "r+")
+                        for lines in fo:
+                            #print (lines)
+                            if str(curhour) in lines:
+                                #if str(curmin) in lines:
+                                tmpresult += lines
+                        # Close opend file
+                        fo.close()
+                        break
+                    except Exception as es:
+                        print (es)
+                
+                # Close opend file
+            f.close()
+            line_bot_api.push_message(destination, TextSendMessage(tmpresult))
+            print ("Push Notification")
+        except Exception as e:
+            print (e)
+    if now.hour == 6 and now.minute == 0 and now.second==0:
+    #if((now.second==0 or now.second == 30)):
+        #print('in condition')
+        try:
+            result = ''
+            #client.send(colonelid,'Second = 0 in function loop')
+            #print ('get in try')
+            gdate = ""
+            
+            # Open a file
+            f = open("customerdate", "r+")
+            text = f.readlines()
+            #print ('readlinedone')
+            #line_bot_api.push_message(destination, TextSendMessage(text=  "Debug: Printing read line")
+            for line in text:
+                curday = int(line[0:2])
+                #print curday
+                curmonth = int(line[3:5])
+               # print curmonth
+                curyear =  int(line[6:10])
+                #print curyear
+                curhour = int(line[11:13])
+                #print curhour
+                curmin =  int(line[14:16])
+                #print curmin
+                #line_bot_api.push_message(destination, TextSendMessage(text= curday)
+                #line_bot_api.push_message(destination, TextSendMessage(text=now.date)
+                #print (curday+curmonth+curyear+curhour+curmin)
+                #print (now.date)
+                if(curday == now.day and curmonth == now.month and curyear == now.year):
+                #if(1):
+                    
+                    #print ('correct rolling in')
+                    try:
+                        result += random.choice(timesay)
+                        gdate = (now.strftime("%d-%m-%Y"))
+                        result += "\nกำหนดการแจ้งเตือน \nวันนี้ : \n--------\n"
+                        # Open a file
+                        fo = open(gdate, "r+")
+                        strws = fo.read()
+                        result += strws
+                        # Close opend file
+                        fo.close()
+                        break
+                    except Exception as e:
+                        print (e)
+                # Close opend file
+                f.close()
+                if(curday-1 == now.day and curmonth == now.month and curyear == now.year):
+                #if(1):
+                    
+                    #print ('correct rolling in')
+                    try:
+                        result += random.choice(timesay)
+                        gdate = str(curday-1)+'-'+str(curmonth)+'-'+str(curyear)
+                        #gdate = (now.strftime("%d-%m-%Y"))
+                        result += "\nกำหนดการแจ้งเตือน \nถึงในวันพรุ่งนี้ : \n--------\n"
+                        # Open a file
+                        fo = open(gdate, "r+")
+                        strws = fo.read()
+                        result += strws
+                        # Close opend file
+                        fo.close()
+                        break
+                    except Exception as e:
+                        print (e)
+                # Close opend file
+                f.close()
+                
+        except Exception as e:
+            print (e)
+        line_bot_api.push_message(destination, TextSendMessage(result))
+    if now.hour == 18 and now.minute == 0 and now.second==0:
+    #if((now.second==0 or now.second == 30)):
+        #print('in condition')
+        try:
+            result = ''
+            #client.send(colonelid,'Second = 0 in function loop')
+            #print ('get in try')
+            gdate = ""
+            
+            # Open a file
+            f = open("customerdate", "r+")
+            text = f.readlines()
+            #print ('readlinedone')
+            #line_bot_api.push_message(destination, TextSendMessage(text=  "Debug: Printing read line")
+            for line in text:
+                curday = int(line[0:2])
+                #print curday
+                curmonth = int(line[3:5])
+               # print curmonth
+                curyear =  int(line[6:10])
+                #print curyear
+                curhour = int(line[11:13])
+                #print curhour
+                curmin =  int(line[14:16])
+                #print curmin
+                #line_bot_api.push_message(destination, TextSendMessage(text= curday)
+                #line_bot_api.push_message(destination, TextSendMessage(text=now.date)
+                #print (curday+curmonth+curyear+curhour+curmin)
+                #print (now.date)
+                if(curday-1 == now.day and curmonth == now.month and curyear == now.year):
+                #if(1):
+                    
+                    #print ('correct rolling in')
+                    try:
+                        result += random.choice(timesay)
+                        gdate = str(curday-1)+'-'+str(curmonth)+'-'+str(curyear)
+                        #gdate = (now.strftime("%d-%m-%Y"))
+                        result += "\nกำหนดการแจ้งเตือน \nถึงในวันพรุ่งนี้ : \n--------\n"
+                        # Open a file
+                        fo = open(gdate, "r+")
+                        strws = fo.read()
+                        result += strws
+                        # Close opend file
+                        fo.close()
+                        break
+                    except Excepti    on as e:
+                        print (e)
+                # Close opend file
+                f.close()
+                
+        except Exception as e:
+            print (e)
+        line_bot_api.push_message(destination, TextSendMessage(result))
     time.sleep(1)
     #print (now.second)
