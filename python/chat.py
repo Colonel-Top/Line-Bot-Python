@@ -20,13 +20,8 @@ from oauth2client.service_account import ServiceAccountCredentials
 from linebot import LineBotApi
 from linebot.models import TextSendMessage
 from linebot.exceptions import LineBotApiError
-gdate = (now.strftime('%d-%m-%Y'))
 
-file_name = gdate
-script_dir = os.path.dirname(os.path.abspath(__file__))
-dest_dir = os.path.join(script_dir, 'customer')
 
-customerfile = os.path.join(dest_dir, file_name)
 line_bot_api = LineBotApi('QWiSqwAAs1/FyPo+Rt+jKoxjjK+LbkQ1pC1zsmCO9s5g2YO9EFUsSKO90ABQpc8h31iecVkjMsG3IZ2J9xCcS5pHL0ph8nc81PIM+gJEFzkJpHIRBWiJQl7sh6dOuuApuPMC+aj1HjkT5iaHCXDJ5AdB04t89/1O/w1cDnyilFU=')
 fo = open('control','r+')
 strws = fo.read()
@@ -521,7 +516,8 @@ if status == 0:
             print('เพิ่มนัดเรียน')
             print (content)
             # content.encode('utf-8')
-            fo = open(customerfile, 'a')
+	    
+            fo = open(gdate, 'a')
             fo.write(content + '\n')
             fo.close()
             fo = open('customerdate', 'a')
@@ -534,13 +530,13 @@ if status == 0:
         bot_status = 0
         status = 1
 if status == 0:
-    if 'เรียกดูวันที่:' in message:
+    if 'ตารางวันที่:' in message:
         try:
-	    message = message.replace('เรียกดูวันที่:','')
+	    message = message.replace('ตารางวันที่:','')
             #print(message+'done')
             gdate = message[0:10]
             # Open a file
-            fo = open(customerfile, 'r+')
+            fo = open(gdate, 'r+')
             strws = fo.read()
             result = 'รายการตารางวันที่\n'+gdate +'\n'+ strws
             # Close opend file
@@ -550,6 +546,36 @@ if status == 0:
         bot_status = 0
         bot_mode = 0
         status = 1
+if status == 0:
+    if 'รายการนัดหมายวันนี้' in message:
+	    try:
+		gdate = ""
+		f = open("customerdate", "r+")
+		text = f.readlines()
+		for line in text:
+		    curday = int(line[0:2])
+		    curmonth = int(line[3:5])
+		    curyear =  int(line[6:10])
+		    curhour = int(line[11:13])
+		    curmin =  int(line[14:16])
+		    if(curday == now.day and curmonth == now.month and curyear == now.year):
+			try:
+			    result += random.choice(timesay)
+			    gdate = (now.strftime("%d-%m-%Y"))
+			    result += "\nกำหนดการแจ้งเตือน \nวันนี้ : \n--------\n"
+			    # Open a file
+			    fo = open(gdate, "r+")
+			    strws = fo.read()
+			    result += strws
+			    # Close opend file
+			    fo.close()
+			    break
+			except Exception as e:
+			    print (e)
+		    # Close opend file
+		    f.close()
+	    except Exception as es:
+		print (es)		 
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
