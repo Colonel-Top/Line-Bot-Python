@@ -121,7 +121,7 @@ if status == 0 :
     if 'เยส' in message or 'เยด' in message :
         result = 'แน่นอน'
         status = 1
-    if 'ให้กำลังใจ' in message :
+    if 'กำลังใจ' in message :
         result = random.choice(impressive_ask)
         status = 1     
         
