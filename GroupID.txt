@@ -1,4 +1,4 @@
-TOKEN : Egc90wOWJu5bAERlL41c.SvPD+2vDD1jO2uUUiT1xla.ZhekPjTgBi+CXXVBJuPPcAEavmgucyIvyo08LS6kE9U=
+﻿TOKEN : Egc90wOWJu5bAERlL41c.SvPD+2vDD1jO2uUUiT1xla.ZhekPjTgBi+CXXVBJuPPcAEavmgucyIvyo08LS6kE9U=
 
 [<LineGroup ภาคีลับแห่ง COM ENGR #5 (invited)>, <LineGroup test #3>, <LineGroup คณะตลก CN15 #30 (invited)>, <LineGroup การบ้านแคลประดิษฐ์ ∞ #7>, <LineGroup EDM Hot Head #4 (invited)>, <LineGroup CS112 OOP #5 (invited)>]
 <LineGroup ภาคีลับแห่ง COM ENGR #5 (invited)>
@@ -20,3 +20,4 @@ cd4403585a5c0416cfd0d7e5e1fc6d17b
 cfce90616f21ecc8892db0e7e8f90aaf4
 -
 list index out of range
+Ufb00beda08083bcf402fbd2160b75574

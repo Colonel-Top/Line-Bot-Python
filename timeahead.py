@@ -59,7 +59,6 @@ elif (strws == '6'):
     destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
 
 destination = 'Ufb00beda08083bcf402fbd2160b75574'
-destination = '888960969fc0ebb0bc365fc194e97dc9'
 
 bot_status = 0
 bot_mode = 0
