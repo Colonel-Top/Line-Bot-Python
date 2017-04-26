@@ -523,7 +523,7 @@ if status == 0:
             fo = open('customerdate', 'a')
             fo.write(gdate + ',' + jobhour + ',' + jobmin + '\n')
             fo.close()
-            result = 'เพิ่มตารางนัดหมายเรียบร้อยค่ะ'
+            result = 'เพิ่มนัดหมายการเรียนเรียบร้อยค่ะ'
         except Exception as e:
             print( e)
         bot_mode = 0
@@ -549,6 +549,7 @@ if status == 0:
 if status == 0:
     if 'รายการนัดหมายวันนี้' in message:
 	    try:
+		index = 6
 		gdate = ""
 		f = open("customerdate", "r+")
 		text = f.readlines()
@@ -560,7 +561,6 @@ if status == 0:
 		    curmin =  int(line[14:16])
 		    if(curday == now.day and curmonth == now.month and curyear == now.year):
 			try:
-			    result += random.choice(timesay)
 			    gdate = (now.strftime("%d-%m-%Y"))
 			    result += "\nกำหนดการแจ้งเตือน \nวันนี้ : \n--------\n"
 			    # Open a file
