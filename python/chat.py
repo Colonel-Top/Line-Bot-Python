@@ -604,8 +604,8 @@ if status == 0:
 			    print (e)
 		    # Close opend file
 		    f.close()
-	    except Exception as es:
-			result = 'ไม่พบตารางเวลาในวันดังกล่าว (ว่าง)'
+	    except:
+                result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
 if status == 0:
     if 'รายการนัดหมายวันพรุ่งนี้' in message:
 	    try:
@@ -635,8 +635,8 @@ if status == 0:
 			    print (e)
 		    # Close opend file
 		    f.close()
-	    except Exception as es:
-			result = 'ไม่พบตารางเวลาในวันดังกล่าว (ว่าง)'			
+	    except:
+                result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'			
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
