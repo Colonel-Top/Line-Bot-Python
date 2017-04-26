@@ -89,7 +89,8 @@ for tmp in president:
     if tmp in message:
         isinsult = '0'
 # if you are not the author, echo
-
+if 'ดังตัวอย่าง' in message :
+	status = 1
 # result = result)
 # result =  bot_mode)
 # result = bot_status)
@@ -478,6 +479,11 @@ if status == 0:
     if 'แฮร' in message:
         result = random.choice(randomfive)
         status == 1
+if status == 0:
+	if '@tutor' in message:
+		result = 'กดที่รูปของ Chloe Secretary\nเลือก "Chat" => แถบเมนูด้านล่างกดคำว่านัดเรียน\nหากไม่เจอเมนูให้กดปุ่มเมนูซ้ายสุดแถบพิมพ์ข้อความ'
+		status =1
+
 '''if status == 0:
     if 'เพิ่มข้อความระบบ' in message:
         if isinsult == '1':
@@ -532,18 +538,17 @@ if status == 0:
 if status == 0:
     if 'ตารางวันที่:' in message:
         try:
-			if 'ต' in message[0]:
-				message = message.replace('ตารางวันที่:','')
-				gdate = message[0:10]
-				fo = open(gdate, 'r+')
-				strws = fo.read()
-				result = 'รายการตารางวันที่\n'+gdate +'\n'+ strws
-				fo.close()
-		except Exception as e:
-			print (e)
-			bot_status = 0
-			bot_mode = 0
-			status = 1
+		message = message.replace('ตารางวันที่:','')
+		gdate = message[0:10]
+		fo = open(gdate, 'r+')
+		strws = fo.read()
+		result = 'รายการตารางวันที่\n'+gdate +'\n'+ strws
+		fo.close()
+	except Exception as e:
+		print (e)
+	bot_status = 0
+	bot_mode = 0
+	status = 1
 if status == 0:
     if 'รายการนัดหมายวันนี้' in message:
 	    try:
