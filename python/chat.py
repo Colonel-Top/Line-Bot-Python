@@ -90,7 +90,7 @@ for tmp in president:
     if tmp in message:
         isinsult = '0'
 # if you are not the author, echo
-if 'ดังตัวอย่าง' in message :
+if 'ตัวอย่าง' in message :
 	status = 1
 # result = result)
 # result =  bot_mode)
