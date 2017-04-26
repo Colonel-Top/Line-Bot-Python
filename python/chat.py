@@ -1,4 +1,4 @@
-﻿#!/usr/bin/python
+#!/usr/bin/python
 # -*-coding: utf-8 -*-
 import gspread
 import os
@@ -501,6 +501,7 @@ if status == 0:
             fo3.close()
             result = 'เพิ่มข้อความระบบเรียบร้อยค่ะ'
 '''
+
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
@@ -542,6 +543,30 @@ if '!@' in message :
             destinations = 'cd4403585a5c0416cfd0d7e5e1fc6d17b'
         elif (strws == '6'):
             destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
+if status == 0:
+    if 'เพิ่มนัดเรียน:' in message:
+        try:
+            message = message.replace('เพิ่มนัดเรียน:','')
+            #print(message+'done')
+            gdate = message[0:10]
+            jobhour = message[11:13]
+            jobmin = message[14:16]
+            content = message[11:]
+            print('เพิ่มนัดเรียน')
+            print (content)
+            # content.encode('utf-8')
+            fo = open(gdate, 'a')
+            fo.write(content + '\n')
+            fo.close()
+            fo = open('customerdate', 'a')
+            fo.write(gdate + ',' + jobhour + ',' + jobmin + '\n')
+            fo.close()
+            result = 'เพิ่มตารางนัดหมายเรียบร้อยค่ะ'
+        except Exception as e:
+            print( e)
+        bot_mode = 0
+        bot_status = 0
+        status = 1
 if '#$' in message:
     tmpo = message.replace('#$','')
     line_bot_api.push_message(destinations, TextSendMessage(tmpo))
