@@ -21,7 +21,12 @@ from linebot import LineBotApi
 from linebot.models import TextSendMessage
 from linebot.exceptions import LineBotApiError
 gdate = (now.strftime('%d-%m-%Y'))
-customerfile = '/customer/'+gdate
+
+file_name = gdate
+script_dir = os.path.dirname(os.path.abspath(__file__))
+dest_dir = os.path.join(script_dir, 'customer')
+
+customerfile = os.path.join(dest_dir, file_name)
 line_bot_api = LineBotApi('QWiSqwAAs1/FyPo+Rt+jKoxjjK+LbkQ1pC1zsmCO9s5g2YO9EFUsSKO90ABQpc8h31iecVkjMsG3IZ2J9xCcS5pHL0ph8nc81PIM+gJEFzkJpHIRBWiJQl7sh6dOuuApuPMC+aj1HjkT5iaHCXDJ5AdB04t89/1O/w1cDnyilFU=')
 fo = open('control','r+')
 strws = fo.read()
@@ -516,7 +521,6 @@ if status == 0:
             print('เพิ่มนัดเรียน')
             print (content)
             # content.encode('utf-8')
-	    
             fo = open(customerfile, 'a')
             fo.write(content + '\n')
             fo.close()

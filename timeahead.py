@@ -77,6 +77,11 @@ tellasc_cmd = ['tell all associate']
 tellasc_ans = ['Okay i will update send msg for you','Yes, wait a second','Let me work on it','Here we go','Alright here is it','Ya this one ^^']
 
 while (True):
+    gdate = (now.strftime('%d-%m-%Y'))
+    file_name = gdate
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    dest_dir = os.path.join(script_dir, 'customer')
+    customerfile = os.path.join(dest_dir, file_name)    
     #line_bot_api.push_message('Ufb00beda08083bcf402fbd2160b75574, TextSendMessage(text='Hello World!'))  "Debug: Looping #")
     # print('loop begin')
     now = datetime.now()
@@ -567,7 +572,7 @@ while (True):
                         printhour = curhour-now.hour
                         tmpresult = "กำหนดการแจ้งเตือน \nวันที่ : " +gdate+"\n" +"เวลาถึงในอีก "+str(printhour)+"ชม.\n--------\n"
                         # Open a file
-                        fo = open(gdate, "r+")
+                        fo = open(customerfile, "r+")
                         for lines in fo:
                             #print (lines)
                             if str(curhour) in lines:
@@ -623,7 +628,7 @@ while (True):
                         gdate = (now.strftime("%d-%m-%Y"))
                         result += "\nกำหนดการแจ้งเตือน \nวันนี้ : \n--------\n"
                         # Open a file
-                        fo = open(gdate, "r+")
+                        fo = open(customerfile, "r+")
                         strws = fo.read()
                         result += strws
                         # Close opend file
@@ -643,7 +648,7 @@ while (True):
                         #gdate = (now.strftime("%d-%m-%Y"))
                         result += "\nกำหนดการแจ้งเตือน \nถึงในวันพรุ่งนี้ : \n--------\n"
                         # Open a file
-                        fo = open(gdate, "r+")
+                        fo = open(customerfile, "r+")
                         strws = fo.read()
                         result += strws
                         # Close opend file
@@ -696,7 +701,7 @@ while (True):
                         #gdate = (now.strftime("%d-%m-%Y"))
                         result += "\nกำหนดการแจ้งเตือน \nถึงในวันพรุ่งนี้ : \n--------\n"
                         # Open a file
-                        fo = open(gdate, "r+")
+                        fo = open(customerfile, "r+")
                         strws = fo.read()
                         result += strws
                         # Close opend file
