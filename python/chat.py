@@ -571,8 +571,8 @@ if status == 0:
 		strws = fo.read()
 		result = 'รายการตารางวันที่\n'+gdate +'\n'+ strws
 		fo.close()
-	except Exception as e:
-		print (e)
+	except:
+            result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
 	bot_status = 0
 	bot_mode = 0
 	status = 1
