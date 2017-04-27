@@ -41,7 +41,7 @@ elif (strws == '6'):
 destination = 'Ufb00beda08083bcf402fbd2160b75574'
 fo.close()
 status = 0
-
+group = 'C5c90aa2273d7093f30ca08a91066cd78'
 # print ('Google API Connected')
 def Login():
     #print ('Messenger API Connected')
@@ -663,6 +663,7 @@ if status == 0:
             position = simq_ask.index(tmp)
             result = simq_ans[position]
             status = 1
+            
 '''if status == 0:
     with open('question') as myFile:
         for num, line in enumerate(myFile, 1):
@@ -698,9 +699,11 @@ if '!@' in message :
             destinations = 'cd4403585a5c0416cfd0d7e5e1fc6d17b'
         elif (strws == '6'):
             destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
-
-if '#$' in message:
-    tmpo = message.replace('#$','')
-    line_bot_api.push_message(destinations, TextSendMessage(tmpo))
 '''
+if status == 0:
+    if '#$' in message:
+        tmpo = message.replace('#$','')
+        line_bot_api.push_message(group, TextSendMessage(tmpo))
+        status = 1
+
 print ('%s' % result)

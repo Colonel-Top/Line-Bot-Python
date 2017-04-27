@@ -526,8 +526,8 @@ while (True):
     
     ####
     #####
-    #if(now.min == 0 and now.second==0 ):
-    if(now.second == 0) or now.second == 30 :
+    if(now.min == 0 and now.second==0 ):
+    #if(now.second == 0) or now.second == 30 :
         try:
             result = ''
             #print("Checking Schedule\n")
