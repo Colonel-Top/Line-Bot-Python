@@ -210,7 +210,7 @@ if bot_status == 0 and status == 0:
             fo = open(gdate, "r+")
             for lines in fo:
             #print (lines)
-                if not ('*' or '$')in lines:
+                if '*' not in lines and '$' not in lines:
                     result += lines
                         # Close opend file
             fo.close()
@@ -228,7 +228,7 @@ if bot_status == 0 and status == 0:
             fo = open(gdate, "r+")
             for lines in fo:
             #print (lines)
-                if not ('*' or '$')in lines:
+                if '*' not in lines and '$' not in lines:
                                 #if str(curmin) in lines:
                     result += lines
                         # Close opend file
@@ -728,7 +728,7 @@ if status == 0:
 		fo = open(gdate, 'r+')
 		result = 'รายการตารางวันที่\n'+gdate +'\n'
 		for lines in fo:
-                    if not ('*' or '$')in lines:
+                    if '*' not in lines and '$' not in lines:
                         result += lines
                 fo.close()
 	except Exception as e:
