@@ -206,11 +206,11 @@ if bot_status == 0 and status == 0:
         try:
             gdate = (now.strftime('%d-%m-%Y'))
             # Open a file
-            result = 'รายการตารางวันนี้\n'+gdate +'\n'
+            result = 'รายการแจ้งเตือนวันนี้\n'+gdate +'\n'
             fo = open(gdate, "r+")
             for lines in fo:
             #print (lines)
-                if not '*' in lines:
+                if not ('*' or '%')in lines:
                                 #if str(curmin) in lines:
                     result += lines
                         # Close opend file
@@ -225,11 +225,11 @@ if bot_status == 0 and status == 0:
         try:
             gdate = str(now.day+1)+str(now.month)+str(now.year)
             # Open a file
-            result = 'รายการตารางวันพรุ่งนี้\n'+gdate +'\n'
+            result = 'รายการแจ้งเตือนวันพรุ่งนี้\n'+gdate +'\n'
             fo = open(gdate, "r+")
             for lines in fo:
             #print (lines)
-                if not '*' in lines:
+                if not ('*' or '%')in lines:
                                 #if str(curmin) in lines:
                     result += lines
                         # Close opend file
@@ -729,7 +729,7 @@ if status == 0:
 		fo = open(gdate, 'r+')
 		result = 'รายการตารางวันที่\n'+gdate +'\n'
 		for lines in fo:
-                    if not '*' in lines:
+                    if not ('*' or '%')in lines:
                         result += lines
                 fo.close()
 	except Exception as e:
@@ -806,7 +806,78 @@ if status == 0:
 		    # Close opend file
 		    f.close()
 	    except:
-                result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'			
+                result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
+if status == 0:
+    if 'รายการตารางงานวันนี้' in message:
+	    try:
+		index = 6
+		gdate = ""
+		f = open("customerdate", "r+")
+		text = f.readlines()
+		for line in text:
+		    curday = int(line[0:2])
+		    curmonth = int(line[3:5])
+		    curyear =  int(line[6:10])
+		    curhour = int(line[11:13])
+		    curmin =  int(line[14:16])
+		    if(curday == now.day and curmonth == now.month and curyear == now.year):
+			try:
+			    gdate = (now.strftime("%d-%m-%Y"))
+			    result += "\nกำหนดการตารางงาน \nวันนี้ : \n--------\n"
+			    # Open a file
+			    fo = open(gdate, "r+")
+                            for lines in fo:
+                                #print (lines)
+                                if str(curhour) in lines:
+                                    if '%' in lines:
+                                    #if str(curmin) in lines:
+                                        result += lines
+                            # Close opend file
+                            fo.close()
+			    break
+			except Exception as e:
+			    print (e)
+		    # Close opend file
+		    f.close()
+	    except:
+                result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
+if status == 0:
+    if 'รายการตารางงานวันพรุ่งนี้' in message:
+	    try:
+		index = 6
+		gdate = ""
+		f = open("customerdate", "r+")
+		text = f.readlines()
+		for line in text:
+		    curday = int(line[0:2])
+		    curday= curday +1
+		    curmonth = int(line[3:5])
+		    curyear =  int(line[6:10])
+		    curhour = int(line[11:13])
+		    curmin =  int(line[14:16])
+		    if(curday == now.day and curmonth == now.month and curyear == now.year):
+			try:
+			    gdate = (now.strftime("%d-%m-%Y"))
+			    result += "\nกำหนดการตารางงาน \nวันพรุ่งนี้ : \n--------\n"
+			    # Open a file
+			    fo = open(gdate, "r+")
+                            for lines in fo:
+                                #print (lines)
+                                if str(curhour) in lines:
+                                    if '%' in lines:
+                                    #if str(curmin) in lines:
+                                        result += lines
+                            # Close opend file
+                            fo.close()
+			    break
+			except Exception as e:
+			    print (e)
+		    # Close opend file
+		    f.close()
+	    except:
+                result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'		
+
+                
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
