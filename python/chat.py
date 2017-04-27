@@ -812,7 +812,7 @@ if status == 0:
 	    try:
 		index = 6
 		gdate = ""
-		f = open("customerdate", "r+")
+		f = open("scheduledate", "r+")
 		text = f.readlines()
 		for line in text:
 		    curday = int(line[0:2])
@@ -846,7 +846,7 @@ if status == 0:
 	    try:
 		index = 6
 		gdate = ""
-		f = open("customerdate", "r+")
+		f = open("scheduledate", "r+")
 		text = f.readlines()
 		for line in text:
 		    curday = int(line[0:2])
