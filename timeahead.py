@@ -180,8 +180,8 @@ while (True):
             print ("Push Notification")
         except Exception as e:
             print (e)
-    #if now.hour == 6 and now.minute == 0 and now.second==0:
-    if now.hour == 0 and now.minute == 55 and now.second==0:
+    if now.hour == 6 and now.minute == 0 and now.second==0:
+    #if now.hour == 0 and now.minute == 55 and now.second==0:
     #if((now.second==0 or now.second == 30)):
         #print('in condition')
         try:
@@ -279,7 +279,7 @@ while (True):
                         fo = open(gdate, "r+")
                         for lines in fo:
                             #print (lines)
-                            if str(curhour) in lines:
+                            if True:
                                 if '*' not in lines and '$' not in lines:
                                 #if str(curmin) in lines:
                                     result += lines
@@ -491,7 +491,7 @@ while (True):
                         fo = open(gdate, "r+")
                         for lines in fo:
                             #print (lines)
-                            if str(curhour) in lines:
+                            if True:
                                 if '*' in lines:
                                 #if str(curmin) in lines:
                                     result += lines
@@ -666,7 +666,7 @@ while (True):
                         fo = open(gdate, "r+")
                         for lines in fo:
                             #print (lines)
-                            if str(curhour) in lines:
+                            if True:
                                 if '$' in lines:
                                 #if str(curmin) in lines:
                                     result += lines
