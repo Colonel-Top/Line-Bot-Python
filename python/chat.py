@@ -366,7 +366,7 @@ if status == 0:
             # result = "Sorry I don't know that \nYou can try: \nopen menu \nshow menu \nเรียกเมนู \nเปิดเมนู \nshow function"
 if status == 0:
     if 'ขอเบอ' in message:
-        if (1):
+        if True:
             scope = ['https://spreadsheets.google.com/feeds']
             credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
             gc = gspread.authorize(credentials)
@@ -563,7 +563,7 @@ if status == 0:
 if status == 0:
     if 'ชม' in message or 'ยอ' in message:
         if 'มัน' in message or 'สิ' in message or 'ซิ' in message or 'เดะ' in message or 'เซะ' in message or 'ดิ' in message or 'ที' in message or 'กุ' in message or 'กุ' in message or 'หน่อย':
-            if (1):
+            if True:
                 final = ''
                 first = ''
                 second = ''
@@ -794,7 +794,7 @@ if status == 0:
 			    fo = open(gdate, "r+")
                             for lines in fo:
                                 #print (lines)
-                                if (1):
+                                if True:
                                     if '*' in lines:
                                     #if str(curmin) in lines:
                                         result += lines
@@ -828,7 +828,7 @@ if status == 0:
 			    fo = open(gdate, "r+")
                             for lines in fo:
                                 #print (lines)
-                                if (1):
+                                if True:
                                     if '$' in lines:
                                     #if str(curmin) in lines:
                                         result += lines
@@ -864,7 +864,7 @@ if status == 0:
 			    fo = open(gdate, "r+")
                             for lines in fo:
                                 #print (lines)
-                                if (1):
+                                if True:
                                     if '$' in lines:
                                     #if str(curmin) in lines:
                                         result += lines
