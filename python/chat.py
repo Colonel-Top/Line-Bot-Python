@@ -454,8 +454,34 @@ reinsult2 = ['ผี','ผี','ดอก','บลิซซาร์ดไม่
 'ตาเถรตกใต้ถุน','เนรคุณแผ่นดินเกิด','ระเบิดแสวงเครื่อง','ครกกระเดื่องตำข้าว',
 'มะพร้าวห้าวยัดปาก','สากกระเบือยัดก้น','คนไททิ้งแผ่นดิน',
 'ไพร่เพื่อทัก','บักหำน้อย','กบฏต่อราชบัลลังก์','ลานจอดนกเอี้ยง']
-member = ['อาท','แม็ค','พี่ฟา','พี่น้ำ','พี่จูน','ออมสิน','แพรว','มิน','มิ้น','คิตตxี้','มาย','ปืน','พี่','พี','กาย','ออม','ภูมิ','เบียร์','เบีย','แนน','แฟง','จูน','เอิท','ออมสิน','ปอน','แมค','แมก','เจส','มุก','น้ำ','บูม',
+member = ['อาท','แม็ค','พี่ฟา','พี่น้ำ','พี่จูน','ออมสิน','แพรว','มิน','มิ้น','คิตตี้','มาย','ปืน','พี่','พี','กาย','ออม','ภูมิ','เบียร์','เบีย','แนน','แฟง','จูน','เอิท','ออมสิน','ปอน','แมค','แมก','เจส','มุก','น้ำ','บูม',
           'นั้ม','ทัยรัตน','ภาสวิชญ์','พีมลทิพย์','วรเดช','หลิน','กิ้ก','เก่ง','นิค','ฟาโล','กิ๊ก','นิก','ฟาโร']
+member2 = ['อาท','แม็ค','พี่ฟา','พี่น้ำ','พี่จูน','ออมสิน','แพรว','มิน','มิ้น','คิตตี้','มาย','ปืน','พี่','พี','กาย','ออม','ภูมิ','เบียร์','เบีย','แนน','แฟง','จูน','เอิท','ออมสิน','ปอน','แมค','แมก','เจส','มุก','น้ำ','บูม',
+          'นั้ม','ทัยรัตน','ภาสวิชญ์','พีมลทิพย์','วรเดช','หลิน','กิ้ก','เก่ง','นิค','ฟาโล','กิ๊ก','นิก','ฟาโร','ท้อป','ทอป','ท่อป','ท๊อป','ท้อป','ปธ','ป.ธ','เมดี้']
+good = ['เก่งจัง','น่ารักกกก','ดูดีมากเลย','ชอบๆ น่ารักมาก','สุดยอดเลย','ทำได้ดีมากเลย','น่ารักมากเลย','ดูดีมาก']
+toldme = ['บอกว่ากุ' , 'บอกว่าเรา' , 'บอกว่ากุ' , 'บอกเราว่า' , 'บอกเค้าว่า' , 'บอกว่าเรา']
+whynot = ['ไม่น่าเชื่อถือพอค่ะ','ไม่น่ารักพอค่ะ','ไม่ดูดีพอค่ะ','ไม่อยากเชื่อค่ะ','คุณไม่ได้ผ่านเข้ารอบค่ะ','คุณน่ารักเกินไปค่ะ','คุณดูดีมากเกินไปค่ะ']
+
+if status == 0:
+    for tmp in toldme:
+        if tmp in message:
+            if isinsult == '1':
+                result = message.replace(tmp,"")
+                result += 'ค่ะ'
+            else
+            select = randint (0,3)
+            if select == 0:
+                result = message.replace(tmp,"")
+                result += 'ก็ได้ค่ะ'
+                status = 1
+            elif select == 1:
+                result = 'ไม่ค่ะ'
+                result += random.choice(whynot)
+                status = 1
+            elif select == 2:
+                result = message.replace(tmp,"")
+                result += 'ค่ะ'
+                status = 1
 if status == 0:
     for tmp in insult:
         if tmp in message:
@@ -515,6 +541,23 @@ if status == 0:
             else:
                 result = 'ขอโทษค่ะหนูด่าไม่ได้ แอแฮร่'
                 status = 1
+if status == 0:
+    if 'ชม' in message:
+        if 'มัน' in message or 'สิ' in message or 'ซิ' in message or 'เดะ' in message or 'เซะ' in message or 'ดิ' in message or 'ที' in message or 'กุ' in message or 'กุ' in message:
+            if (1):
+                final = ''
+                first = ''
+                second = ''
+                for tmpo in member2:
+                    if (tmpo in message):
+                        result = tmpo+random.choice(good)+'ค่ะ'
+                        status = 1
+                        break
+                    else:
+                        result = random.choice(good)+'ค่ะ'
+            else:
+                result = 'ขอโทษค่ะหนูด่าไม่ได้ แอแฮร่'
+                status = 1                
 if status == 0:
     if 'ด่า' in message:
         if 'แหละ' in message:
@@ -578,12 +621,12 @@ if status == 0:
             # content.encode('utf-8')
 	    
             fo = open(gdate, 'a')
-            fo.write(content + '\n')
+            fo.write(content + '*\n')
             fo.close()
             fo = open('customerdate', 'a')
             fo.write(gdate + ',' + jobhour + ',' + jobmin + '\n')
             fo.close()
-            result = 'เพิ่มนัดหมายการเรียนเรียบร้อยค่ะหากต้องการยกเลิกกรุณาติดต่อผู้าอน'
+            result = 'เพิ่มนัดหมายการเรียนเรียบร้อยค่ะหากต้องการยกเลิกกรุณาติดต่อผู้สอน'
             line_bot_api.push_message(destination, TextSendMessage(content))
         except Exception as e:
             result = 'การนัดหมายล้มเหลว'
@@ -597,7 +640,7 @@ if status == 0:
                 message = message[atpos:]
 		message = message.replace('ตารางนัดหมายวันที่:','')
 		gdate = message[0:10]
-		result = 'ตารางนัดหมายวันที่:\n'+gdate +'\n'+ strws
+		result = 'ตารางนัดหมายวันที่:\n'+gdate +'\n'
 		fo = open(gdate, 'r+')
 		for lines in fo:
                     if '*' in lines:
@@ -611,11 +654,11 @@ if status == 0:
 if status == 0:
     if 'ตารางวันที่:' in message:
         try:
-                result = 'รายการตารางวันที่\n'+gdate +'\n'+ strws
                 atpos = message.find("ตารางวันที่:")
                 message = message[atpos:]
 		message = message.replace('ตารางวันที่:','')
 		gdate = message[0:10]
+		result = 'รายการตารางวันที่\n'+gdate +'\n'
 		fo = open(gdate, 'r+')
 		for lines in fo:
                     if not '*' in lines:
