@@ -532,7 +532,7 @@ if status == 0:
 if status == 0:
     if 'ตารางวันที่:' in message:
         try:
-	    message = message.replace('ตารางวันที่:','')
+			message = message.replace('ตารางวันที่:','')
             #print(message+'done')
             gdate = message[0:10]
             # Open a file
@@ -541,8 +541,8 @@ if status == 0:
             result = 'รายการตารางวันที่\n'+gdate +'\n'+ strws
             # Close opend file
             fo.close()
-        except:
-            result = 'ไม่พบตารางเวลาในวันดังกล่าว (ว่าง)'
+        except Exception as e:
+            print (e)
         bot_status = 0
         bot_mode = 0
         status = 1
@@ -575,7 +575,7 @@ if status == 0:
 		    # Close opend file
 		    f.close()
 	    except Exception as es:
-		result = 'ไม่พบตารางเวลาในวันดังกล่าว (ว่าง)'	 
+			result = 'ไม่พบตารางเวลาในวันดังกล่าว (ว่าง)'	 
 if status == 0:
     for tmp in simq_ask:
         if tmp in message:
