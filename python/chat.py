@@ -671,7 +671,7 @@ if status == 0:
             # content.encode('utf-8')
 	    
             fo = open(gdate, 'a')
-            fo.write(content + '%\n')
+            fo.write(content + '$\n')
             fo.close()
             fo = open('scheduledate', 'a')
             fo.write(gdate + ',' + jobhour + ',' + jobmin + '\n')
