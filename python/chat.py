@@ -640,8 +640,8 @@ if status == 0:
                 message = message[atpos:]
 		message = message.replace('ตารางนัดหมายวันที่:','')
 		gdate = message[0:10]
-		result = 'ตารางนัดหมายวันที่:\n'+gdate +'\n'
 		fo = open(gdate, 'r+')
+		result = 'ตารางนัดหมายวันที่:\n'+gdate +'\n'
 		for lines in fo:
                     if '*' in lines:
                         result += lines
@@ -658,8 +658,8 @@ if status == 0:
                 message = message[atpos:]
 		message = message.replace('ตารางวันที่:','')
 		gdate = message[0:10]
-		result = 'รายการตารางวันที่\n'+gdate +'\n'
 		fo = open(gdate, 'r+')
+		result = 'รายการตารางวันที่\n'+gdate +'\n'
 		for lines in fo:
                     if not '*' in lines:
                         result += lines
