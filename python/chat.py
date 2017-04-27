@@ -569,9 +569,9 @@ if status == 0:
                         result = tmpo+random.choice(good)+'ค่ะ'
                         status = 1
                         break
-                    else:
-                        result = random.choice(good)+'ค่ะ'
-                        status = 1
+                    #else:
+                        #result = random.choice(good)+'ค่ะ'
+                        #status = 1
             else:
                 result = random.choice(good)+'ค่ะ'
                 status = 1
