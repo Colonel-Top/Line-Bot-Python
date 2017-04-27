@@ -169,13 +169,14 @@ while (True):
                                     result += lines
                         # Close opend file
                         fo.close()
+                        line_bot_api.push_message(group, TextSendMessage(result))
                         break
                     except Exception as es:
                         print (es)
                 
                 # Close opend file
             f.close()
-            line_bot_api.push_message(group, TextSendMessage(result))
+            
             print ("Push Notification")
         except Exception as e:
             print (e)
@@ -225,12 +226,13 @@ while (True):
                                 result += lines
                         # Close opend file
                         fo.close()
+                        line_bot_api.push_message(group, TextSendMessage(result))
                         break
                     except Exception as e:
                         print (e)
                 # Close opend file
                 f.close()
-                line_bot_api.push_message(group, TextSendMessage(result))
+                #line_bot_api.push_message(group, TextSendMessage(result))
         except Exception as e:
             print (e)
         
@@ -282,12 +284,13 @@ while (True):
                                     result += lines
                         # Close opend file
                         fo.close()
+                        line_bot_api.push_message(group, TextSendMessage(result))
                         break
                     except Exception as e:
                         print (e)
                 # Close opend file
                 f.close()
-                line_bot_api.push_message(group, TextSendMessage(result))
+                #line_bot_api.push_message(group, TextSendMessage(result))
         except Exception as e:
             print (e)
     if now.hour == 23 and now.minute == 59 and now.second == 0:
@@ -379,18 +382,20 @@ while (True):
                                     result += lines
                         # Close opend file
                         fo.close()
+                        line_bot_api.push_message(destinationme, TextSendMessage(result))
                         break
                     except Exception as es:
                         print (es)
                 
                 # Close opend file
             f.close()
-            line_bot_api.push_message(destinationme, TextSendMessage(result))
+            
             print ("Push Notification")
         except Exception as e:
             print (e)
     if now.hour == 6 and now.minute == 0 and now.second==0:
     #if((now.second==0 or now.second == 30)):
+    #if (1):
         #print('in condition')
         try:
             result = ''
@@ -419,9 +424,6 @@ while (True):
                 #print (curday+curmonth+curyear+curhour+curmin)
                 #print (now.date)
                 if(curday == now.day and curmonth == now.month and curyear == now.year):
-                #if(1):
-                    
-                    #print ('correct rolling in')
                     try:
                         result += random.choice(timesay)
                         gdate = (now.strftime("%d-%m-%Y"))
@@ -435,12 +437,14 @@ while (True):
                                 result += lines
                         # Close opend file
                         fo.close()
+                        line_bot_api.push_message(destinationme, TextSendMessage(result))
                         break
                     except Exception as e:
                         print (e)
                 # Close opend file
                 f.close()
-                line_bot_api.push_message(destinationme, TextSendMessage(result))
+            #print (result)
+            #line_bot_api.push_message(destinationme, TextSendMessage(result))
         except Exception as e:
             print (e)
         
@@ -492,12 +496,13 @@ while (True):
                                     result += lines
                         # Close opend file
                         fo.close()
+                        line_bot_api.push_message(destinationme, TextSendMessage(result))
                         break
                     except Exception as e:
                         print (e)
                 # Close opend file
                 f.close()
-                line_bot_api.push_message(destinationme, TextSendMessage(result))
+                #line_bot_api.push_message(destinationme, TextSendMessage(result))
         except Exception as e:
             print (e)
     if(now.minute == 0 and now.second==0 ):
@@ -552,13 +557,14 @@ while (True):
                                     result += lines
                         # Close opend file
                         fo.close()
+                        line_bot_api.push_message(destinationme, TextSendMessage(result))
                         break
                     except Exception as es:
                         print (es)
                 
                 # Close opend file
             f.close()
-            line_bot_api.push_message(destinationme, TextSendMessage(result))
+            
             print ("Push Notification")
         except Exception as e:
             print (e)
@@ -608,12 +614,13 @@ while (True):
                                 result += lines
                         # Close opend file
                         fo.close()
+                        line_bot_api.push_message(destinationme, TextSendMessage(result))
                         break
                     except Exception as e:
                         print (e)
                 # Close opend file
                 f.close()
-                line_bot_api.push_message(destinationme, TextSendMessage(result))
+                #line_bot_api.push_message(destinationme, TextSendMessage(result))
         except Exception as e:
             print (e)
     if now.hour == 18 and now.minute == 0 and now.second==0:
@@ -664,12 +671,13 @@ while (True):
                                     result += lines
                         # Close opend file
                         fo.close()
+                        line_bot_api.push_message(destinationme, TextSendMessage(result))
                         break
                     except Exception as e:
                         print (e)
                 # Close opend file
                 f.close()
-                line_bot_api.push_message(destinationme, TextSendMessage(result))
+                #line_bot_api.push_message(destinationme, TextSendMessage(result))
         except Exception as e:
             print (e)
     time.sleep(1)
