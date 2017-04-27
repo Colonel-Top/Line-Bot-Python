@@ -608,6 +608,7 @@ if status == 0:
 if status == 0:
     if 'เพิ่มนัดเรียน:' in message:
         try:
+            tmpgo = message
             message = message.replace('เพิ่มนัดเรียน:','')
             #print(message+'done')
             gdate = message[0:10]
@@ -627,12 +628,41 @@ if status == 0:
             fo.write(gdate + ',' + jobhour + ',' + jobmin + '\n')
             fo.close()
             result = 'เพิ่มนัดหมายการเรียนเรียบร้อยค่ะหากต้องการยกเลิกกรุณาติดต่อผู้สอน'
-            line_bot_api.push_message(destination, TextSendMessage(content))
+            line_bot_api.push_message(destination, TextSendMessage(tmpgo))
         except Exception as e:
-            result = 'การนัดหมายล้มเหลว'
+            result = 'การนัดหมายล้มเหลวกรุณาติดต่อผู้สอน'
         bot_mode = 0
         bot_status = 0
         status = 1
+if status == 0:
+    if'เพิ่มตารางงาน'in message:
+        try:
+            tmpgo = message
+            message = message.replace('เพิ่มตารางงาน','')
+            #print(message+'done')
+            gdate = message[0:10]
+            jobhour = message[11:13]
+            jobmin = message[14:16]
+	    jobtime = message[17:18]
+	    name = message[19:]
+            content = message[11:]
+            print('เพิ่มตารางงาน')
+            print (content)
+            # content.encode('utf-8')
+	    
+            fo = open(gdate, 'a')
+            fo.write(content + '%\n')
+            fo.close()
+            fo = open('scheduledate', 'a')
+            fo.write(gdate + ',' + jobhour + ',' + jobmin + '\n')
+            fo.close()
+            result = 'เพิ่มตารางงานเรียบร้อยค่ะ'
+            line_bot_api.push_message(destination, TextSendMessage(tmpgo))
+        except Exception as e:
+            result = 'การเพิ่มตารางล้มเหลว'
+        bot_mode = 0
+        bot_status = 0
+        status = 1        
 if status == 0:
     if 'ตารางนัดหมายวันที่:' in message:
         try:
@@ -651,6 +681,24 @@ if status == 0:
 	bot_status = 0
 	bot_mode = 0
 	status = 1
+if status == 0:
+    if 'ตารางงานวันที่:' in message:
+        try:
+                atpos = message.find("ตารางงานวันที่:")
+                message = message[atpos:]
+		message = message.replace('ตารางงานวันที่:','')
+		gdate = message[0:10]
+		fo = open(gdate, 'r+')
+		result = 'ตารางงานวันที่:\n'+gdate +'\n'
+		for lines in fo:
+                    if '%' in lines:
+                        result += lines
+                fo.close()
+	except:
+            result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
+	bot_status = 0
+	bot_mode = 0
+	status = 1	
 if status == 0:
     if 'ตารางวันที่:' in message:
         try:
