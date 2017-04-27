@@ -211,7 +211,6 @@ if bot_status == 0 and status == 0:
             for lines in fo:
             #print (lines)
                 if not ('*' or '$')in lines:
-                                #if str(curmin) in lines:
                     result += lines
                         # Close opend file
             fo.close()
