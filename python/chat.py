@@ -116,11 +116,13 @@ if status == 0 :
     if 'ด่า'in message:
         if 'สามช่า' in message:
             result = 'ฟวย ฟวยๆ ฟวย ฟวย'
+            status = 1
         if 'อจ' in message:
             result = ''
+            status = 1
         if 'อาจา' in message :
             result = ''
-        status = 1
+            status = 1
     if 'เยส' in message or 'เยด' in message :
         result = 'แน่นอน'
         status = 1
