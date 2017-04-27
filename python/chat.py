@@ -468,20 +468,20 @@ if status == 0:
             if isinsult == '1':
                 result = message.replace(tmp,"")
                 result += 'ค่ะ'
-            else
-            select = randint (0,3)
-            if select == 0:
-                result = message.replace(tmp,"")
-                result += 'ก็ได้ค่ะ'
-                status = 1
-            elif select == 1:
-                result = 'ไม่ค่ะ'
-                result += random.choice(whynot)
-                status = 1
-            elif select == 2:
-                result = message.replace(tmp,"")
-                result += 'ค่ะ'
-                status = 1
+            else:
+                select = randint (0,3)
+                if select == 0:
+                    result = message.replace(tmp,"")
+                    result += 'ก็ได้ค่ะ'
+                    status = 1
+                elif select == 1:
+                    result = 'ไม่ค่ะ'
+                    result += random.choice(whynot)
+                    status = 1
+                elif select == 2:
+                    result = message.replace(tmp,"")
+                    result += 'ค่ะ'
+                    status = 1
 if status == 0:
     for tmp in insult:
         if tmp in message:
