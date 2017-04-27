@@ -759,7 +759,7 @@ if status == 0:
 			    fo = open(gdate, "r+")
                             for lines in fo:
                                 #print (lines)
-                                (1):
+                                if True:
                                     if '*' in lines:
                                     #if str(curmin) in lines:
                                         result += lines
