@@ -533,16 +533,13 @@ if status == 0:
     if 'ตารางวันที่:' in message:
         try:
 			message = message.replace('ตารางวันที่:','')
-            #print(message+'done')
-            gdate = message[0:10]
-            # Open a file
-            fo = open(gdate, 'r+')
-            strws = fo.read()
-            result = 'รายการตารางวันที่\n'+gdate +'\n'+ strws
-            # Close opend file
-            fo.close()
-        except Exception as e:
-            print (e)
+			gdate = message[0:10]
+			fo = open(gdate, 'r+')
+			strws = fo.read()
+			result = 'รายการตารางวันที่\n'+gdate +'\n'+ strws
+			fo.close()
+		except Exception as e:
+			print (e)
         bot_status = 0
         bot_mode = 0
         status = 1
