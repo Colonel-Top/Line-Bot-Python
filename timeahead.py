@@ -164,7 +164,7 @@ while (True):
                         for lines in fo:
                             #print (lines)
                             if str(curhour) in lines:
-                                if not ('*' or '$') in lines:
+                                if '*' not in lines and '$' not in lines:
                                 #if str(curmin) in lines:
                                     result += lines
                         # Close opend file
@@ -221,7 +221,7 @@ while (True):
                         fo = open(gdate, "r+")
                         for lines in fo:
                             #print (lines)
-                            if not ('*' or '$') in lines:
+                            if '*' not in lines and '$' not in lines:
                                 #if str(curmin) in lines:
                                 result += lines
                         # Close opend file
@@ -279,7 +279,7 @@ while (True):
                         for lines in fo:
                             #print (lines)
                             if str(curhour) in lines:
-                                if not ('*' or '$') in lines:
+                                if '*' not in lines and '$' not in lines:
                                 #if str(curmin) in lines:
                                     result += lines
                         # Close opend file
