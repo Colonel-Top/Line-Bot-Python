@@ -561,7 +561,7 @@ if status == 0:
                     result = 'ขอโทษค่ะหนูไม่ด่าเพราะคุณ'+random.choice(randarray)
                 status = 1
 if status == 0:
-    if 'ชม' in message:
+    if 'ชม' in message or 'ยอ' in message:
         if 'มัน' in message or 'สิ' in message or 'ซิ' in message or 'เดะ' in message or 'เซะ' in message or 'ดิ' in message or 'ที' in message or 'กุ' in message or 'กุ' in message or 'หน่อย':
             if (1):
                 final = ''
