@@ -759,7 +759,7 @@ if status == 0:
 			    fo = open(gdate, "r+")
                             for lines in fo:
                                 #print (lines)
-                                if str(curhour) in lines:
+                                (1):
                                     if '*' in lines:
                                     #if str(curmin) in lines:
                                         result += lines
@@ -794,7 +794,7 @@ if status == 0:
 			    fo = open(gdate, "r+")
                             for lines in fo:
                                 #print (lines)
-                                if str(curhour) in lines:
+                                if (1):
                                     if '*' in lines:
                                     #if str(curmin) in lines:
                                         result += lines
@@ -828,7 +828,7 @@ if status == 0:
 			    fo = open(gdate, "r+")
                             for lines in fo:
                                 #print (lines)
-                                if str(curhour) in lines:
+                                if (1):
                                     if '$' in lines:
                                     #if str(curmin) in lines:
                                         result += lines
@@ -864,7 +864,7 @@ if status == 0:
 			    fo = open(gdate, "r+")
                             for lines in fo:
                                 #print (lines)
-                                if str(curhour) in lines:
+                                if (1):
                                     if '$' in lines:
                                     #if str(curmin) in lines:
                                         result += lines
