@@ -593,11 +593,11 @@ if status == 0:
 if status == 0:
     if 'ตารางนัดหมายวันที่:' in message:
         try:
-                atpos = message.find("ตารางวันที่:")
+                atpos = message.find("ตารางนัดหมายวันที่:")
                 message = message[atpos:]
-		message = message.replace('ตารางวันที่:','')
+		message = message.replace('ตารางนัดหมายวันที่:','')
 		gdate = message[0:10]
-		result = 'รายการตารางวันที่\n'+gdate +'\n'+ strws
+		result = 'ตารางนัดหมายวันที่:\n'+gdate +'\n'+ strws
 		fo = open(gdate, 'r+')
 		for lines in fo:
                     if '*' in lines:
@@ -621,7 +621,8 @@ if status == 0:
                     if not '*' in lines:
                         result += lines
                 fo.close()
-	except:
+	except Exception as e:
+            print (e)
             result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
 	bot_status = 0
 	bot_mode = 0
