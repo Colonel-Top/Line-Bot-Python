@@ -205,11 +205,16 @@ if bot_status == 0 and status == 0:
         try:
             gdate = (now.strftime('%d-%m-%Y'))
             # Open a file
-            fo = open(gdate, 'r+')
-            strws = fo.read()
-            result = 'รายการตารางวันนี้\n'+gdate +'\n'+ strws
-            # Close opend file
+            result = 'รายการตารางวันนี้\n'+gdate +'\n'
+            fo = open(gdate, "r+")
+            for lines in fo:
+            #print (lines)
+                if not '*' in lines:
+                                #if str(curmin) in lines:
+                    result += lines
+                        # Close opend file
             fo.close()
+            # Close opend file
         except:
             result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
         bot_status = 0
@@ -219,11 +224,16 @@ if bot_status == 0 and status == 0:
         try:
             gdate = str(now.day+1)+str(now.month)+str(now.year)
             # Open a file
-            fo = open(gdate, 'r+')
-            strws = fo.read()
-            result = 'รายการตารางวันพรุ่งนี้\n'+gdate +'\n'+ strws
-            # Close opend file
+            result = 'รายการตารางวันพรุ่งนี้\n'+gdate +'\n'
+            fo = open(gdate, "r+")
+            for lines in fo:
+            #print (lines)
+                if not '*' in lines:
+                                #if str(curmin) in lines:
+                    result += lines
+                        # Close opend file
             fo.close()
+            # Close opend file
         except:
             result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
         bot_status = 0
@@ -581,16 +591,36 @@ if status == 0:
         bot_status = 0
         status = 1
 if status == 0:
-    if 'ตารางวันที่:' in message:
+    if 'ตารางนัดหมายวันที่:' in message:
         try:
                 atpos = message.find("ตารางวันที่:")
                 message = message[atpos:]
 		message = message.replace('ตารางวันที่:','')
 		gdate = message[0:10]
-		fo = open(gdate, 'r+')
-		strws = fo.read()
 		result = 'รายการตารางวันที่\n'+gdate +'\n'+ strws
-		fo.close()
+		fo = open(gdate, 'r+')
+		for lines in fo:
+                    if '*' in lines:
+                        result += lines
+                fo.close()
+	except:
+            result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
+	bot_status = 0
+	bot_mode = 0
+	status = 1
+if status == 0:
+    if 'ตารางวันที่:' in message:
+        try:
+                result = 'รายการตารางวันที่\n'+gdate +'\n'+ strws
+                atpos = message.find("ตารางวันที่:")
+                message = message[atpos:]
+		message = message.replace('ตารางวันที่:','')
+		gdate = message[0:10]
+		fo = open(gdate, 'r+')
+		for lines in fo:
+                    if not '*' in lines:
+                        result += lines
+                fo.close()
 	except:
             result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
 	bot_status = 0
@@ -615,10 +645,14 @@ if status == 0:
 			    result += "\nกำหนดการนัดหมาย \nวันนี้ : \n--------\n"
 			    # Open a file
 			    fo = open(gdate, "r+")
-			    strws = fo.read()
-			    result += strws
-			    # Close opend file
-			    fo.close()
+                            for lines in fo:
+                                #print (lines)
+                                if str(curhour) in lines:
+                                    if '*' in lines:
+                                    #if str(curmin) in lines:
+                                        result += lines
+                            # Close opend file
+                            fo.close()
 			    break
 			except Exception as e:
 			    print (e)
@@ -646,10 +680,14 @@ if status == 0:
 			    result += "\nกำหนดการนัดหมาย \nวันพรุ่งนี้ : \n--------\n"
 			    # Open a file
 			    fo = open(gdate, "r+")
-			    strws = fo.read()
-			    result += strws
-			    # Close opend file
-			    fo.close()
+                            for lines in fo:
+                                #print (lines)
+                                if str(curhour) in lines:
+                                    if '*' in lines:
+                                    #if str(curmin) in lines:
+                                        result += lines
+                            # Close opend file
+                            fo.close()
 			    break
 			except Exception as e:
 			    print (e)
