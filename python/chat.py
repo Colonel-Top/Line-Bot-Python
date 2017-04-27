@@ -655,10 +655,10 @@ if status == 0:
         bot_status = 0
         status = 1
 if status == 0:
-    if'เพิ่มตารางงาน'in message:
+    if'เพิ่มตารางงาน:'in message:
         try:
             tmpgo = message
-            message = message.replace('เพิ่มตารางงาน','')
+            message = message.replace('เพิ่มตารางงาน:','')
             #print(message+'done')
             gdate = message[0:10]
             jobhour = message[11:13]
