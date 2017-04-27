@@ -840,7 +840,8 @@ if status == 0:
 		    # Close opend file
 		    f.close()
 	    except Exception as e:
-                result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว' + e
+                result = 'ไม่พบตารางเวลาหรือการอ่านล้มเหลว'
+                print (e)
 if status == 0:
     if 'รายการตารางงานวันพรุ่งนี้' in message:
 	    try:
