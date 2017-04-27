@@ -423,7 +423,7 @@ if status == 0:
 	      result =  'ไม่ให้ค่ะ'
 	    status = 1
 insult = ['ด่าอิ','ด่าแม่ง','ด่าไอ','ด่ามัน','ด่าอีก','ด่าาแม่ง','ด่ามันสิ','ด่ามันซิ','ด่าต่อไป','ด่าอย่าหยุด','ด่าอี','ด่าอิ','ด่ามา']
-
+care = ['โอเอ๋น้าาาา','โอเอ๋นาจา','ไม่เอาไม่เสียใจ','โอ๋ๆๆๆ','ไม่อาวๆไม่ร้องๆ อึ้บ','ไม่เศร้านะค่ะ ^^','ไม่เศร้าน้าาาา','อุอิๆ อึ้บๆ']
 prefixinsult = ['ไอ้','อี','อิ','ไอ']
 reinsult2 = ['ผี','ผี','ดอก','บลิซซาร์ดไม่คว่ำถ้วย','บลิซซาร์ดไม่คว่ำถ้วย','บลิซซาร์ดไม่คว่ำถ้วย','บลิซซาร์ดไม่คว่ำถ้วย','แหวกกอหญ้า','บ้าห้าร้อยจำพวก','ปลวกใต้หลังคา','หน้าปลาจวด',
 'บ้องกัญชา','ปลาไม่กินเบ็ด','เห็ดสามสี','อิเห็ดต้มยำ','อิเห็ดต้มยำ',
@@ -577,6 +577,24 @@ if status == 0:
             else:
                 result = random.choice(good)+'ค่ะ'
                 status = 1
+if status == 0:
+    if 'โอ๋' in message :
+        if 'มัน' in message or 'สิ' in message or 'ซิ' in message or 'เดะ' in message or 'เซะ' in message or 'ดิ' in message or 'ที' in message or 'กุ' in message or 'กุ' in message or 'หน่อย':
+            if True:
+                final = ''
+                first = ''
+                second = ''
+                for tmpo in member2:
+                    if (tmpo in message):
+                        result = tmpo+random.choice(care)
+                        status = 1
+                        break
+                    #else:
+                        #result = random.choice(good)+'ค่ะ'
+                        #status = 1
+            else:
+                result = random.choice(good)+'ค่ะ'
+                status = 1                
 if status == 0:
     if 'ด่า' in message:
         if 'แหละ' in message:
