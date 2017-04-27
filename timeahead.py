@@ -463,10 +463,10 @@ while (True):
                         print (e)
                 # Close opend file
                 f.close()
-                
+                line_bot_api.push_message(destination, TextSendMessage(result))
         except Exception as e:
             print (e)
-        line_bot_api.push_message(destination, TextSendMessage(result))
+        
     if now.hour == 18 and now.minute == 0 and now.second==0:
     #if((now.second==0 or now.second == 30)):
         #print('in condition')
@@ -516,10 +516,10 @@ while (True):
                         print (e)
                 # Close opend file
                 f.close()
-                
+                line_bot_api.push_message(destination, TextSendMessage(result))
         except Exception as e:
             print (e)
-        line_bot_api.push_message(destination, TextSendMessage(result))
+        l#ine_bot_api.push_message(destination, TextSendMessage(result))
     #############################
     ########
     ###
@@ -655,10 +655,10 @@ while (True):
                         print (e)
                 # Close opend file
                 f.close()
-                
+                line_bot_api.push_message(destination, TextSendMessage(result))
         except Exception as e:
             print (e)
-        line_bot_api.push_message(destination, TextSendMessage(result))
+        #line_bot_api.push_message(destination, TextSendMessage(result))
     if now.hour == 18 and now.minute == 0 and now.second==0:
     #if((now.second==0 or now.second == 30)):
         #print('in condition')
@@ -708,10 +708,10 @@ while (True):
                         print (e)
                 # Close opend file
                 f.close()
-                
+                line_bot_api.push_message(destination, TextSendMessage(result))
         except Exception as e:
             print (e)
-        line_bot_api.push_message(destination, TextSendMessage(result))
+        #line_bot_api.push_message(destination, TextSendMessage(result))
 
     if now.hour == 23 and now.minute == 59 and now.second == 0:
         gdate = (now.strftime("%d-%m-%Y"))
@@ -856,10 +856,10 @@ while (True):
                         print (e)
                 # Close opend file
                 f.close()
-                
+                line_bot_api.push_message(destination, TextSendMessage(result))
         except Exception as e:
             print (e)
-        line_bot_api.push_message(destination, TextSendMessage(result))
+        #line_bot_api.push_message(destination, TextSendMessage(result))
     if now.hour == 18 and now.minute == 0 and now.second==0:
     #if((now.second==0 or now.second == 30)):
         #print('in condition')
@@ -909,9 +909,9 @@ while (True):
                         print (e)
                 # Close opend file
                 f.close()
-                
+                line_bot_api.push_message(destination, TextSendMessage(result))
         except Exception as e:
             print (e)
-        line_bot_api.push_message(destination, TextSendMessage(result))
+        #line_bot_api.push_message(destination, TextSendMessage(result))
     time.sleep(1)
     #print (now.second)
