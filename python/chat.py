@@ -88,7 +88,7 @@ tellasc_ans = ['Okay i will update send msg for you', 'Yes, wait a second', 'Let
 reinsult = ['กะหรี','กระหรี','สัส','สาส','บ้า','เวร','สาสสสส','สาดดด','ผี']
 isinsult = '1'
 president = ['ท้อ','ท่อ','ทอ','ท๊อ','ท๋อ','ปธ','ประ','ป่ระ','ปร่ะ','ป่ร่ะ','ปะ','ป่ะ','ป้ะ','ป๊ะ','ป๋ะ','ปท','พรหม','พรม','สุร','นท์','ทร์','พุท','พุธ','รรม','วงศ','วงส','วงษ','เมด','เม่ด','ป.ธ','ป,ธ','ป.ท','ปท','ป,ท','โคล','โคโ','โคอ','ท็อ']
-special = ['!','@','#','$','%','^','&','*','(',')','_','+','=','-','.',',','/','\\',' ']
+special = ['!','@','#','$','$','^','&','*','(',')','_','+','=','-','.',',','/','\\',' ']
 whynot = ['ไม่น่าเชื่อถือพอค่ะ','ไม่น่ารักพอค่ะ','ไม่ดูดีพอค่ะ','ไม่อยากเชื่อค่ะ','คุณไม่ได้ผ่านเข้ารอบค่ะ','คุณน่ารักเกินไปค่ะ','คุณดูดีมากเกินไปค่ะ']
 for tmp in president:
     if tmp in message:
@@ -210,7 +210,7 @@ if bot_status == 0 and status == 0:
             fo = open(gdate, "r+")
             for lines in fo:
             #print (lines)
-                if not ('*' or '%')in lines:
+                if not ('*' or '$')in lines:
                                 #if str(curmin) in lines:
                     result += lines
                         # Close opend file
@@ -229,7 +229,7 @@ if bot_status == 0 and status == 0:
             fo = open(gdate, "r+")
             for lines in fo:
             #print (lines)
-                if not ('*' or '%')in lines:
+                if not ('*' or '$')in lines:
                                 #if str(curmin) in lines:
                     result += lines
                         # Close opend file
@@ -711,7 +711,7 @@ if status == 0:
 		fo = open(gdate, 'r+')
 		result = 'ตารางงานวันที่:\n'+gdate +'\n'
 		for lines in fo:
-                    if '%' in lines:
+                    if '$' in lines:
                         result += lines
                 fo.close()
 	except:
@@ -729,7 +729,7 @@ if status == 0:
 		fo = open(gdate, 'r+')
 		result = 'รายการตารางวันที่\n'+gdate +'\n'
 		for lines in fo:
-                    if not ('*' or '%')in lines:
+                    if not ('*' or '$')in lines:
                         result += lines
                 fo.close()
 	except Exception as e:
@@ -829,7 +829,7 @@ if status == 0:
                             for lines in fo:
                                 #print (lines)
                                 if str(curhour) in lines:
-                                    if '%' in lines:
+                                    if '$' in lines:
                                     #if str(curmin) in lines:
                                         result += lines
                             # Close opend file
@@ -864,7 +864,7 @@ if status == 0:
                             for lines in fo:
                                 #print (lines)
                                 if str(curhour) in lines:
-                                    if '%' in lines:
+                                    if '$' in lines:
                                     #if str(curmin) in lines:
                                         result += lines
                             # Close opend file
