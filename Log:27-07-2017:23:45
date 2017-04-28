@@ -1,0 +1,5 @@
+Running
+Traceback (most recent call last):
+  File "timeahead.py", line 683, in <module>
+    time.sleep(1)
+KeyboardInterrupt

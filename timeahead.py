@@ -169,7 +169,8 @@ while (True):
                                     result += lines
                         # Close opend file
                         fo.close()
-                        line_bot_api.push_message(group, TextSendMessage(result))
+			if '*' not in result and '$' not in result:
+	                        line_bot_api.push_message(group, TextSendMessage(result))
                         break
                     except Exception as es:
                         print (es)
@@ -227,7 +228,8 @@ while (True):
                                 result += lines
                         # Close opend file
                         fo.close()
-                        line_bot_api.push_message(group, TextSendMessage(result))
+			if '*' not in result and '$' not in result:
+	                        line_bot_api.push_message(group, TextSendMessage(result))
                         break
                     except Exception as e:
                         print (e)
@@ -285,7 +287,8 @@ while (True):
                                     result += lines
                         # Close opend file
                         fo.close()
-                        line_bot_api.push_message(group, TextSendMessage(result))
+			if '*' not in result and '$' not in result:
+                        	line_bot_api.push_message(group, TextSendMessage(result))
                         break
                     except Exception as e:
                         print (e)
