@@ -1,9 +1,12 @@
-# Sample-Line-Bot
+#Line-Bot-Python
 
-Simple chat bot for [Line Messaging API](https://developers.line.me/messaging-api/overview) with [ChatterBot](https://github.com/gunthercox/ChatterBot)
+#"Chloe" The Colonel Secretary -
 
-#Installation
+-----------------------------------
 
-Please see [http://kittinanx.blogspot.com/2016/10/line-bot.html](http://kittinanx.blogspot.com/2016/10/line-bot.html)
+Written by : Promsurin Phutthammawong
+Since April 2017
 
-#TODO: More document
+-----------------------------------
+Structure : PHP Webhook => Line-Bot-API => Python Code => Reply 
+with : Python time loop
