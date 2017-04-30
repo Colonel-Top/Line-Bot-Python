@@ -968,7 +968,7 @@ if status == 0:
             d = f.readlines()
             f.seek(0)
             for i in d:
-                if i == message:
+                if i is message:
                     f.write(i)
                     break
             f.truncate()
