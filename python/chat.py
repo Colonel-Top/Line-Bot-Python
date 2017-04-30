@@ -957,31 +957,23 @@ if '!@' in message :
         elif (strws == '6'):
             destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
 '''
-def removeLine(filename, lineno):
-    fro = open(filename, "rb")
+def removeLine(filename, key):
+    with open(filename, 'r+') as outputFile:
+        with open(filename, 'r') as inputFile:
+            seekPosition = 0 
+            currentLine = inputFile.readline()
+            while not currentLine.strip().startswith('"%s"' % key):
+                seekPosition = inputFile.tell()
+                currentLine = inputFile.readline()
 
-    current_line = 0
-    while current_line < lineno:
-        fro.readline()
-        current_line += 1
+            outputFile.seek(seekPosition, 0)
 
-    seekpoint = fro.tell()
-    frw = open(filename, "r+b")
-    frw.seek(seekpoint, 0)
+            currentLine = inputFile.readline()
+            while currentLine:
+                outputFile.writelines(currentLine)
+                currentLine = inputFile.readline()
 
-    # read the line we want to discard
-    fro.readline()
-
-    # now move the rest of the lines in the file 
-    # one line back 
-    chars = fro.readline()
-    while chars:
-        frw.writelines(chars)
-        chars = fro.readline()
-
-    fro.close()
-    frw.truncate()
-    frw.close()
+        outputFile.truncate()
 if status == 0:
     if 'ลบถาม:' in message and ',ตอบ:'in message:
         try:
@@ -990,10 +982,7 @@ if status == 0:
             message = message.replace("ลบถาม:","")
             message = message.replace("ตอบ:","")
             filename = 'qanda'
-            with open(filename) as myFile:
-                for num, line in enumerate(myFile, 1):
-                    if message == line:
-                        removeLine(filename,num)
+            removeLine(filename,message)
             result = "การลบคำถามเสร็จสมบูรณ์"
             status = 1
         except Exception as e:
