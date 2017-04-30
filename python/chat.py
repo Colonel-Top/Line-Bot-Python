@@ -99,7 +99,7 @@ if 'ตัวอย่าง' in message :
 if status == 0:
     if '#$' in message:
         tmpo = message.replace('#$','')
-        line_bot_api.push_message(group, TextSendMessage(tmpo))
+        line_bot_api.push_message(destinations, TextSendMessage(tmpo))
         status = 1
 if status == 0:
    if 'กี่โมงแล้ว' in message:
