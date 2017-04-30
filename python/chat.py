@@ -66,7 +66,7 @@ backasgre_w = ['Thx', 'Thank', 'ขอบคุณโคลอี้', 'apprecia
 backasgre_f = ['Your welcome', 'With Pleasure :)', 'with Appreciated', 'Ya', 'Okay ^^', 'Welcome', 'Never mind :)']
 menu_cmd = ['pen menu', 'pen Menu', 'เปิดเมนู', 'เรียกเมนู', 'show function', 'Show function', 'Show Menu', 'show menu',
             'Show menu']
-simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้ จ๋า','hloe','โคลอิ','โคอี้','โคลอี','โคลอี้จ๋า','ถามได้ตอบได้','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','อมึงแหละ','ตึงโป','วดฟ','wtf','โนว','ถามอะไรตอบได้','ด่ามึงอ','นั่นแหละ']
+simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้จ๋า','ถามได้ตอบได้','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','อมึงแหละ','ตึงโป','วดฟ','wtf','โนว','ถามอะไรตอบได้','ด่ามึงอ','นั่นแหละ']
 simq_ans = ['I am Chloe The Secretary of Colonel',
             'I am Chloe The Secretary of Colonel ^^ Helping My Master & you guys', 'My Boss or my master is Colonel',
             'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','ได้','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','วดฟ+1','wtf+1','Noooo','ไมได้ แบร่','ตะลึงตึ่งโป๊ะ!','ตะลึงตึ่งโป๊ะ!']
