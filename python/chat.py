@@ -962,7 +962,7 @@ def removeLine(filename, key):
         with open(filename, 'r') as inputFile:
             seekPosition = 0 
             currentLine = inputFile.readline()
-            while not currentLine.strip().startswith('"%s"' % key):
+            while not currentLine.strip().startswith('%s' % key):
                 seekPosition = inputFile.tell()
                 currentLine = inputFile.readline()
 
