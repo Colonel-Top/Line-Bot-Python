@@ -914,11 +914,6 @@ if status == 0:
             result = simq_ans[position]
             status = 1
             
-if status == 0:
-    with open('question') as myFile:
-        for num, line in enumerate(myFile, 1):
-            if lookup in line:
-                result = line
 
 if '!@' in message :
         os.remove('control')
