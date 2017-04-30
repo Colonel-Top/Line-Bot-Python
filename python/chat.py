@@ -968,10 +968,13 @@ if status == 0:
             f = open('qanda')
             fo = open('qanda.bak','w')
             for line in f:
+                print (line)
                 if line is message:
-                    print (line)
+                    print ("Yes"+line)
                 else:
+                    print ("writing")
                     fo.write(line)
+                print("Im done Loop")
             f.close()
             fo.close()
             os.remove('qanda')
