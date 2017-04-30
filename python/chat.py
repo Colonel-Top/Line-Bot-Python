@@ -992,7 +992,7 @@ if status == 0:
             filename = 'qanda'
             with open(filename) as myFile:
                 for num, line in enumerate(myFile, 1):
-                    if message in line:
+                    if message == line:
                         removeLine(filename,num)
             result = "การลบคำถามเสร็จสมบูรณ์"
             status = 1
