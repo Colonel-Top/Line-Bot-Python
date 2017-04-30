@@ -300,9 +300,11 @@ if status == 0:
             status = 1
 if status == 0:
     for tmp in greeting_w:
-        if tmp in message and if :
-            result = random.choice(greeting_f)
-            status = 1
+        if tmp in message:
+            for asker in chloeset:
+                if asker in message:
+                    result = random.choice(greeting_f)
+                    status = 1
 if status == 0:
     for tmp in menu_cmd:
         if tmp in message:
