@@ -1024,7 +1024,7 @@ if status == 0:
         for lines in fo:
             tmp = lines.split(',',1)
             #print (tmp)
-            if tmp[0] is message:
+            if tmp[0] == message:
                 getresult.append(tmp[1])
                 i = i+1
         fo.close()
