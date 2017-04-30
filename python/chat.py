@@ -1021,6 +1021,7 @@ if status == 0:
                 status = 1
             elif i > 1:
                 select = randint(0,i+1)
+                result = getresult[select]
                 status = 1
         except Exception as e:
             result = "ERROR"
