@@ -974,8 +974,9 @@ if status == 0:
     if 'เพิ่มถาม:' in message and ',ตอบ:'in message:
         if isinsult == '1':
             try:
-                content = message.replace("เพิ่มถาม:","")
-                content = message.replace("ตอบ:","")
+                tmporary = message
+                content = tmporary.replace("เพิ่มถาม:","")
+                content = tmporary.replace("ตอบ:","")
                 print (content)
                 fo = open('qanda','a')
                 fo.write(content+'\n')
