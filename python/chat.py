@@ -998,17 +998,17 @@ if status == 0:
     getresult = []
     tmp = []
     i = 0
-    mode = 0
+    mode = '0'
     if isinsult == '1':
         i = 0
         if '&*' in message:
             message.replace('&*','')
-            mode = 1
+            mode = '1'
         fo = open('qanda','r+')
         for lines in fo:
             tmp = lines.split(',',1)
-            if mode == 1:
-                #print (tmp)
+            if mode == '1':
+                print (tmp)
                 mode = 1
             if tmp[0] == message:
                 getresult.append(tmp[1])
@@ -1016,10 +1016,10 @@ if status == 0:
         fo.close()
         try:
             if getresult:
-                if mode == 1:
+                if mode == '1':
                   print (str(i))
                 select = randint(0,len(getresult))
-                if mode == 1:
+                if mode == '1':
                     print (str(select))
                 result = getresult[select]
                 status = 1
