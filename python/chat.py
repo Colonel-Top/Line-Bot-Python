@@ -963,7 +963,7 @@ if status == 0:
             tmp = lines.split(',',1)
             print (tmp)
             if tmp[0] in message:
-                getresult[i] = tmp[1]
+                getresult.append( tmp[1])
                 i = i+1
         fo.close()
         try:
