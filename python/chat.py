@@ -956,23 +956,31 @@ if '!@' in message :
         elif (strws == '6'):
             destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
 '''
+abort_after = 5
+start = time.time()
 def removeLine(filename, key):
+    timeout_start = time.time()
+    state = 0
     with open(filename, 'r+') as outputFile:
         with open(filename, 'r') as inputFile:
             seekPosition = 0 
             currentLine = inputFile.readline()
-            while not currentLine.strip().startswith('%s' % key) or not currentLine.strip().startswith('\n'):
+            while not currentLine.strip().startswith('%s' % key):
+                delta = time.time() - start
+                if delta >= abort_after:
+                    state = 1
+                    break
                 seekPosition = inputFile.tell()
                 currentLine = inputFile.readline()
-
-            outputFile.seek(seekPosition, 0)
-
-            currentLine = inputFile.readline()
-            while currentLine:
-                outputFile.writelines(currentLine)
+            if state == 0:
+                outputFile.seek(seekPosition, 0)
+            
                 currentLine = inputFile.readline()
-
-        outputFile.truncate()
+                while currentLine:
+                    outputFile.writelines(currentLine)
+                    currentLine = inputFile.readline()
+        if state == 0:
+            outputFile.truncate()
 if status == 0:
     if "ลบถาม/" in message :
         try:
