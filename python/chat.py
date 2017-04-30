@@ -970,7 +970,7 @@ if status == 0:
             f.close()
             f = open("qanda","w")
             for line in lines:
-                if line!="message"+"\n":
+                if line != message +"\n":
                     f.write(line)
             f.close()
             result = "การลบคำถามเสร็จสมบูรณ์"
