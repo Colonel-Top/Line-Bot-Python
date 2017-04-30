@@ -973,7 +973,7 @@ if status == 0:
             f.close()
             fo.close()
             os.remove('qanda')
-            os.rename('qanda.tmp', 'qanda')
+            os.rename('qanda.bak', 'qanda')
             result = "การลบคำถามเสร็จสมบูรณ์"
             status = 1
         except Exception as e:
