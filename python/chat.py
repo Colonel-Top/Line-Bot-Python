@@ -954,8 +954,8 @@ if '!@' in message :
             destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
 '''
 if status == 0:
-	if 'ลบถาม:' in message and ',ตอบ:'in message:
-        try: 
+    if 'ลบถาม:' in message and ',ตอบ:'in message:
+        try:
             content = message.replace('เพิ่มถาม:','')
             content = message.replace('ตอบ:','')
             f = open("qanda","r+")
