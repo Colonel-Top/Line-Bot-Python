@@ -977,10 +977,10 @@ def removeLine(filename, key):
 if status == 0:
     if 'ลบถาม:' in message and ',ตอบ:'in message:
         try:
-            atpos = message.find("ลบถาม:")
+            atpos = message.find("ลบถาม/")
             message = message[atpos:]
-            message = message.replace("ลบถาม:","")
-            message = message.replace("ตอบ:","")
+            message = message.replace("ลบถาม/","")
+            #message = message.replace("ตอบ/","")
             filename = 'qanda'
             removeLine(filename,message)
             result = "การลบคำถามเสร็จสมบูรณ์"
@@ -991,13 +991,13 @@ if status == 0:
             result = 'ไม่สามารถหาข้อมูลถามตอบดังกล่าวได้'
 if status == 0:
     
-    if 'เพิ่มถาม:' in message and ',ตอบ:'in message:
+    if 'เพิ่มถาม:' in message and '/ตอบ:'in message:
         if isinsult == '1':
             try:
-                atpos = message.find("เพิ่มถาม:")
+                atpos = message.find("เพิ่มถาม/")
                 message = message[atpos:]
-                message = message.replace("เพิ่มถาม:","")
-                message = message.replace("ตอบ:","")
+                message = message.replace("เพิ่มถาม/","")
+                #message = message.replace("ตอบ/","")
                 print (message)
                 fo = open('qanda','a')
                 fo.write(message+'\n')
@@ -1021,7 +1021,7 @@ if status == 0:
         i = 0
         fo = open('qanda','r+')
         for lines in fo:
-            tmp = lines.split(',',1)
+            tmp = lines.split('/',1)
             #if mode == '1':
                 #print (tmp)
             if tmp[0] == message:
