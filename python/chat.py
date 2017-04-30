@@ -960,6 +960,8 @@ if '!@' in message :
 if status == 0:
     if 'ลบถาม:' in message and ',ตอบ:'in message:
         try:
+            atpos = message.find("ลบถาม:")
+            message = message[atpos:]
             message = message.replace("ลบถาม:","")
             message = message.replace("ตอบ:","")
             f = open("qanda","r+")
