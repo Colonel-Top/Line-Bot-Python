@@ -972,10 +972,13 @@ if status == 0:
                 result = getresult[select]
                 status = 1
         except Exception as e:
+            result = "ERROR"
             print (e)
 if status == 0:
     if 'ลบถาม:' in message and ',ตอบ:'in message:
         try:
+            message = message.replace("ลบถาม:","")
+            message = message.replace("ตอบ:","")
             f = open("qanda","r+")
             d = f.readlines()
             f.seek(0)
