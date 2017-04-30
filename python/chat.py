@@ -4,6 +4,7 @@ import gspread
 import os
 import re
 import random
+import fileinput
 from datetime import datetime
 import json
 import sys
@@ -964,15 +965,11 @@ if status == 0:
             message = message[atpos:]
             message = message.replace("ลบถาม:","")
             message = message.replace("ตอบ:","")
-            f = open("qanda","r+")
-            d = f.readlines()
-            f.seek(0)
-            for i in d:
-                if i is message:
-                    f.write(i)
-                    break
-            f.truncate()
-            f.close()
+            filename = 'qanda'
+            with open(filename) as myFile:
+                for num, line in enumerate(myFile, 1):
+                    if message == line:
+                        sys.stdout.write(num)
             result = "การลบคำถามเสร็จสมบูรณ์"
             status = 1
         except:
