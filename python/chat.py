@@ -1020,8 +1020,7 @@ if status == 0:
                 result = getresult[0]
                 status = 1
             elif i > 1:
-                select = randint(0,i)
-                result = getresult[select]
+                result = random.choice(getresult)
                 status = 1
         except Exception as e:
             result = "ERROR"
