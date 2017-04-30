@@ -1004,7 +1004,6 @@ if status == 0:
             message.replace('&*','')
             mode = 1
         fo = open('qanda','r+')
-        
         for lines in fo:
             tmp = lines.split(',',1)
             if mode == 1:
@@ -1017,7 +1016,7 @@ if status == 0:
             if getresult:
                 select = randint(0,i)
                 if mode == 1:
-                    print (select)
+                    print (str(select))
                 result = getresult[select]
                 status = 1
         except Exception as e:
