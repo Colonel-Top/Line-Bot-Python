@@ -984,6 +984,7 @@ def removeLine(filename, key):
             outputFile.truncate()
         if state == 1:
             result = "[ERROR]: ไม่พบคคำถาม/ตอบดังกล่าว"
+            status =  1
 if status == 0:
     if "ลบถาม/" in message :
         try:
