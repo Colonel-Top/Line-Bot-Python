@@ -1009,7 +1009,6 @@ if status == 0:
             tmp = lines.split(',',1)
             #if mode == '1':
                 #print (tmp)
-                mode = 1
             if tmp[0] == message:
                 getresult.append(tmp[1])
                 i = i+1
