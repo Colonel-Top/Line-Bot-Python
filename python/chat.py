@@ -970,6 +970,7 @@ if status == 0:
             for i in d:
                 if i == message:
                     f.write(i)
+                    break
             f.truncate()
             f.close()
             result = "การลบคำถามเสร็จสมบูรณ์"
