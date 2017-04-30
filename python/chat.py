@@ -989,7 +989,7 @@ if status == 0:
 if status == 0:
     if isinsult == '1':
         i = 0
-        fp = open('qanda','r+')
+        fo = open('qanda','r+')
         for lines in fo:
             tmp = lines.split(',',1)
             if tmp[0] in message:
