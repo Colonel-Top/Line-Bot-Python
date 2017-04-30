@@ -997,6 +997,7 @@ if status == 0:
 if status == 0:
     getresult = []
     tmp = []
+    i = 0
     mode = 0
     if isinsult == '1':
         i = 0
