@@ -1008,7 +1008,8 @@ if status == 0:
         for lines in fo:
             tmp = lines.split(',',1)
             if mode == 1:
-                print (tmp)
+                #print (tmp)
+                mode = 1
             if tmp[0] == message:
                 getresult.append(tmp[1])
                 i = i+1
@@ -1017,7 +1018,7 @@ if status == 0:
             if getresult:
                 if mode == 1:
                   print (str(i))
-                select = randint(0,i+1)
+                select = randint(0,len(getresult))
                 if mode == 1:
                     print (str(select))
                 result = getresult[select]
