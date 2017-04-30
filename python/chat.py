@@ -1017,7 +1017,7 @@ if status == 0:
             if getresult:
                 if mode == 1:
                   print (str(i))
-                select = randint(0,i)
+                select = randint(0,i+1)
                 if mode == 1:
                     print (str(select))
                 result = getresult[select]
