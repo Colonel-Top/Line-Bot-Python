@@ -981,6 +981,8 @@ def removeLine(filename, key):
                     currentLine = inputFile.readline()
         if state == 0:
             outputFile.truncate()
+        if state == 1:
+            result = "[ERROR]: ไม่พบคคำถาม/ตอบดังกล่าว"
 if status == 0:
     if "ลบถาม/" in message :
         try:
@@ -990,8 +992,9 @@ if status == 0:
             #message = message.replace("ตอบ/","")
             filename = 'qanda'
             removeLine(filename,message)
-            result = "การลบคำถามเสร็จสมบูรณ์"
-            status = 1
+            if status == 0:
+                result = "การลบคำถามเสร็จสมบูรณ์"
+                status = 1     
         except Exception as e:
             print("Error Code: ")
             print (e)
