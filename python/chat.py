@@ -58,8 +58,7 @@ def Login():
 bot_status = 0
 bot_mode = 0
 # define hi or hello
-greeting_w = ['Hello', 'Hi ', 'Greeting', 'สวัสดี', 'hello', 'hi ', 'greetings', 'sup', 'whats up', 're you here',
-              'หวัดดี']
+greeting_w = ['Hello', 'Hi ', 'Greeting', 'สวัสดี', 'hello', 'hi ', 'greetings', 'sup', 'whats up', 're you here','หวัดดี']
 chloeset = ['Chloe','อี้','โคล','chloe']
 greeting_f = ['May i help you please ?', 'Yes ?', 'Ya Anything you want ?', 'Anything ? ya ?', 'Greeting yes ?',
               'Always here']
@@ -89,7 +88,7 @@ tellasc_ans = ['Okay i will update send msg for you', 'Yes, wait a second', 'Let
 # Class def
 reinsult = ['กะหรี','กระหรี','สัส','สาส','บ้า','เวร','สาสสสส','สาดดด','ผี']
 isinsult = '1'
-president = ['ท้อ','ท่อ','ทอ','ท๊อ','ท๋อ','ปธ','ประ','ป่ระ','ปร่ะ','ป่ร่ะ','ปะ','ป่ะ','ป้ะ','ป๊ะ','ป๋ะ','ปท','พรหม','พรม','สุร','นท์','ทร์','พุท','พุธ','รรม','วงศ','วงส','วงษ','เมด','เม่ด','ป.ธ','ป,ธ','ป.ท','ปท','ป,ท','โคล','โคโ','โคอ','ท็อ','top','toop']
+president = ['ท้อ','ท่อ','ทอ','ท๊อ','ท๋อ','ปธ','ประ','ป่ระ','ปร่ะ','ป่ร่ะ','ปะ','ป่ะ','ป้ะ','ป๊ะ','ป๋ะ','ปท','พรหม','พรม','สุร','นท์','ทร์','พุท','พุธ','รรม','วงศ','วงส','วงษ','เมด','เม่ด','ป.ธ','ป,ธ','ป.ท','ปท','ป,ท','โคล','โคโ','โคอ','ท็อ','top','toop','เฮดภาค','แกนภาค','หัวภาค']
 special = ['!','@','#','$','$','^','&','*','(',')','_','+','=','-','.',',','/','\\',' ']
 whynot = ['ไม่น่าเชื่อถือพอค่ะ','ไม่น่ารักพอค่ะ','ไม่ดูดีพอค่ะ','ไม่อยากเชื่อค่ะ','คุณไม่ได้ผ่านเข้ารอบค่ะ','คุณน่ารักเกินไปค่ะ','คุณดูดีมากเกินไปค่ะ']
 for tmp in president:
@@ -962,7 +961,7 @@ def removeLine(filename, key):
         with open(filename, 'r') as inputFile:
             seekPosition = 0 
             currentLine = inputFile.readline()
-            while not currentLine.strip().startswith('%s' % key):
+            while not currentLine.strip().startswith('%s' % key) or not currentLine.strip().startswith('\n'):
                 seekPosition = inputFile.tell()
                 currentLine = inputFile.readline()
 
