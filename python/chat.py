@@ -957,7 +957,31 @@ if '!@' in message :
         elif (strws == '6'):
             destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
 '''
+def removeLine(filename, lineno):
+    fro = open(filename, "rb")
 
+    current_line = 0
+    while current_line < lineno:
+        fro.readline()
+        current_line += 1
+
+    seekpoint = fro.tell()
+    frw = open(filename, "r+b")
+    frw.seek(seekpoint, 0)
+
+    # read the line we want to discard
+    fro.readline()
+
+    # now move the rest of the lines in the file 
+    # one line back 
+    chars = fro.readline()
+    while chars:
+        frw.writelines(chars)
+        chars = fro.readline()
+
+    fro.close()
+    frw.truncate()
+    frw.close()
 if status == 0:
     if 'ลบถาม:' in message and ',ตอบ:'in message:
         try:
@@ -965,16 +989,11 @@ if status == 0:
             message = message[atpos:]
             message = message.replace("ลบถาม:","")
             message = message.replace("ตอบ:","")
-            f = open('qanda')
-            fo = open('qanda.bak','w')
-            for line in f:
-                thisistmp = line
-                if thisistmp != message:
-                    fo.write(thisistmp)
-            f.close()
-            fo.close()
-            os.remove('qanda')
-            os.rename('qanda.bak', 'qanda')
+            filename = 'qanda'
+            with open(filename) as myFile:
+                for num, line in enumerate(myFile, 1):
+                    if message is line:
+                        removeLine(filename,num)
             result = "การลบคำถามเสร็จสมบูรณ์"
             status = 1
         except Exception as e:
