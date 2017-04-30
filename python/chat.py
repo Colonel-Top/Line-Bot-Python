@@ -968,7 +968,7 @@ if status == 0:
             f = open('qanda')
             fo = open('qanda.bak','w')
             for line in f:
-                if line == message:
+                if line is message:
                     print (line)
                 else:
                     fo.write(line)
