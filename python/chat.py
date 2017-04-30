@@ -1014,6 +1014,8 @@ if status == 0:
         fo.close()
         try:
             if getresult:
+                if mode == 1:
+                  print (str(i))
                 select = randint(0,i)
                 if mode == 1:
                     print (str(select))
