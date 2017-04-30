@@ -998,7 +998,7 @@ if status == 0:
         fo = open('qanda','r+')
         for lines in fo:
             tmp = lines.split(',',1)
-            print (tmp)
+            #print (tmp)
             if tmp[0] in message:
                 getresult.append(tmp[1])
                 i = i+1
