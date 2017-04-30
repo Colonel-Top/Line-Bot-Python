@@ -1005,7 +1005,7 @@ if status == 0:
         fo.close()
         try:
             if getresult:
-                select = randint(0,i+1)
+                select = randint(0,i)
                 result = getresult[select]
                 status = 1
         except Exception as e:
