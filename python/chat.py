@@ -1010,6 +1010,7 @@ if status == 0:
         try:
             if getresult:
                 select = randint(0,i)
+                print (select)
                 result = getresult[select]
                 status = 1
         except Exception as e:
