@@ -965,10 +965,13 @@ if status == 0:
                 getresult[i] = tmp[1]
                 i = i+1
         fo.close()
-        if getresult[0]:
-            select = randint(0,i+1)
-            result = getresult[select]
-            status = 1
+        try:
+            if getresult[0]:
+                select = randint(0,i+1)
+                result = getresult[select]
+                status = 1
+        except Exception as e:
+            print (e)
 if status == 0:
     if 'ลบถาม:' in message and ',ตอบ:'in message:
         try:
