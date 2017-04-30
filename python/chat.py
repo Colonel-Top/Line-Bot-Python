@@ -953,27 +953,7 @@ if '!@' in message :
         elif (strws == '6'):
             destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
 '''
-if status == 0:
-    getresult = []
-    tmp = []
-    if isinsult == '1':
-        i = 0
-        fo = open('qanda','r+')
-        for lines in fo:
-            tmp = lines.split(',',1)
-            print (tmp)
-            if tmp[0] in message:
-                getresult.append( tmp[1])
-                i = i+1
-        fo.close()
-        try:
-            if getresult:
-                select = randint(0,i+1)
-                result = getresult[select]
-                status = 1
-        except Exception as e:
-            result = "ERROR"
-            print (e)
+
 if status == 0:
     if 'ลบถาม:' in message and ',ตอบ:'in message:
         try:
@@ -1010,6 +990,26 @@ if status == 0:
             randarray = ['ไม่น่าเชื่อถือพอค่ะ','ไม่น่ารักพอค่ะ','ไม่ดูดีพอค่ะ','ไม่ได้ผ่านเข้ารอบค่ะ','... ไมาสามารถสาธยายได้ค่ะ']
             result = 'ขอโทษค่ะไม่สามารถปฏิบัติกรณีดังกล่าวได้เพราะคุณ'+random.choice(randarray)
             status = 1
-
+if status == 0:
+    getresult = []
+    tmp = []
+    if isinsult == '1':
+        i = 0
+        fo = open('qanda','r+')
+        for lines in fo:
+            tmp = lines.split(',',1)
+            print (tmp)
+            if tmp[0] in message:
+                getresult.append( tmp[1])
+                i = i+1
+        fo.close()
+        try:
+            if getresult:
+                select = randint(0,i+1)
+                result = getresult[select]
+                status = 1
+        except Exception as e:
+            result = "ERROR"
+            print (e)
             
 print ('%s' % result)
