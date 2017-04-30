@@ -995,7 +995,7 @@ if status == 0:
                 message = message.replace("ตอบ:","")
                 print (message)
                 fo = open('qanda','a')
-                fo.write(content+'\n')
+                fo.write(message+'\n')
                 fo.close()
                 result = "การเพิ่มคำถามเสร็จสมบูรณ์"
                 status = 1
