@@ -1016,7 +1016,7 @@ if status == 0:
         try:
             if i == 1:
                 result = getresult[0]
-                 status = 1
+                status = 1
             elif i > 1:
                 select = randint(0,i+1)
                 status = 1
