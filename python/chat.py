@@ -973,8 +973,8 @@ if status == 0:
     if 'เพิ่มถาม:' in message and ',ตอบ:'in message:
         if isinsult == '1':
             try:
-                content = message.replace('เพิ่มถาม:','')
-                content = message.replace('ตอบ:','')
+                content = message.replace( 'เพิ่มถาม:',"")
+                content = message.replace('ตอบ:',"")
                 fo = open('qanda','a')
                 fo.write(content+'\n')
                 fo.close()
@@ -988,6 +988,7 @@ if status == 0:
             status = 1
 if status == 0:
     getresult = []
+    tmp = []
     if isinsult == '1':
         i = 0
         fo = open('qanda','r+')
