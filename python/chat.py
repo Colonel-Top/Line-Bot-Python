@@ -59,6 +59,7 @@ bot_mode = 0
 # define hi or hello
 greeting_w = ['Hello', 'Hi ', 'Greeting', 'สวัสดี', 'hello', 'hi ', 'greetings', 'sup', 'whats up', 're you here',
               'หวัดดี']
+chloeset = ['Chloe','อี้','โคล','chloe']
 greeting_f = ['May i help you please ?', 'Yes ?', 'Ya Anything you want ?', 'Anything ? ya ?', 'Greeting yes ?',
               'Always here']
 backasgre_w = ['Thx', 'Thank', 'ขอบคุณโคลอี้', 'appreciate', 'ขอบใจโคลอี้','แต้งโคลอี้']
@@ -299,7 +300,7 @@ if status == 0:
             status = 1
 if status == 0:
     for tmp in greeting_w:
-        if tmp in message:
+        if tmp in message and if :
             result = random.choice(greeting_f)
             status = 1
 if status == 0:
@@ -998,7 +999,7 @@ if status == 0:
         fo = open('qanda','r+')
         for lines in fo:
             tmp = lines.split(',',1)
-            #print (tmp)
+            print (tmp)
             if tmp[0] in message:
                 getresult.append(tmp[1])
                 i = i+1
