@@ -1014,12 +1014,11 @@ if status == 0:
                 i = i+1
         fo.close()
         try:
-            if getresult:
-                print (str(i))
-                select = randint(0,len(getresult))
-                print (str(select))
-                result = getresult[select]
-                print (result)
+            if i == 1:
+                result = getresult[0]
+                 status = 1
+            elif i > 1:
+                select = randint(0,i+1)
                 status = 1
         except Exception as e:
             result = "ERROR"
