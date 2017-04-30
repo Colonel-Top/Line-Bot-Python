@@ -5,7 +5,7 @@ import string
 import gspread
 import os
 import sys
-
+import os.path
 from datetime import datetime
 from oauth2client.service_account import ServiceAccountCredentials
 print ("Running")
@@ -82,6 +82,10 @@ while (True):
     #line_bot_api.push_message('Ufb00beda08083bcf402fbd2160b75574, TextSendMessage(text='Hello World!'))  "Debug: Looping #")
     # print('loop begin')
     now = datetime.now()
+    gdates = (now.strftime("%d-%m-%Y"))
+    if not os.path.isfile(gdates) :
+        time,sleep(1)
+        continue
     # statuschk = ''
     if(now.hour == 1 and now.minute == 0 and now.second == 1):
         Login()
@@ -301,33 +305,20 @@ while (True):
         try:
             gdate = (now.strftime("%d-%m-%Y"))
             f = open('serverdate','r')
-            lst = []
-            for line in f:
-                if gdate in line:
-                    line = line.replace(gdate,'')
-            lst.append(line)
+            d = f.readlines()
+            f.seek(0)
+            for i in d:
+                if i != gdate:
+                    f.write(i)
+            f.truncate()
             f.close()
-            f = open('serverdate','w')
-            for line in lst:
-                f.write(line)
-            f.close()
-            os.remove(gdate)
-            print("Debug: "+gdate+" Run Successful")
+            try:
+                if(os.path.isfile(gdate)):
+                    os.remove(gdate)
+            except Exception as o:
+                print (o)
         except Exception as e:
             print (e)
-        gdate = (now.strftime("%d-%m-%Y"))
-        f = open('serverdate','r')
-        lst = []
-        for line in f:
-            if gdate in line:
-                line = line.replace(gdate,'')
-        lst.append(line)
-        f.close()
-        f = open('serverdate','w')
-        for line in lst:
-            f.write(line)
-        f.close()
-        os.remove(gdate)
     #############################
     ########
     ###
