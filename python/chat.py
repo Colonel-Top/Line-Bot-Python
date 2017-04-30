@@ -987,7 +987,7 @@ if status == 0:
             result = 'ขอโทษค่ะไม่สามารถปฏิบัติกรณีดังกล่าวได้เพราะคุณ'+random.choice(randarray)
             status = 1
 if status == 0:
-    getresult[] = []
+    getresult = []
     if isinsult == '1':
         i = 0
         fo = open('qanda','r+')
