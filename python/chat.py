@@ -975,9 +975,12 @@ if status == 0:
         except:
             result = 'ไม่สามารถหาข้อมูลถามตอบดังกล่าวได้'
 if status == 0:
+    
     if 'เพิ่มถาม:' in message and ',ตอบ:'in message:
         if isinsult == '1':
             try:
+                atpos = message.find("เพิ่มถาม:")
+                message = message[atpos:]
                 message = message.replace("เพิ่มถาม:","")
                 message = message.replace("ตอบ:","")
                 print (message)
@@ -1001,9 +1004,6 @@ if status == 0:
     mode = '0'
     if isinsult == '1':
         i = 0
-        if '&*' in message:
-            message.replace('&*','')
-            mode = '1'
         fo = open('qanda','r+')
         for lines in fo:
             tmp = lines.split(',',1)
