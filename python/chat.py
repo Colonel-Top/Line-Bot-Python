@@ -1009,14 +1009,16 @@ if status == 0:
             tmp = lines.split(',',1)
             if mode == 1:
                 print (tmp)
-                mode = 0
             if tmp[0] == message:
                 getresult.append(tmp[1])
                 i = i+1
         fo.close()
         try:
             if getresult:
+                
                 select = randint(0,i)
+                if mode == 1:
+                    print (select)
                 result = getresult[select]
                 status = 1
         except Exception as e:
