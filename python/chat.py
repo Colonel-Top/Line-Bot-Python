@@ -970,11 +970,13 @@ if status == 0:
             status = 1
         except:
             result = 'ไม่สามารถหาข้อมูลถามตอบดังกล่าวได้'
+if status == 0:
     if 'เพิ่มถาม:' in message and ',ตอบ:'in message:
         if isinsult == '1':
             try:
-                content = message.replace( 'เพิ่มถาม:',"")
-                content = message.replace('ตอบ:',"")
+                content = message.replace("เพิ่มถาม:","")
+                content = message.replace("ตอบ:","")
+                print (content)
                 fo = open('qanda','a')
                 fo.write(content+'\n')
                 fo.close()
