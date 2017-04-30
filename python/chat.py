@@ -966,7 +966,7 @@ if status == 0:
                 i = i+1
         fo.close()
         try:
-            if getresult[0]:
+            if getresult:
                 select = randint(0,i+1)
                 result = getresult[select]
                 status = 1
@@ -991,10 +991,9 @@ if status == 0:
     if 'เพิ่มถาม:' in message and ',ตอบ:'in message:
         if isinsult == '1':
             try:
-                tmporary = message
-                content = tmporary.replace("เพิ่มถาม:","")
-                content = tmporary.replace("ตอบ:","")
-                print (content)
+                message = message.replace("เพิ่มถาม:","")
+                message = message.replace("ตอบ:","")
+                print (message)
                 fo = open('qanda','a')
                 fo.write(content+'\n')
                 fo.close()
