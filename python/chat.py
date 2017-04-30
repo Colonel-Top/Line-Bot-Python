@@ -965,11 +965,14 @@ if status == 0:
             message = message[atpos:]
             message = message.replace("ลบถาม:","")
             message = message.replace("ตอบ:","")
-            filename = 'qanda'
-            with open(filename) as myFile:
-                for num, line in enumerate(myFile, 1):
-                    if message == line:
-                        sys.stdout.write(num)
+            f = open("qanda","r")
+            lines = f.readlines()
+            f.close()
+            f = open("qanda","w")
+            for line in lines:
+            if line!="message"+"\n":
+                f.write(line)
+            f.close()
             result = "การลบคำถามเสร็จสมบูรณ์"
             status = 1
         except:
