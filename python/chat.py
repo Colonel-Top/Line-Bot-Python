@@ -998,15 +998,11 @@ if status == 0:
                 message = message.replace("เพิ่มถาม/","")
                 #message = message.replace("ตอบ/","")
                 print (message)
-                if message == '/'
-                    result = 'ไม่สามารถเพิ่มข้อมูลถามตอบดังกล่าวได้''
-                    status = 1
-                if status = 0:
-                    fo = open('qanda','a')
-                    fo.write(message+'\n')
-                    fo.close()
-                    result = "การเพิ่มคำถามเสร็จสมบูรณ์"
-                    status = 1
+                fo = open('qanda','a')
+                fo.write(message+'\n')
+                fo.close()
+                result = "การเพิ่มคำถามเสร็จสมบูรณ์"
+                status = 1
             except Exception as e:
                 result = 'ไม่สามารถเพิ่มข้อมูลถามตอบดังกล่าวได้'
                 print(e)
