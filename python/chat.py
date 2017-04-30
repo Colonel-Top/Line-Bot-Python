@@ -970,18 +970,18 @@ if status == 0:
             status = 1
         except:
             result = 'ไม่สามารถหาข้อมูลถามตอบดังกล่าวได้'
-	if 'เพิ่มถาม:' in message and ',ตอบ:'in message:
-		if isinsult == '1':
-			try:
-				content = message.replace('เพิ่มถาม:','')
-				content = message.replace('ตอบ:','')
-				fo = open('qanda','a')
-				fo.write(content+'\n')
-				fo.close()
-				result = "การเพิ่มคำถามเสร็จสมบูรณ์"
-				status = 1
-			except:
-				result = 'ไม่สามารถเพิ่มข้อมูลถามตอบดังกล่าวได้'
+    if 'เพิ่มถาม:' in message and ',ตอบ:'in message:
+        if isinsult == '1':
+            try:
+                content = message.replace('เพิ่มถาม:','')
+                content = message.replace('ตอบ:','')
+                fo = open('qanda','a')
+                fo.write(content+'\n')
+                fo.close()
+                result = "การเพิ่มคำถามเสร็จสมบูรณ์"
+                status = 1
+            except:
+                result = 'ไม่สามารถเพิ่มข้อมูลถามตอบดังกล่าวได้'
         else:
             randarray = ['ไม่น่าเชื่อถือพอค่ะ','ไม่น่ารักพอค่ะ','ไม่ดูดีพอค่ะ','ไม่ได้ผ่านเข้ารอบค่ะ','... ไมาสามารถสาธยายได้ค่ะ']
             result = 'ขอโทษค่ะไม่สามารถปฏิบัติกรณีดังกล่าวได้เพราะคุณ'+random.choice(randarray)
