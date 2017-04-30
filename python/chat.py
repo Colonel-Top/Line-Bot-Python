@@ -965,17 +965,20 @@ if status == 0:
             message = message[atpos:]
             message = message.replace("ลบถาม:","")
             message = message.replace("ตอบ:","")
-            f = open("qanda","r")
-            lines = f.readlines()
+            f = open('qanda')
+            fo = open('qanda.bak','w')
+            for line in f:
+                if i != message:
+                    fo.write(line)
             f.close()
-            f = open("qanda","w")
-            for line in lines:
-                if line != message +"\n":
-                    f.write(line)
-            f.close()
+            fo.close()
+            os.remove('qanda')
+            os.rename('qanda.tmp', 'qanda')
             result = "การลบคำถามเสร็จสมบูรณ์"
             status = 1
-        except:
+        except Exception as e:
+            print("Error Code: ")
+            print (e)
             result = 'ไม่สามารถหาข้อมูลถามตอบดังกล่าวได้'
 if status == 0:
     
