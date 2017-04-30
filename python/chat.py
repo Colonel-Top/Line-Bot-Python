@@ -994,7 +994,7 @@ if status == 0:
 if status == 0:
     getresult = []
     tmp = []
-    if isinsult == '1':
+    if isinsult == '1' and 'DEBUG' in message:
         i = 0
         fo = open('qanda','r+')
         for lines in fo:
@@ -1012,5 +1012,25 @@ if status == 0:
         except Exception as e:
             result = "ERROR"
             print (e)
-            
+if status == 0:
+    getresult = []
+    tmp = []
+    if isinsult == '1':
+        i = 0
+        fo = open('qanda','r+')
+        for lines in fo:
+            tmp = lines.split(',',1)
+            #print (tmp)
+            if tmp[0] in message:
+                getresult.append(tmp[1])
+                i = i+1
+        fo.close()
+        try:
+            if getresult:
+                select = randint(0,i)
+                result = getresult[select]
+                status = 1
+        except Exception as e:
+            result = "ERROR"
+            print (e)            
 print ('%s' % result)
