@@ -993,38 +993,23 @@ if status == 0:
             randarray = ['ไม่น่าเชื่อถือพอค่ะ','ไม่น่ารักพอค่ะ','ไม่ดูดีพอค่ะ','ไม่ได้ผ่านเข้ารอบค่ะ','... ไม่สามารถสาธยายได้ค่ะ']
             result = 'ขอโทษค่ะไม่สามารถปฏิบัติกรณีดังกล่าวได้เพราะคุณ'+random.choice(randarray)
             status = 1
+
 if status == 0:
     getresult = []
     tmp = []
-    if isinsult == '1' and 'DEBUG' in message:
-        i = 0
-        fo = open('qanda','r+')
-        for lines in fo:
-            tmp = lines.split(',',1)
-            print (tmp)
-            if tmp[0] == message:
-                getresult.append(tmp[1])
-                i = i+1
-        fo.close()
-        status = 1
-        try:
-            if getresult:
-                select = randint(0,i)
-                print (select)
-                result = getresult[select]
-                status = 1
-        except Exception as e:
-            result = "ERROR"
-            print (e)
-if status == 0:
-    getresult = []
-    tmp = []
+    mode = 0
     if isinsult == '1':
         i = 0
+        if '&*' in message:
+            message.replace('&*','')
+            mode = 1
         fo = open('qanda','r+')
+        
         for lines in fo:
             tmp = lines.split(',',1)
-            #print (tmp)
+            if mode == 1:
+                print (tmp)
+                mode = 0
             if tmp[0] == message:
                 getresult.append(tmp[1])
                 i = i+1
