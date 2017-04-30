@@ -60,6 +60,7 @@ elif (strws == '6'):
 
 destinationme = 'Ufb00beda08083bcf402fbd2160b75574'
 group = 'C5c90aa2273d7093f30ca08a91066cd78'
+associateid = 'Cacab1833e4e7009f49c15779e645f66c'
 bot_status = 0
 bot_mode = 0
 # define hi or hello
@@ -84,15 +85,24 @@ while (True):
     now = datetime.now()
     gdates = (now.strftime("%d-%m-%Y"))
     if not os.path.isfile(gdates) :
-        time,sleep(1)
+        time.sleep(1)
         continue
+    if(now.hour == 7 and now.minute == 59 and now.second == 0):
+        print("-------------")
+        print ("Begin new Day")
+        print("* "+gdates+" Running Morning 8:00 AM Properly")
+    elif(now.hour == 17 and now.minute == 59 and now.second == 0):
+        print("* "+gdates+" Running Evening 18:00 PM Properly")
+    elif(now.hour == 23 and now.minute == 59 and now.second == 0):
+        print("* "+gdates+" Running MIDNIGHT 23:59 PM Properly")
+        print("-End Day-")
+        print("-------------")
     # statuschk = ''
-    if(now.hour == 1 and now.minute == 0 and now.second == 1):
-        Login()
     if (now.day == 16 and now.hour == 0 and now.minute == 0 and now.second == 1 ):  # Get Interest
         # if(1):
         #line_bot_api.push_message(group, TextSendMessage(text= "Chloe has Awaken and Collecting Interest"))
-        print("AI has Awaken and Collecting Interest")
+        #print("AI has Awaken and Collecting Interest")
+        line_bot_api.push_message(associateid, TextSendMessage(text="เริ่มทำการตัดดอกเบี้ยค่ะ"))
         credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
         gc = gspread.authorize(credentials)
         sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
@@ -121,6 +131,42 @@ while (True):
             if row == 8:
                 print("Skip Safe")
                 continue
+        line_bot_api.push_message(associateid, TextSendMessage(text="การตัดดอกเบี้ยเสร็จเรียบร้อยค่ะ"))
+    if (now.day == 16):
+        if(now.hour == 20 and now.minute == 00 and now.second == 0):
+            namepush = ''
+            credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
+            gc = gspread.authorize(credentials)
+            sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
+            worksheet = sh.worksheet("Account")
+            for num in range(2, 31):  # Must be 31 in col or last parameter
+                tmp = str(worksheet.cell(num, 22).value)
+                if (tmp >= 1 ):
+                    name = worksheet.cell(num,7).value
+                    if num == 8:
+                        continue
+                    name = name.encode("utf-8")
+                    namepush += name+' - '+tmp+' ครั้ง \n'
+            result = 'รายงานจำนวนครั้งการค้างชำระถึงเดือนนี้\n'+namepush
+            line_bot_api.push_message(group, TextSendMessage(result))
+            print("Push Report Stuck Big group")
+        if(now.hour == 0 and now.minute == 15 and now.second == 0):
+            namepush = ''
+            credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
+            gc = gspread.authorize(credentials)
+            sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
+            worksheet = sh.worksheet("Account")
+            for num in range(2, 31):  # Must be 31 in col or last parameter
+                tmp = str(worksheet.cell(num, 22).value)
+                if (tmp >= 1 ):
+                    name = worksheet.cell(num,7).value
+                    if num == 8:
+                        continue
+                    name = name.encode("utf-8")
+                    namepush += name+' - '+tmp+' ครั้ง \n'
+            result = 'รายงานจำนวนครั้งการค้างชำระถึงเดือนนี้\n'+namepush
+            line_bot_api.push_message(associateid, TextSendMessage(result))
+            print("Push Report Stuck Assoc")
     if(now.minute == 0 and now.second==0 ):
     #if(now.second == 0) or now.second == 30 :
         try:
@@ -182,7 +228,7 @@ while (True):
                 # Close opend file
             f.close()
             
-            print ("Push Notification")
+            print ("Push Notification"+ str(now.hour) + ":"+str(now.minute) )
         except Exception as e:
             print (e)
     if now.hour == 6 and now.minute == 0 and now.second==0:
@@ -385,7 +431,7 @@ while (True):
                 # Close opend file
             f.close()
             
-            print ("Push Notification")
+            print ("Push Notification"+ str(now.hour) + ":"+str(now.minute) )
         except Exception as e:
             print (e)
     if now.hour == 6 and now.minute == 0 and now.second==0:
@@ -560,7 +606,7 @@ while (True):
                 # Close opend file
             f.close()
             
-            print ("Push Notification")
+            print ("Push Notification"+ str(now.hour) + ":"+str(now.minute) )
         except Exception as e:
             print (e)
     if now.hour == 6 and now.minute == 0 and now.second==0:

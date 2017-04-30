@@ -29,17 +29,10 @@ fo = open('control','r+')
 strws = fo.read()
 destinations =''
 if (strws == '1'):
-    destinations = 'c108bc8c05480d73d978fe4d587bb6288'
+    destinations = 'C5c90aa2273d7093f30ca08a91066cd78'
 elif (strws == '2'):
-    destinations = 'c511d9b1c8cf3df51dcebc2b905cc6b30'
-elif (strws == '3'):
-    destinations = 'c5a40d9ff4355ab8b9a9a0ceb94fd9fee'
-elif (strws == '4'):
-    destinations = 'ca40a6ceec0f539fcc12e9e5f1ccb2fa3'
-elif (strws == '5'):
-    destinations = 'cd4403585a5c0416cfd0d7e5e1fc6d17b'
-elif (strws == '6'):
-    destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
+    destinations = 'Cacab1833e4e7009f49c15779e645f66c'
+            
 destination = 'Ufb00beda08083bcf402fbd2160b75574'
 fo.close()
 status = 0
@@ -89,7 +82,7 @@ tellasc_ans = ['Okay i will update send msg for you', 'Yes, wait a second', 'Let
 # Class def
 reinsult = ['กะหรี','กระหรี','สัส','สาส','บ้า','เวร','สาสสสส','สาดดด','ผี']
 isinsult = '1'
-president = ['ท้อ','ท่อ','ทอ','ท๊อ','ท๋อ','ปธ','ประ','ป่ระ','ปร่ะ','ป่ร่ะ','ปะ','ป่ะ','ป้ะ','ป๊ะ','ป๋ะ','ปท','พรหม','พรม','สุร','นท์','ทร์','พุท','พุธ','รรม','วงศ','วงส','วงษ','เมด','เม่ด','ป.ธ','ป,ธ','ป.ท','ปท','ป,ท','โคล','โคโ','โคอ','ท็อ','top','toop','เฮดภาค','แกนภาค','หัวภาค']
+president = ['ท้อ','ท่อ','ทอ','ท๊อ','ท๋อ','ปธ','ประ','ป่ระ','ปร่ะ','ป่ร่ะ','ปะ','ป่ะ','ป้ะ','ป๊ะ','ป๋ะ','ปท','พรหม','พรม','สุร','นท์','ทร์','พุท','พุธ','รรม','วงศ','วงส','วงษ','เมด','เม่ด','ป.ธ','ป,ธ','ป.ท','ปท','ป,ท','โคล','โคโ','โคอ','ท็อ','top','toop','เฮดภาค','แกนภาค','หัวภาค','ภาคคอม']
 special = ['!','@','#','$','$','^','&','*','(',')','_','+','=','-','.',',','/','\\',' ']
 whynot = ['ไม่น่าเชื่อถือพอค่ะ','ไม่น่ารักพอค่ะ','ไม่ดูดีพอค่ะ','ไม่อยากเชื่อค่ะ','คุณไม่ได้ผ่านเข้ารอบค่ะ','คุณน่ารักเกินไปค่ะ','คุณดูดีมากเกินไปค่ะ']
 for tmp in president:
@@ -921,7 +914,7 @@ if status == 0:
             result = simq_ans[position]
             status = 1
             
-'''if status == 0:
+if status == 0:
     with open('question') as myFile:
         for num, line in enumerate(myFile, 1):
             if lookup in line:
@@ -929,34 +922,19 @@ if status == 0:
 
 if '!@' in message :
         os.remove('control')
-        fo = open('control','r+')
+        fo = open('control','a')
         if ('ภาคีลับ' in message):
             strws = '1'
-        elif ('test' in message):
-            strws = '2'
         elif 'ไลน์ภาค' in message :
-            strws = '3'
-        elif 'ภาคีใหญ่' in message:
-            strws = '4'
-        elif 'hothead' in message:
-            strws = '5'
-        elif 'cs112' in message:
-            strws = '6'
+            strws = '2'
         fo.write(strws)
         fo.close()
         if (strws == '1'):
-            destinations = 'c108bc8c05480d73d978fe4d587bb6288'
+            destinations = 'C5c90aa2273d7093f30ca08a91066cd78'
+            print ("Heads change to ไลน์ภาค")
         elif (strws == '2'):
-            destinations = 'c511d9b1c8cf3df51dcebc2b905cc6b30'
-        elif (strws == '3'):
-            destinations = 'c5a40d9ff4355ab8b9a9a0ceb94fd9fee'
-        elif (strws == '4'):
-            destinations = 'ca40a6ceec0f539fcc12e9e5f1ccb2fa3'
-        elif (strws == '5'):
-            destinations = 'cd4403585a5c0416cfd0d7e5e1fc6d17b'
-        elif (strws == '6'):
-            destinations = 'cfce90616f21ecc8892db0e7e8f90aaf4'
-'''
+            destinations = 'Cacab1833e4e7009f49c15779e645f66c'
+            print ("Heads change to ภาคีลับ")
 abort_after = 5
 start = time.time()
 def removeLine(filename, key):
