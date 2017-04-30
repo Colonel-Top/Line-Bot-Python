@@ -998,7 +998,7 @@ if status == 0:
                 message = message.replace("เพิ่มถาม/","")
                 #message = message.replace("ตอบ/","")
                 print (message)
-                if message == '/
+                if message == '/'
                     result = 'ไม่สามารถเพิ่มข้อมูลถามตอบดังกล่าวได้''
                     status = 1
                 if status = 0:
