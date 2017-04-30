@@ -1007,8 +1007,8 @@ if status == 0:
         fo = open('qanda','r+')
         for lines in fo:
             tmp = lines.split(',',1)
-            if mode == '1':
-                print (tmp)
+            #if mode == '1':
+                #print (tmp)
                 mode = 1
             if tmp[0] == message:
                 getresult.append(tmp[1])
@@ -1016,12 +1016,11 @@ if status == 0:
         fo.close()
         try:
             if getresult:
-                if mode == '1':
-                  print (str(i))
+                print (str(i))
                 select = randint(0,len(getresult))
-                if mode == '1':
-                    print (str(select))
+                print (str(select))
                 result = getresult[select]
+                print (result)
                 status = 1
         except Exception as e:
             result = "ERROR"
