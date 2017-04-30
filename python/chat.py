@@ -919,9 +919,9 @@ if '!@' in message :
         os.remove('control')
         fo = open('control','a')
         if ('ภาคีลับ' in message):
-            strws = '1'
-        elif 'ไลน์ภาค' in message :
             strws = '2'
+        elif 'ไลน์ภาค' in message :
+            strws = '1'
         fo.write(strws)
         fo.close()
         if (strws == '1'):
