@@ -47,7 +47,7 @@ def Login():
     sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
     worksheet = sh.worksheet('Account')
     #print ('Google API Connected')
-
+scope = ['https://spreadsheets.google.com/feeds']
 
 bot_status = 0
 bot_mode = 0
