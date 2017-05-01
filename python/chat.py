@@ -913,7 +913,26 @@ if status == 0:
             position = simq_ask.index(tmp)
             result = simq_ans[position]
             status = 1
-            
+if status == 0:
+   if '!@ยอดค้างเข้าโคโลเนล' in message:
+	group = 'C5c90aa2273d7093f30ca08a91066cd78'
+	associateid = 'Cacab1833e4e7009f49c15779e645f66c'
+	namepush = ''
+        credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
+        gc = gspread.authorize(credentials)
+        sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
+        worksheet = sh.worksheet("Account")
+        for num in range(2, 31):  # Must be 31 in col or last parameter
+            tmp = (worksheet.cell(num, 22).value)
+            if (tmp >= 1 ):
+                name = worksheet.cell(num,7).value
+                if num == 8:
+                    continue
+                name = name.encode("utf-8")
+                namepush += name+' - '+tmp+' ครั้ง \n'
+        result = 'รายงานจำนวนครั้งการค้างชำระถึงเดือนนี้\n'+namepush
+        line_bot_api.push_message(destination, TextSendMessage(result))
+        print("Push Report Stuck Assoc")       
 if status == 0:
    if '!@ยอดค้างภาคีลับ' in message:
 	group = 'C5c90aa2273d7093f30ca08a91066cd78'
@@ -924,7 +943,7 @@ if status == 0:
         sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
         worksheet = sh.worksheet("Account")
         for num in range(2, 31):  # Must be 31 in col or last parameter
-            tmp = str(worksheet.cell(num, 22).value)
+            tmp = (worksheet.cell(num, 22).value)
             if (tmp >= 1 ):
                 name = worksheet.cell(num,7).value
                 if num == 8:
@@ -944,7 +963,7 @@ if status == 0:
         sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
         worksheet = sh.worksheet("Account")
         for num in range(2, 31):  # Must be 31 in col or last parameter
-            tmp = str(worksheet.cell(num, 22).value)
+            tmp = (worksheet.cell(num, 22).value)
             if (tmp >= 1 ):
                 name = worksheet.cell(num,7).value
                 if num == 8:
