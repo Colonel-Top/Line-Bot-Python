@@ -1,4 +1,4 @@
-#!/usr/bin/python
+﻿#!/usr/bin/python
 # -*-coding: utf-8 -*-
 import gspread
 import os
@@ -571,7 +571,7 @@ if status == 0:
                     result = 'ขอโทษค่ะหนูไม่ด่าเพราะคุณ'+random.choice(randarray)
                 status = 1
 if status == 0:
-    if 'ชม' in message or 'ยอ' in message:
+    if 'ชม' in message:
         if 'มัน' in message or 'สิ' in message or 'ซิ' in message or 'เดะ' in message or 'เซะ' in message or 'ดิ' in message or 'ที' in message or 'กุ' in message or 'กุ' in message or 'หน่อย':
             if True:
                 final = ''
@@ -995,7 +995,46 @@ if status == 0:
             randarray = ['ไม่น่าเชื่อถือพอค่ะ','ไม่น่ารักพอค่ะ','ไม่ดูดีพอค่ะ','ไม่ได้ผ่านเข้ารอบค่ะ','... ไม่สามารถสาธยายได้ค่ะ']
             result = 'ขอโทษค่ะไม่สามารถปฏิบัติกรณีดังกล่าวได้เพราะคุณ'+random.choice(randarray)
             status = 1
-
+if status == 0:
+   if '!@ยอดค้างภาคีลับ' in message:
+	group = 'C5c90aa2273d7093f30ca08a91066cd78'
+	associateid = 'Cacab1833e4e7009f49c15779e645f66c'
+	namepush = ''
+        credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
+        gc = gspread.authorize(credentials)
+        sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
+        worksheet = sh.worksheet("Account")
+        for num in range(2, 31):  # Must be 31 in col or last parameter
+            tmp = str(worksheet.cell(num, 22).value)
+            if (tmp >= 1 ):
+                name = worksheet.cell(num,7).value
+                if num == 8:
+                    continue
+                name = name.encode("utf-8")
+                namepush += name+' - '+tmp+' ครั้ง \n'
+        result = 'รายงานจำนวนครั้งการค้างชำระถึงเดือนนี้\n'+namepush
+        line_bot_api.push_message(associateid, TextSendMessage(result))
+        print("Push Report Stuck Assoc")
+if status == 0:
+   if '!@ยอดค้างไลน์ภาค' in message:
+	group = 'C5c90aa2273d7093f30ca08a91066cd78'
+	associateid = 'Cacab1833e4e7009f49c15779e645f66c'
+	namepush = ''
+        credentials = ServiceAccountCredentials.from_json_keyfile_name('client_code.json', scope)
+        gc = gspread.authorize(credentials)
+        sh = gc.open_by_key('1m0OUgl7O3lXEGV6XOa_I-kUJmxBTx6yZP5VrERjQWOM')
+        worksheet = sh.worksheet("Account")
+        for num in range(2, 31):  # Must be 31 in col or last parameter
+            tmp = str(worksheet.cell(num, 22).value)
+            if (tmp >= 1 ):
+                name = worksheet.cell(num,7).value
+                if num == 8:
+                    continue
+                name = name.encode("utf-8")
+                namepush += name+' - '+tmp+' ครั้ง \n'
+        result = 'รายงานจำนวนครั้งการค้างชำระถึงเดือนนี้\n'+namepush
+        line_bot_api.push_message(group,TextSendMessage(result))
+        print("Push Report Stuck Group")
 if status == 0:
     getresult = []
     tmp = []
