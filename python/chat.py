@@ -53,7 +53,7 @@ bot_status = 0
 bot_mode = 0
 # define hi or hello
 greeting_w = ['Hello', 'Hi ', 'Greeting', 'สวัสดี', 'hello', 'hi ', 'greetings', 'sup', 'whats up', 're you here','หวัดดี']
-chloeset = ['Chloe','อี้','โคล','chloe']
+chloeset = ['Chloe','อี้','โคล','chloe','โคอี้']
 greeting_f = ['May i help you please ?', 'Yes ?', 'Ya Anything you want ?', 'Anything ? ya ?', 'Greeting yes ?',
               'Always here']
 backasgre_w = ['Thx', 'Thank', 'ขอบคุณโคลอี้', 'appreciate', 'ขอบใจโคลอี้','แต้งโคลอี้']
@@ -594,20 +594,22 @@ if status == 0:
     if 'ชม' in message:
         if 'มัน' in message or 'สิ' in message or 'ซิ' in message or 'เดะ' in message or 'เซะ' in message or 'ดิ' in message or 'ที' in message or 'กุ' in message or 'กุ' in message or 'หน่อย':
             if 'ที่' not in message and '.' not in message:
-                final = ''
-                first = ''
-                second = ''
-                for tmpo in member2:
-                    if (tmpo in message):
-                        result = tmpo+random.choice(good)+'ค่ะ'
-                        status = 1
-                        break
+                for tomp in chloeset:
+                    if tomp in message:
+                        final = ''
+                        first = ''
+                        second = ''
+                        for tmpo in member2:
+                            if (tmpo in message):
+                                result = tmpo+random.choice(good)+'ค่ะ'
+                                status = 1
+                                break
+                            #else:
+                                #result = random.choice(good)+'ค่ะ'
+                                #status = 1
                     #else:
                         #result = random.choice(good)+'ค่ะ'
                         #status = 1
-            else:
-                result = random.choice(good)+'ค่ะ'
-                status = 1
 if status == 0:
     if 'โอ๋' in message :
         if 'มัน' in message or 'สิ' in message or 'ซิ' in message or 'เดะ' in message or 'เซะ' in message or 'ดิ' in message or 'ที' in message or 'กุ' in message or 'กุ' in message or 'หน่อย':
