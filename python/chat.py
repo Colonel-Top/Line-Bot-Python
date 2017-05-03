@@ -60,10 +60,10 @@ backasgre_w = ['Thx', 'Thank', 'ขอบคุณโคลอี้', 'apprecia
 backasgre_f = ['Your welcome', 'With Pleasure :)', 'with Appreciated', 'Ya', 'Okay ^^', 'Welcome', 'Never mind :)']
 menu_cmd = ['pen menu', 'pen Menu', 'เปิดเมนู', 'เรียกเมนู', 'show function', 'Show function', 'Show Menu', 'show menu',
             'Show menu']
-simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้จ๋า','ถามได้ตอบได้','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','อมึงแหละ','ตึงโป','wtf','โนว','ถามอะไรตอบได้','ด่ามึงอ','แกนั่นแหละ']
+simq_ask = ['ho are you', 'hat do you do', 'ho is your boss', 'ho am i', 'ell me a joke', 'ell me some joke','โคลอี้จ๋า','ถามได้ตอบได้','งอะแหละ','โบ้ะ','โบ๊ะ','ตึ่งโป้ะ','ตึ่งโปะ','ตึ่งโป๊ะ','อมึงแหละ','ตึงโป','โนว','ถามอะไรตอบได้','ด่ามึงอ','แกนั่นแหละ']
 simq_ans = ['I am Chloe The Secretary of Colonel',
             'I am Chloe The Secretary of Colonel ^^ Helping My Master & you guys', 'My Boss or my master is Colonel',
-            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','ได้','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','wtf+1','Noooo','ไมได้ แบร่','ตะลึงตึ่งโป๊ะ!','ตะลึงตึ่งโป๊ะ!']
+            'Some Human in this world', 'Joke ? google it :)', 'Ahh Nope','จ๋า ?','ได้','ตะลึ่งตึ่งโป้ะ','โพ่ง','โพ่ง','พ่าง','พ่าง','พ่าง','ตะลึงตึ่งโป้ะ','พ่าง','Noooo','ไมได้ แบร่','ตะลึงตึ่งโป๊ะ!','ตะลึงตึ่งโป๊ะ!']
 randomfive = ['555+','5555+','55555+','5555+','55555+','555555+','55555+','555555+','5555555+','5555+','55555+','555555+','55555+',
 '555555+','5555555+','555555+','5555555+','55555555+','55555+','555555+','5555555+','555555+','5555555+','55555555+','5555555+','55555555+','555555555+',]
 bank_ask = ['eport accounts', 'ccount reports', 'om engr account', 'pdate account', 'heck amout account',
@@ -105,6 +105,16 @@ if status == 0:
             filternumber = 0
         filternumber +=1
         result = "วดฟ+"+str(filternumber)
+        status = 1
+    elif 'wtf' in message:
+        tmp = message
+        try:
+            filternumber = int(filter(str.isdigit,tmp))
+        except:
+            filternumber = 0
+        filternumber +=1
+        result = "wtf+"+str(filternumber)
+        status = 1
 if status == 0:
     if '#$' in message:
         tmpo = message.replace('#$','')
