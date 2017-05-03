@@ -53,7 +53,7 @@ bot_status = 0
 bot_mode = 0
 # define hi or hello
 greeting_w = ['Hello', 'Hi ', 'Greeting', 'สวัสดี', 'hello', 'hi ', 'greetings', 'sup', 'whats up', 're you here','หวัดดี']
-chloeset = ['Chloe','อี้','โคล','chloe','โคอี้']
+chloeset = ['Chloe','อี้','โคล','chloe','โคอี']
 greeting_f = ['May i help you please ?', 'Yes ?', 'Ya Anything you want ?', 'Anything ? ya ?', 'Greeting yes ?',
               'Always here']
 backasgre_w = ['Thx', 'Thank', 'ขอบคุณโคลอี้', 'appreciate', 'ขอบใจโคลอี้','แต้งโคลอี้']
