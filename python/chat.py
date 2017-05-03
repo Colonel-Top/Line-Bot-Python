@@ -99,7 +99,10 @@ if 'ตัวอย่าง' in message :
 if status == 0:
     if 'วดฟ' in message:
         tmp = message
-        filternumber = int(filter(str.isdigit,tmp))
+        try:
+            filternumber = int(filter(str.isdigit,tmp))
+        except:
+            filternumber = 0
         filternumber +=1
         result = "วดฟ+"+str(filternumber)
 if status == 0:
