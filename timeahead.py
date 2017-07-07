@@ -231,7 +231,7 @@ while (True):
             print ("Push Notification"+ str(now.hour) + ":"+str(now.minute) )
         except Exception as e:
             print (e)
-    if now.hour == 6 and now.minute == 0 and now.second==0:
+    if now.hour == 19  and now.minute == 0 and now.second==0:
     #if now.hour == 0 and now.minute == 55 and now.second==0:
     #if((now.second==0 or now.second == 30)):
         #print('in condition')
@@ -261,14 +261,14 @@ while (True):
                 #line_bot_api.push_message(group, TextSendMessage(text=now.date)
                 #print (curday+curmonth+curyear+curhour+curmin)
                 #print (now.date)
-                if(curday == now.day and curmonth == now.month and curyear == now.year):
+                if(curday-1 == now.day and curmonth == now.month and curyear == now.year):
                 #if(1):
                     
                     #print ('correct rolling in')
                     try:
                         result += random.choice(timesay)
                         gdate = (now.strftime("%d-%m-%Y"))
-                        result += "\nกำหนดการแจ้งเตือน \nวันนี้ : \n--------\n"
+                        result += "\nกำหนดการแจ้งเตือน \nพรุ่งนี้: \n--------\n"
                         # Open a file
                         fo = open(gdate, "r+")
                         for lines in fo:
@@ -295,7 +295,7 @@ while (True):
         try:
             result = ''
             #client.send(colonelid,'Second = 0 in function loop')
-            #print ('get in try')
+            print ('get in try')
             gdate = ""
             
             # Open a file

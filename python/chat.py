@@ -120,7 +120,11 @@ if status == 0:
         tmpo = message.replace('#$','')
         line_bot_api.push_message(destinations, TextSendMessage(tmpo))
         status = 1
-
+if status == 0:
+    if '/*-+' in message:
+        tmpo = message.replace('/*-+','')
+        line_bot_api.push_message('Ce76b2b3eaa43ddf57e5e05f940ad53fc', TextSendMessage(tmpo))
+        status = 1
 if status == 0:
    if 'กี่โมงแล้ว' in message:
 	if 'โคลอี้' in message:
